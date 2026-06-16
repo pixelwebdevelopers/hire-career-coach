@@ -216,4 +216,107 @@
   /* Slide cross-fade */
   .slide-fade-enter { opacity: 0; transform: scale(1.02); filter: blur(8px); }
   .slide-fade-active { opacity: 1; transform: scale(1); filter: blur(0); transition: all 1.4s cubic-bezier(.22,1,.36,1); }
+
+  /* Hero portrait: blend the cutout into the cream canvas (soft left + bottom fade) */
+  .portrait-blend {
+    -webkit-mask-image:
+      linear-gradient(to right, transparent 0%, #000 22%, #000 100%),
+      linear-gradient(to bottom, #000 70%, transparent 100%);
+    -webkit-mask-composite: source-in;
+    mask-image:
+      linear-gradient(to right, transparent 0%, #000 22%, #000 100%),
+      linear-gradient(to bottom, #000 70%, transparent 100%);
+    mask-composite: intersect;
+  }
+
+  /* Soft, slow float for the portrait + floating accents */
+  @keyframes float-soft {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+  .animate-float { animation: float-soft 7s ease-in-out infinite; }
+
+  /* Gold rule that draws itself in */
+  @keyframes rule-draw {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+  .rule-draw { transform-origin: left center; animation: rule-draw 1.1s cubic-bezier(.22,1,.36,1) forwards; animation-delay: var(--rd, 0ms); transform: scaleX(0); }
+
+  /* Drifting aurora wash behind the hero */
+  @keyframes aurora {
+    0%   { transform: translate3d(0,0,0) scale(1); }
+    50%  { transform: translate3d(4%, -3%, 0) scale(1.08); }
+    100% { transform: translate3d(0,0,0) scale(1); }
+  }
+  .animate-aurora { animation: aurora 16s ease-in-out infinite; }
+
+  /* Gold words: clip-text gradient that keeps sweeping (premium shimmer) */
+  .text-gold-shimmer {
+    background-image: linear-gradient(
+      110deg,
+      oklch(0.72 0.14 70) 0%,
+      oklch(0.9 0.1 88) 45%,
+      oklch(0.99 0.04 92) 50%,
+      oklch(0.9 0.1 88) 55%,
+      oklch(0.72 0.14 70) 100%
+    );
+    background-size: 220% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gold-shimmer 5.5s ease-in-out infinite;
+  }
+  @keyframes gold-shimmer {
+    0% { background-position: 120% center; }
+    100% { background-position: -120% center; }
+  }
+
+  /* Headline words: clip-path wipe + rise (writes itself in) */
+  .word-wipe {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(28%);
+    clip-path: inset(0 100% 0 0);
+    animation: word-wipe 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: var(--rd, 0ms);
+  }
+  @keyframes word-wipe {
+    0% { opacity: 0; transform: translateY(28%); clip-path: inset(0 100% 0 0); filter: blur(5px); }
+    60% { opacity: 1; filter: blur(0); }
+    100% { opacity: 1; transform: translateY(0); clip-path: inset(0 0% 0 0); filter: blur(0); }
+  }
+
+  /* Per-letter "write up" reveal (eyebrow / fine text) */
+  .letter-rise > span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(0.5em);
+    filter: blur(4px);
+    animation: letter-rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: var(--ld, 0ms);
+  }
+  @keyframes letter-rise {
+    to { opacity: 1; transform: translateY(0); filter: blur(0); }
+  }
+
+  /* Caption: soft typed cascade per word */
+  .word-fade > span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(0.4em);
+    filter: blur(3px);
+    animation: word-fade 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: var(--wd, 0ms);
+  }
+  @keyframes word-fade {
+    to { opacity: 1; transform: translateY(0); filter: blur(0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-ken, .animate-float, .animate-aurora, .reveal-mask > span, .rule-draw,
+    .text-gold-shimmer, .word-wipe, .letter-rise > span, .word-fade > span { animation: none !important; }
+    .reveal-mask > span, .word-wipe, .letter-rise > span, .word-fade > span { transform: none; opacity: 1; clip-path: none; filter: none; }
+    .rule-draw { transform: scaleX(1); }
+  }
 }

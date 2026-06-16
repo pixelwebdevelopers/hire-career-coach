@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import logo from "@/assets/hcc-logo.png.asset.json";
+import logo from "@/assets/hcc-logo.png";
+import pixelLogo from "@/assets/pixel-logo.png";
 import { Mail, MapPin, Phone, Linkedin, Instagram } from "lucide-react";
 
 export function SiteFooter() {
@@ -11,7 +12,7 @@ export function SiteFooter() {
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8 pt-20 pb-10">
         <div className="grid gap-14 lg:grid-cols-[1.2fr_1fr_1fr_1fr]">
           <div>
-            <img src={logo.url} alt="Hire Career Coach" className="h-14 w-auto bg-ivory/95 rounded-md p-2" />
+            <img src={logo} alt="Hire Career Coach" className="h-14 w-auto bg-ivory/95 rounded-md p-2" />
             <p className="mt-6 max-w-sm text-ivory/70 leading-relaxed">
               A boutique career studio crafting resumes, LinkedIn profiles and
               interview strategy for ambitious professionals — from first job to
@@ -56,8 +57,20 @@ export function SiteFooter() {
         </div>
 
         <div className="hairline mt-16" />
-        <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-ivory/60">
+        <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-ivory/60">
           <p>© {new Date().getFullYear()} Hire Career Coach. Crafted with care.</p>
+
+          <a
+            href="https://pixelwebdevelopers.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-2 text-ivory/60 transition-colors hover:text-ivory"
+          >
+            <span>Developed by</span>
+            <img src={pixelLogo} alt="Pixel Web Developers" className="h-5 w-auto opacity-90 transition-opacity group-hover:opacity-100" />
+            <span className="font-medium text-ivory/80 group-hover:text-gold">Pixel Web Developers</span>
+          </a>
+
           <p className="font-display italic text-gold/80 text-sm">Guide · Grow · Succeed</p>
         </div>
       </div>
