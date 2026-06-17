@@ -4,7 +4,7 @@ import { Reveal } from "@/components/Reveal";
 import { SERVICES, PACKAGES } from "@/lib/content";
 import workspace from "@/assets/workspace.jpg";
 import interview from "@/assets/interview.jpg";
-import gold from "@/assets/gold-flow.jpg";
+import process from "@/assets/process.jpg";
 import { ArrowUpRight, Check, Quote, Star } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -131,10 +131,10 @@ function Home() {
         </div>
       </section>
 
-      {/* Gold banner */}
+      {/* Process banner */}
       <section className="relative overflow-hidden bg-navy-deep text-ivory">
         <div className="absolute inset-0 opacity-30">
-          <img src={gold} alt="" className="h-full w-full object-cover" loading="lazy" width={1600} height={900} />
+          <img src={process} alt="" className="h-full w-full object-cover" loading="lazy" width={1600} height={900} />
         </div>
         <div className="relative mx-auto max-w-7xl px-5 sm:px-8 py-24 sm:py-32 grid gap-10 lg:grid-cols-[1.4fr_1fr] items-center">
           <Reveal>
@@ -189,10 +189,12 @@ function Home() {
         <div className="grid gap-px bg-border border border-border rounded-3xl overflow-hidden md:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map((s, i) => (
             <Reveal key={s.title} delay={i * 60} className="group relative bg-background p-8 sm:p-10 transition-colors hover:bg-cream">
-              <p className="font-display text-sm text-gold">0{i + 1}</p>
-              <h3 className="mt-3 font-display text-2xl sm:text-3xl">{s.title}</h3>
+              <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gold/10 text-gold transition-colors group-hover:bg-gold group-hover:text-ivory">
+                <s.icon className="h-6 w-6" />
+              </span>
+              <h3 className="mt-5 font-display text-2xl sm:text-3xl">{s.title}</h3>
               <p className="mt-3 text-foreground/70 leading-relaxed">{s.desc}</p>
-              <ArrowUpRight className="absolute top-8 right-8 h-5 w-5 text-foreground/30 transition-all duration-500 group-hover:text-gold group-hover:translate-x-1 group-hover:-translate-y-1" />
+              <ArrowUpRight className="absolute bottom-8 right-8 h-5 w-5 text-foreground/30 transition-all duration-500 group-hover:text-gold group-hover:translate-x-1 group-hover:-translate-y-1" />
             </Reveal>
           ))}
         </div>
@@ -279,7 +281,7 @@ function Home() {
                     </li>
                   ))}
                 </ul>
-                <Link to="/pricing" hash={p.id} className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-navy">
+                <Link to="/pricing/$id" params={{ id: p.id }} className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-navy">
                   <span className="gold-underline">View all tiers</span>
                   <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </Link>

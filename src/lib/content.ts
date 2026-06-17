@@ -146,14 +146,29 @@ export const PACKAGES: PackageGroup[] = [
   },
 ];
 
-export const SERVICES = [
-  { title: "Resume Writing", desc: "ATS-optimized resumes engineered around your goals, voice and target role." },
-  { title: "Resume Review & Audit", desc: "An honest, line-by-line critique with a prioritized action plan." },
-  { title: "Cover Letter Crafting", desc: "Tailored letters that lead with story, end with intent and never feel templated." },
-  { title: "LinkedIn Optimization", desc: "Headline, About, experience and visuals tuned for recruiter search and warm intros." },
-  { title: "Interview Preparation", desc: "Mock interviews, STAR coaching and tailored Q&A for the company you're chasing." },
-  { title: "Job Hunt Strategy", desc: "A weekly cadence, target list and outreach scripts so the search compounds." },
-  { title: "Career Guidance", desc: "Direction when the next move isn't obvious — pivots, returns, leadership leaps." },
-  { title: "Career Development Coaching", desc: "Six- to twelve-week programs designed around the role you want in 18 months." },
-  { title: "Executive Ghostwriting", desc: "Thought leadership, newsletters and bios written in your voice, ready to publish." },
+import {
+  FileText,
+  FileSearch,
+  PenLine,
+  Linkedin,
+  MessagesSquare,
+  Target,
+  Compass,
+  TrendingUp,
+  Feather,
+  type LucideIcon,
+} from "lucide-react";
+
+export type Service = { title: string; desc: string; icon: LucideIcon };
+
+export const SERVICES: Service[] = [
+  { title: "Resume Writing", desc: "ATS-optimized resumes engineered around your goals, voice and target role.", icon: FileText },
+  { title: "Resume Review & Audit", desc: "An honest, line-by-line critique with a prioritized action plan.", icon: FileSearch },
+  { title: "Cover Letter Crafting", desc: "Tailored letters that lead with story, end with intent and never feel templated.", icon: PenLine },
+  { title: "LinkedIn Optimization", desc: "Headline, About, experience and visuals tuned for recruiter search and warm intros.", icon: Linkedin },
+  { title: "Interview Preparation", desc: "Mock interviews, STAR coaching and tailored Q&A for the company you're chasing.", icon: MessagesSquare },
+  { title: "Job Hunt Strategy", desc: "A weekly cadence, target list and outreach scripts so the search compounds.", icon: Target },
+  { title: "Career Guidance", desc: "Direction when the next move isn't obvious — pivots, returns, leadership leaps.", icon: Compass },
+  { title: "Career Development Coaching", desc: "Six- to twelve-week programs designed around the role you want in 18 months.", icon: TrendingUp },
+  { title: "Executive Ghostwriting", desc: "Thought leadership, newsletters and bios written in your voice, ready to publish.", icon: Feather },
 ];

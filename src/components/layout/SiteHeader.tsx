@@ -1,7 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import logo from "@/assets/hcc-logo.png";
-import { ArrowUpRight, Menu, X } from "lucide-react";
+import { PACKAGES } from "@/lib/content";
+import { ArrowUpRight, ChevronDown, Menu, X } from "lucide-react";
 
 const NAV = [
   { to: "/", label: "Home" },
@@ -55,18 +56,55 @@ export function SiteHeader() {
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1">
-          {NAV.map((n) => (
-            <Link
-              key={n.to}
-              to={n.to}
-              className="group relative px-4 py-2 text-sm font-medium tracking-wide text-foreground/75 hover:text-foreground transition-colors"
-              activeProps={{ className: "text-foreground [&_.nav-bar]:scale-x-100" }}
-              activeOptions={{ exact: n.to === "/" }}
-            >
-              <span>{n.label}</span>
-              <span className="nav-bar absolute left-4 right-4 -bottom-0.5 h-px origin-left scale-x-0 bg-gold transition-transform duration-500 group-hover:scale-x-100" />
-            </Link>
-          ))}
+          {NAV.map((n) =>
+            n.to === "/pricing" ? (
+              <div key={n.to} className="group/dd relative">
+                <Link
+                  to={n.to}
+                  className="group relative inline-flex items-center gap-1 px-4 py-2 text-sm font-medium tracking-wide text-foreground/75 hover:text-foreground transition-colors"
+                  activeProps={{ className: "text-foreground [&_.nav-bar]:scale-x-100" }}
+                >
+                  <span>{n.label}</span>
+                  <ChevronDown className="h-3.5 w-3.5 transition-transform duration-300 group-hover/dd:rotate-180" />
+                  <span className="nav-bar absolute left-4 right-7 -bottom-0.5 h-px origin-left scale-x-0 bg-gold transition-transform duration-500 group-hover:scale-x-100" />
+                </Link>
+                {/* Packages dropdown */}
+                <div className="invisible absolute left-0 top-full z-50 pt-3 opacity-0 transition-all duration-200 group-hover/dd:visible group-hover/dd:opacity-100">
+                  <div className="w-72 rounded-2xl border border-border bg-card p-2 shadow-soft">
+                    {PACKAGES.map((p) => (
+                      <Link
+                        key={p.id}
+                        to="/pricing/$id"
+                        params={{ id: p.id }}
+                        className="block rounded-xl px-4 py-2.5 text-sm text-foreground/75 hover:bg-cream hover:text-foreground transition-colors"
+                        activeProps={{ className: "bg-cream text-foreground" }}
+                      >
+                        {p.level}
+                      </Link>
+                    ))}
+                    <div className="my-1 h-px bg-border" />
+                    <Link
+                      to="/pricing"
+                      className="flex items-center gap-1.5 rounded-xl px-4 py-2.5 text-sm font-medium text-gold hover:bg-cream transition-colors"
+                    >
+                      All packages <ArrowUpRight className="h-3.5 w-3.5" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <Link
+                key={n.to}
+                to={n.to}
+                className="group relative px-4 py-2 text-sm font-medium tracking-wide text-foreground/75 hover:text-foreground transition-colors"
+                activeProps={{ className: "text-foreground [&_.nav-bar]:scale-x-100" }}
+                activeOptions={{ exact: n.to === "/" }}
+              >
+                <span>{n.label}</span>
+                <span className="nav-bar absolute left-4 right-4 -bottom-0.5 h-px origin-left scale-x-0 bg-gold transition-transform duration-500 group-hover:scale-x-100" />
+              </Link>
+            ),
+          )}
           <Link
             to="/contact"
             className="ml-4 inline-flex items-center gap-2 rounded-full bg-navy text-ivory px-5 py-2.5 text-sm font-medium tracking-wide hover:bg-navy-deep transition-colors"
@@ -116,23 +154,41 @@ export function SiteHeader() {
             {/* links */}
             <nav className="relative flex flex-1 flex-col justify-center px-7 sm:px-10">
               {NAV.map((n, i) => (
-                <Link
-                  key={n.to}
-                  to={n.to}
-                  onClick={() => setOpen(false)}
-                  activeOptions={{ exact: n.to === "/" }}
-                  activeProps={{ className: "[&_.mi-label]:text-gold [&_.mi-num]:opacity-100" }}
-                  className="group flex items-baseline gap-4 border-b border-border/50 py-4 animate-in fade-in slide-in-from-bottom-3 fill-mode-both"
-                  style={{ animationDelay: `${120 + i * 70}ms`, animationDuration: "600ms" }}
-                >
-                  <span className="mi-num font-display text-sm italic text-gold opacity-50 transition-opacity">
-                    0{i + 1}
-                  </span>
-                  <span className="mi-label font-display text-4xl leading-none text-navy-deep transition-colors group-hover:text-gold">
-                    {n.label}
-                  </span>
-                  <ArrowUpRight className="ml-auto h-5 w-5 self-center text-foreground/25 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-gold" />
-                </Link>
+                <div key={n.to}>
+                  <Link
+                    to={n.to}
+                    onClick={() => setOpen(false)}
+                    activeOptions={{ exact: n.to === "/" }}
+                    activeProps={{ className: "[&_.mi-label]:text-gold [&_.mi-num]:opacity-100" }}
+                    className="group flex items-baseline gap-4 border-b border-border/50 py-4 animate-in fade-in slide-in-from-bottom-3 fill-mode-both"
+                    style={{ animationDelay: `${120 + i * 70}ms`, animationDuration: "600ms" }}
+                  >
+                    <span className="mi-num font-display text-sm italic text-gold opacity-50 transition-opacity">
+                      0{i + 1}
+                    </span>
+                    <span className="mi-label font-display text-4xl leading-none text-navy-deep transition-colors group-hover:text-gold">
+                      {n.label}
+                    </span>
+                    <ArrowUpRight className="ml-auto h-5 w-5 self-center text-foreground/25 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-gold" />
+                  </Link>
+
+                  {n.to === "/pricing" && (
+                    <div className="flex flex-col gap-1 border-b border-border/50 py-3 pl-10">
+                      {PACKAGES.map((p) => (
+                        <Link
+                          key={p.id}
+                          to="/pricing/$id"
+                          params={{ id: p.id }}
+                          onClick={() => setOpen(false)}
+                          activeProps={{ className: "text-gold" }}
+                          className="py-1.5 text-base text-navy-deep/75 transition-colors hover:text-gold"
+                        >
+                          {p.level}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
               ))}
             </nav>
 

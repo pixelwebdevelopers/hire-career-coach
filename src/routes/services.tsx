@@ -30,10 +30,12 @@ function ServicesPage() {
         <div className="grid gap-px bg-border border border-border rounded-3xl overflow-hidden md:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map((s, i) => (
             <Reveal key={s.title} delay={i * 60} className="group relative bg-background p-8 sm:p-10 hover:bg-cream transition-colors">
-              <p className="font-display text-sm text-gold">0{i + 1}</p>
-              <h3 className="mt-3 font-display text-2xl sm:text-3xl">{s.title}</h3>
+              <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gold/10 text-gold transition-colors group-hover:bg-gold group-hover:text-ivory">
+                <s.icon className="h-6 w-6" />
+              </span>
+              <h3 className="mt-5 font-display text-2xl sm:text-3xl">{s.title}</h3>
               <p className="mt-3 text-foreground/70 leading-relaxed">{s.desc}</p>
-              <ArrowUpRight className="absolute top-8 right-8 h-5 w-5 text-foreground/30 transition-all group-hover:text-gold group-hover:translate-x-1 group-hover:-translate-y-1" />
+              <ArrowUpRight className="absolute bottom-8 right-8 h-5 w-5 text-foreground/30 transition-all group-hover:text-gold group-hover:translate-x-1 group-hover:-translate-y-1" />
             </Reveal>
           ))}
         </div>

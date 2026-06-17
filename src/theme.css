@@ -1,0 +1,113 @@
+/* ============================================================================
+   THEME  —  Single source of truth for the site's COLORS and FONTS.
+   ----------------------------------------------------------------------------
+   This is the only file you need to edit to re-skin the website.
+   Change a value here and it updates everywhere automatically.
+
+   Current scheme: White · Greenish-blue (#2cbacc) · Black · Grey
+   Font: Inter (a clean, straight sans-serif) everywhere.
+
+   Sections:
+     1. FONT FAMILIES
+     2. BRAND COLORS        (the core palette — change these first)
+     3. LIGHT THEME          (semantic roles, built from the brand colors)
+     4. DARK THEME           (overrides for .dark mode)
+     5. GRADIENTS & SHADOWS
+
+   Colors are written as plain hex here so they're easy to read/swap.
+   ============================================================================ */
+
+:root {
+  /* ------------------------------------------------------------------
+     1. FONT FAMILIES  —  one straight sans-serif used across the site.
+     ------------------------------------------------------------------
+     NOTE: If you switch to a font that is NOT already loaded, you must
+     also add it to the Google Fonts <link> in src/routes/__root.tsx,
+     otherwise the browser falls back to the next font in the stack.
+     Inter is already loaded, so no extra step is needed for this scheme.
+     ------------------------------------------------------------------ */
+  --font-family-sans: "Inter", ui-sans-serif, system-ui, sans-serif; /* body text   */
+  --font-family-serif: "Inter", ui-sans-serif, system-ui, sans-serif; /* (was fancy) */
+  --font-family-display: "Inter", ui-sans-serif, system-ui, sans-serif; /* headings  */
+
+  /* ------------------------------------------------------------------
+     2. BRAND COLORS  —  the core palette. Change these first.
+        (The original "navy/gold/cream" names are kept so existing
+         classes like bg-navy / text-gold keep working — only the
+         VALUES changed to the new scheme.)
+     ------------------------------------------------------------------ */
+  --navy: #1f2329;        /* near-black — dark buttons / dark surfaces   */
+  --navy-deep: #0b0d0f;   /* black — primary text                        */
+  --gold: #2cbacc;        /* greenish blue — accent / highlights         */
+  --gold-soft: #7fd6e0;   /* lighter greenish blue — soft accent         */
+  --ivory: #ffffff;       /* white — main background                     */
+  --cream: #f3f5f6;       /* light grey — soft section backgrounds       */
+
+  /* Neutral greys used by semantic roles below */
+  --grey-100: #eef0f1;
+  --grey-200: #e3e6e8;
+  --grey-500: #6b7280;
+
+  /* ------------------------------------------------------------------
+     3. LIGHT THEME  —  semantic roles built from the brand colors.
+        (These are what the UI components actually reference.)
+     ------------------------------------------------------------------ */
+  --background: var(--ivory);            /* white  */
+  --foreground: var(--navy-deep);        /* black  */
+  --card: #ffffff;
+  --card-foreground: var(--navy-deep);
+  --popover: #ffffff;
+  --popover-foreground: var(--navy-deep);
+  --primary: var(--navy);                /* near-black buttons */
+  --primary-foreground: var(--ivory);    /* white text on them */
+  --secondary: var(--cream);             /* light grey */
+  --secondary-foreground: var(--navy-deep);
+  --muted: var(--grey-100);              /* light grey */
+  --muted-foreground: var(--grey-500);   /* mid grey   */
+  --accent: var(--gold);                 /* greenish blue */
+  --accent-foreground: var(--navy-deep);
+  --destructive: #dc2626;                /* red (errors) */
+  --destructive-foreground: #ffffff;
+  --border: var(--grey-200);             /* grey */
+  --input: var(--grey-200);
+  --ring: var(--gold);                   /* greenish blue focus ring */
+
+  /* Chart palette */
+  --chart-1: var(--navy);
+  --chart-2: var(--gold);
+  --chart-3: #4b9aa8;
+  --chart-4: #9aa3ab;
+  --chart-5: #1f2329;
+
+  /* ------------------------------------------------------------------
+     5. GRADIENTS & SHADOWS
+     ------------------------------------------------------------------ */
+  --shadow-soft: 0 30px 80px -40px color-mix(in oklab, var(--navy) 30%, transparent);
+  --shadow-glow: 0 20px 60px -20px color-mix(in oklab, var(--gold) 45%, transparent);
+  --gradient-gold: linear-gradient(135deg, #45c6d6, #2cbacc); /* greenish blue */
+  --gradient-navy: linear-gradient(160deg, var(--navy-deep), var(--navy)); /* black */
+}
+
+/* ------------------------------------------------------------------
+   4. DARK THEME  —  overrides applied when <html class="dark"> is set.
+      (Black background, white text, greenish-blue accent.)
+   ------------------------------------------------------------------ */
+.dark {
+  --background: var(--navy-deep);        /* black */
+  --foreground: var(--ivory);            /* white */
+  --card: #15181c;
+  --card-foreground: var(--ivory);
+  --popover: #15181c;
+  --popover-foreground: var(--ivory);
+  --primary: var(--gold);                /* greenish blue */
+  --primary-foreground: var(--navy-deep);
+  --secondary: #1f2329;
+  --secondary-foreground: var(--ivory);
+  --muted: #22262b;
+  --muted-foreground: #9aa3ab;
+  --accent: var(--gold);
+  --accent-foreground: var(--navy-deep);
+  --border: rgba(255, 255, 255, 0.12);
+  --input: rgba(255, 255, 255, 0.14);
+  --ring: var(--gold);
+}

@@ -2,12 +2,15 @@
 @source "../src";
 @import "tw-animate-css";
 
+/* Colors & fonts live in one place — edit src/theme.css to re-skin the site. */
+@import "./theme.css";
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-serif: "Cormorant Garamond", "Instrument Serif", ui-serif, Georgia, serif;
-  --font-display: "Instrument Serif", "Cormorant Garamond", ui-serif, Georgia, serif;
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-family-sans);
+  --font-serif: var(--font-family-serif);
+  --font-display: var(--font-family-display);
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -42,66 +45,8 @@
 }
 
 :root {
+  /* Corner radius scale. (Colors & fonts are in src/theme.css.) */
   --radius: 0.5rem;
-
-  /* Brand */
-  --navy: oklch(0.24 0.08 265);
-  --navy-deep: oklch(0.18 0.07 265);
-  --gold: oklch(0.78 0.13 78);
-  --gold-soft: oklch(0.88 0.07 80);
-  --ivory: oklch(0.985 0.008 80);
-  --cream: oklch(0.965 0.018 78);
-
-  /* Semantic */
-  --background: var(--ivory);
-  --foreground: var(--navy-deep);
-  --card: oklch(1 0 0);
-  --card-foreground: var(--navy-deep);
-  --popover: oklch(1 0 0);
-  --popover-foreground: var(--navy-deep);
-  --primary: var(--navy);
-  --primary-foreground: var(--ivory);
-  --secondary: var(--cream);
-  --secondary-foreground: var(--navy-deep);
-  --muted: oklch(0.94 0.012 78);
-  --muted-foreground: oklch(0.45 0.02 265);
-  --accent: var(--gold);
-  --accent-foreground: var(--navy-deep);
-  --destructive: oklch(0.55 0.22 25);
-  --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0.9 0.015 78);
-  --input: oklch(0.9 0.015 78);
-  --ring: var(--gold);
-  --chart-1: var(--navy);
-  --chart-2: var(--gold);
-  --chart-3: oklch(0.6 0.08 230);
-  --chart-4: oklch(0.7 0.1 50);
-  --chart-5: oklch(0.5 0.05 265);
-
-  --shadow-soft: 0 30px 80px -40px color-mix(in oklab, var(--navy) 35%, transparent);
-  --shadow-glow: 0 20px 60px -20px color-mix(in oklab, var(--gold) 40%, transparent);
-  --gradient-gold: linear-gradient(135deg, oklch(0.82 0.12 82), oklch(0.72 0.14 70));
-  --gradient-navy: linear-gradient(160deg, var(--navy-deep), var(--navy));
-}
-
-.dark {
-  --background: var(--navy-deep);
-  --foreground: var(--ivory);
-  --card: oklch(0.22 0.06 265);
-  --card-foreground: var(--ivory);
-  --popover: oklch(0.22 0.06 265);
-  --popover-foreground: var(--ivory);
-  --primary: var(--gold);
-  --primary-foreground: var(--navy-deep);
-  --secondary: oklch(0.28 0.05 265);
-  --secondary-foreground: var(--ivory);
-  --muted: oklch(0.28 0.05 265);
-  --muted-foreground: oklch(0.75 0.02 80);
-  --accent: var(--gold);
-  --accent-foreground: var(--navy-deep);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 12%);
-  --ring: var(--gold);
 }
 
 @layer base {
@@ -255,11 +200,11 @@
   .text-gold-shimmer {
     background-image: linear-gradient(
       110deg,
-      oklch(0.72 0.14 70) 0%,
-      oklch(0.9 0.1 88) 45%,
-      oklch(0.99 0.04 92) 50%,
-      oklch(0.9 0.1 88) 55%,
-      oklch(0.72 0.14 70) 100%
+      #2cbacc 0%,
+      #7fd6e0 45%,
+      #d7f3f7 50%,
+      #7fd6e0 55%,
+      #2cbacc 100%
     );
     background-size: 220% auto;
     -webkit-background-clip: text;

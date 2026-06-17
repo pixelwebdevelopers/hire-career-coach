@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import logo from "@/assets/hcc-logo.png";
 import pixelLogo from "@/assets/pixel-logo.png";
+import { PACKAGES } from "@/lib/content";
 import { Mail, MapPin, Phone, Linkedin, Instagram } from "lucide-react";
 
 export function SiteFooter() {
@@ -36,13 +37,15 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <h4 className="text-xs uppercase tracking-[0.2em] text-gold/90">Services</h4>
+            <h4 className="text-xs uppercase tracking-[0.2em] text-gold/90">Packages</h4>
             <ul className="mt-5 space-y-3 text-ivory/80">
-              <li>Resume Writing</li>
-              <li>LinkedIn Optimization</li>
-              <li>Interview Preparation</li>
-              <li>Career Coaching</li>
-              <li>Ghostwriting</li>
+              {PACKAGES.map((p) => (
+                <li key={p.id}>
+                  <Link to="/pricing/$id" params={{ id: p.id }} className="hover:text-gold transition-colors">
+                    {p.level}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
