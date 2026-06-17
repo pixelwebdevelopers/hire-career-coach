@@ -152,44 +152,47 @@ export function SiteHeader() {
             </div>
 
             {/* links */}
-            <nav className="relative flex flex-1 flex-col justify-center px-7 sm:px-10">
-              {NAV.map((n, i) => (
-                <div key={n.to}>
-                  <Link
-                    to={n.to}
-                    onClick={() => setOpen(false)}
-                    activeOptions={{ exact: n.to === "/" }}
-                    activeProps={{ className: "[&_.mi-label]:text-gold [&_.mi-num]:opacity-100" }}
-                    className="group flex items-baseline gap-4 border-b border-border/50 py-4 animate-in fade-in slide-in-from-bottom-3 fill-mode-both"
-                    style={{ animationDelay: `${120 + i * 70}ms`, animationDuration: "600ms" }}
+            <nav className="relative flex-1 overflow-y-auto px-7 py-4 sm:px-10">
+              <ul className="flex flex-col">
+                {NAV.map((n, i) => (
+                  <li
+                    key={n.to}
+                    className="animate-in fade-in slide-in-from-bottom-2 fill-mode-both"
+                    style={{ animationDelay: `${80 + i * 50}ms`, animationDuration: "450ms" }}
                   >
-                    <span className="mi-num font-display text-sm italic text-gold opacity-50 transition-opacity">
-                      0{i + 1}
-                    </span>
-                    <span className="mi-label font-display text-4xl leading-none text-navy-deep transition-colors group-hover:text-gold">
-                      {n.label}
-                    </span>
-                    <ArrowUpRight className="ml-auto h-5 w-5 self-center text-foreground/25 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-gold" />
-                  </Link>
+                    <Link
+                      to={n.to}
+                      onClick={() => setOpen(false)}
+                      activeOptions={{ exact: n.to === "/" }}
+                      activeProps={{ className: "[&_.mi-label]:text-gold" }}
+                      className="group flex items-center justify-between border-b border-border/60 py-3.5"
+                    >
+                      <span className="mi-label font-display text-2xl leading-none text-navy-deep transition-colors group-hover:text-gold">
+                        {n.label}
+                      </span>
+                      <ArrowUpRight className="h-4 w-4 text-foreground/25 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-gold" />
+                    </Link>
 
-                  {n.to === "/pricing" && (
-                    <div className="flex flex-col gap-1 border-b border-border/50 py-3 pl-10">
-                      {PACKAGES.map((p) => (
-                        <Link
-                          key={p.id}
-                          to="/pricing/$id"
-                          params={{ id: p.id }}
-                          onClick={() => setOpen(false)}
-                          activeProps={{ className: "text-gold" }}
-                          className="py-1.5 text-base text-navy-deep/75 transition-colors hover:text-gold"
-                        >
-                          {p.level}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))}
+                    {n.to === "/pricing" && (
+                      <ul className="ml-1 flex flex-col border-l border-border/60 py-1 pl-5">
+                        {PACKAGES.map((p) => (
+                          <li key={p.id}>
+                            <Link
+                              to="/pricing/$id"
+                              params={{ id: p.id }}
+                              onClick={() => setOpen(false)}
+                              activeProps={{ className: "text-gold" }}
+                              className="block py-2 text-sm text-muted-foreground transition-colors hover:text-gold"
+                            >
+                              {p.level}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </li>
+                ))}
+              </ul>
             </nav>
 
             {/* footer CTA */}
