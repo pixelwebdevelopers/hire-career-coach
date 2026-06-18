@@ -61,7 +61,7 @@ export function SiteHeader() {
               <div key={n.to} className="group/dd relative">
                 <Link
                   to={n.to}
-                  className="group relative inline-flex items-center gap-1 px-4 py-2 text-sm font-medium tracking-wide text-foreground/75 hover:text-foreground transition-colors"
+                  className="group relative inline-flex items-center gap-1 px-4 py-2 text-sm font-medium tracking-wide text-foreground/90 hover:text-foreground transition-colors"
                   activeProps={{ className: "text-foreground [&_.nav-bar]:scale-x-100" }}
                 >
                   <span>{n.label}</span>
@@ -76,7 +76,7 @@ export function SiteHeader() {
                         key={p.id}
                         to="/pricing/$id"
                         params={{ id: p.id }}
-                        className="block rounded-xl px-4 py-2.5 text-sm text-foreground/75 hover:bg-cream hover:text-foreground transition-colors"
+                        className="block rounded-xl px-4 py-2.5 text-sm font-medium text-foreground/90 hover:bg-cream hover:text-foreground transition-colors"
                         activeProps={{ className: "bg-cream text-foreground" }}
                       >
                         {p.level}
@@ -96,7 +96,7 @@ export function SiteHeader() {
               <Link
                 key={n.to}
                 to={n.to}
-                className="group relative px-4 py-2 text-sm font-medium tracking-wide text-foreground/75 hover:text-foreground transition-colors"
+                className="group relative px-4 py-2 text-sm font-medium tracking-wide text-foreground/90 hover:text-foreground transition-colors"
                 activeProps={{ className: "text-foreground [&_.nav-bar]:scale-x-100" }}
                 activeOptions={{ exact: n.to === "/" }}
               >
@@ -174,15 +174,15 @@ export function SiteHeader() {
                     </Link>
 
                     {n.to === "/pricing" && (
-                      <ul className="ml-1 flex flex-col border-l border-border/60 py-1 pl-5">
+                      <ul className="ml-1 flex flex-col border-l border-border pl-5">
                         {PACKAGES.map((p) => (
-                          <li key={p.id}>
+                          <li key={p.id} className="border-b border-border/70 last:border-b-0">
                             <Link
                               to="/pricing/$id"
                               params={{ id: p.id }}
                               onClick={() => setOpen(false)}
-                              activeProps={{ className: "text-gold" }}
-                              className="block py-2 text-sm text-muted-foreground transition-colors hover:text-gold"
+                              activeProps={{ className: "!text-gold" }}
+                              className="block py-3 text-base font-medium text-navy-deep/85 transition-colors hover:text-gold"
                             >
                               {p.level}
                             </Link>

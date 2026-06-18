@@ -120,7 +120,7 @@ function PlanCard({ tier, masterFeatures, delay }: { tier: Tier; masterFeatures:
         {rows.map((r, i) => (
           <li key={i} className="flex items-start gap-3">
             {r.included ? (
-              <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-gold" />
+              <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-navy-deep" />
             ) : (
               <XCircle className="mt-0.5 h-5 w-5 shrink-0 text-muted-foreground/50" />
             )}

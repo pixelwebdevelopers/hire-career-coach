@@ -150,6 +150,15 @@
     transform: translateY(0);
     filter: blur(0);
   }
+  /* On mobile the scroll-reveal feels sluggish — show content instantly, no animation. */
+  @media (max-width: 767px) {
+    .rise {
+      opacity: 1 !important;
+      transform: none !important;
+      filter: none !important;
+      transition: none !important;
+    }
+  }
 
   /* Magnetic gold ring */
   @keyframes pulse-ring {

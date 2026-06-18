@@ -5,11 +5,13 @@ export function Reveal({
   delay = 0,
   as: As = "div",
   className = "",
+  ...rest
 }: {
   children: ReactNode;
   delay?: number;
   as?: any;
   className?: string;
+  [key: string]: any;
 }) {
   const ref = useRef<HTMLElement | null>(null);
 
@@ -30,7 +32,7 @@ export function Reveal({
   }, [delay]);
 
   return (
-    <As ref={ref as any} className={`rise ${className}`}>
+    <As ref={ref as any} className={`rise ${className}`} {...rest}>
       {children}
     </As>
   );

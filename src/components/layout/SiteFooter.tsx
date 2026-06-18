@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import logo from "@/assets/hcc-logo.png";
 import pixelLogo from "@/assets/pixel-logo.png";
 import { PACKAGES } from "@/lib/content";
-import { Mail, MapPin, Phone, Linkedin, Instagram } from "lucide-react";
+import { Mail, MapPin, Phone, Linkedin, Instagram, Clock, CalendarCheck } from "lucide-react";
 
 export function SiteFooter() {
   return (
@@ -52,9 +52,11 @@ export function SiteFooter() {
           <div>
             <h4 className="text-xs uppercase tracking-[0.2em] text-gold/90">Reach Us</h4>
             <ul className="mt-5 space-y-4 text-ivory/80">
-              <li className="flex items-start gap-3"><MapPin className="h-4 w-4 mt-1 text-gold shrink-0" /><span>1209 Madison Avenue<br/>New York, NY 10028</span></li>
-              <li className="flex items-center gap-3"><Phone className="h-4 w-4 text-gold shrink-0" /><a href="tel:+19295550199" className="hover:text-gold">+1 (929) 555-0199</a></li>
+              <li className="flex items-start gap-3"><MapPin className="h-4 w-4 mt-1 text-gold shrink-0" /><span>1944 Midland Road<br/>Dundalk, MD 21222</span></li>
+              <li className="flex items-center gap-3"><Phone className="h-4 w-4 text-gold shrink-0" /><a href="tel:+16678561221" className="hover:text-gold">+1 (667) 856-1221</a></li>
               <li className="flex items-center gap-3"><Mail className="h-4 w-4 text-gold shrink-0" /><a href="mailto:hello@hirecareercoach.com" className="hover:text-gold">hello@hirecareercoach.com</a></li>
+              <li className="flex items-start gap-3"><Clock className="h-4 w-4 mt-1 text-gold shrink-0" /><span>Mon — Fri · 9am to 6pm ET</span></li>
+              <li className="flex items-center gap-3"><CalendarCheck className="h-4 w-4 text-gold shrink-0" /><a href="https://calendly.com/ridashakeel98" target="_blank" rel="noopener noreferrer" className="hover:text-gold">Book a call on Calendly</a></li>
             </ul>
           </div>
         </div>

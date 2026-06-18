@@ -1,16 +1,17 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useRouterState } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
 import { SERVICES } from "@/lib/content";
 import workspace from "@/assets/workspace.jpg";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Check } from "lucide-react";
+import { useEffect } from "react";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
       { title: "Services — Hire Career Coach" },
-      { name: "description", content: "Resume writing, LinkedIn optimization, interview prep, ghostwriting and career coaching for every stage." },
-      { property: "og:title", content: "Services — Hire Career Coach" },
-      { property: "og:description", content: "Nine ways we move your career forward — from first résumé to executive narrative." },
+      { name: "description", content: "Resume writing, ATS audits, LinkedIn optimization, interview prep, personal branding, ghostwriting and career coaching for every stage." },
+      { property: "og:title", content: "Professional Career Services — Hire Career Coach" },
+      { property: "og:description", content: "Ten ways we move your career forward — from first résumé to executive narrative." },
       { property: "og:image", content: workspace },
     ],
   }),
@@ -18,39 +19,140 @@ export const Route = createFileRoute("/services")({
 });
 
 function ServicesPage() {
+  // Scroll to the targeted service section when arriving with a hash
+  // (e.g. from the homepage cards) or on direct load/reload. TanStack's
+  // scroll handling resets to top, so we scroll explicitly here.
+  const hash = useRouterState({ select: (s) => s.location.hash });
+  useEffect(() => {
+    const target = (hash || "").replace(/^#/, "");
+    if (!target) return;
+    let raf = 0;
+    let tries = 0;
+    const go = () => {
+      const el = document.getElementById(target);
+      if (el) {
+        // Manual offset for the sticky header. We avoid scrollIntoView/smooth
+        // here so it works regardless of the global `scroll-behavior: smooth`.
+        const y = window.scrollY + el.getBoundingClientRect().top - 96;
+        window.scrollTo({ top: y, behavior: "instant" as ScrollBehavior });
+      } else if (tries++ < 12) {
+        raf = requestAnimationFrame(go);
+      }
+    };
+    const id = window.setTimeout(go, 80);
+    return () => {
+      window.clearTimeout(id);
+      cancelAnimationFrame(raf);
+    };
+  }, [hash]);
+
   return (
     <>
       <PageHero
-        eyebrow="Services"
+        eyebrow="Professional Career Services"
         title={[{ t: "Every chapter of your", italic: true }, { t: "career,", gold: true }, { t: "written by hand." }]}
-        sub="Single services or full packages. Each one delivered by a senior coach who has hired into your industry — not a junior writer with a template."
+        sub="Single services or full packages. Each one delivered by a senior coach who has hired into your industry — strategy first, never a template."
       />
 
-      <section className="mx-auto max-w-7xl px-5 sm:px-8 py-20">
-        <div className="grid gap-px bg-border border border-border rounded-3xl overflow-hidden md:grid-cols-2 lg:grid-cols-3">
-          {SERVICES.map((s, i) => (
-            <Reveal key={s.title} delay={i * 60} className="group relative bg-background p-8 sm:p-10 hover:bg-cream transition-colors">
-              <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gold/10 text-gold transition-colors group-hover:bg-gold group-hover:text-ivory">
-                <s.icon className="h-6 w-6" />
-              </span>
-              <h3 className="mt-5 font-display text-2xl sm:text-3xl">{s.title}</h3>
-              <p className="mt-3 text-foreground/70 leading-relaxed">{s.desc}</p>
-              <ArrowUpRight className="absolute bottom-8 right-8 h-5 w-5 text-foreground/30 transition-all group-hover:text-gold group-hover:translate-x-1 group-hover:-translate-y-1" />
-            </Reveal>
+      {/* Quick-nav across all services */}
+      <section className="mx-auto max-w-7xl px-5 sm:px-8 pt-12 sm:pt-16 pb-4">
+        <Reveal>
+          <div className="flex flex-wrap gap-2.5">
+            {SERVICES.map((s) => (
+              <a
+                key={s.slug}
+                href={`#${s.slug}`}
+                className="group inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm text-foreground/80 transition-colors hover:border-gold hover:text-foreground"
+              >
+                <s.icon className="h-4 w-4 text-gold" />
+                {s.title}
+              </a>
+            ))}
+          </div>
+        </Reveal>
+      </section>
+
+      {/* Detailed service sections */}
+      <section className="mx-auto max-w-7xl px-5 sm:px-8 py-12 sm:py-16">
+        <div className="space-y-6">
+          {SERVICES.map((s) => (
+            <ServiceDetail key={s.slug} s={s} />
           ))}
         </div>
 
-        <Reveal className="mt-20 rounded-3xl bg-navy text-ivory p-10 sm:p-14 flex flex-col lg:flex-row gap-6 lg:items-center lg:justify-between">
+        {/* Closing CTA */}
+        <Reveal className="mt-16 rounded-3xl bg-navy text-ivory p-10 sm:p-14 flex flex-col lg:flex-row gap-6 lg:items-center lg:justify-between">
           <div>
-            <p className="text-xs uppercase tracking-[0.22em] text-gold">— Not sure where to start?</p>
-            <h3 className="font-display text-3xl sm:text-4xl mt-3 leading-tight">A 15-minute call is the fastest way to find out.</h3>
+            <p className="text-xs uppercase tracking-[0.22em] text-gold">— Ready to accelerate your career?</p>
+            <h3 className="font-display text-3xl sm:text-4xl mt-3 leading-tight max-w-2xl">
+              Tell us where you want to be. We'll show you the paper trail that gets you there.
+            </h3>
           </div>
-          <Link to="/contact" className="inline-flex items-center justify-center rounded-full bg-gold text-navy-deep px-7 py-3.5 font-semibold whitespace-nowrap hover:bg-gold-soft transition-colors">
-            Book a call
+          <Link to="/contact" className="inline-flex items-center justify-center gap-2 rounded-full bg-gold text-navy-deep px-7 py-3.5 font-semibold whitespace-nowrap hover:bg-gold-soft transition-colors">
+            Book a call <ArrowUpRight className="h-4 w-4" />
           </Link>
         </Reveal>
       </section>
     </>
+  );
+}
+
+function ServiceDetail({ s }: { s: (typeof SERVICES)[number] }) {
+  return (
+    <Reveal
+      as="article"
+      id={s.slug}
+      className="scroll-mt-28 rounded-3xl border border-border bg-card p-8 sm:p-10 lg:p-12"
+    >
+      <div className="grid gap-10 lg:grid-cols-[1.25fr_1fr] lg:gap-14">
+        {/* Left: narrative */}
+        <div>
+          <div className="flex items-center gap-4">
+            <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gold/10 text-gold">
+              <s.icon className="h-6 w-6" />
+            </span>
+            <p className="text-xs uppercase tracking-[0.28em] text-gold">{s.title}</p>
+          </div>
+
+          <h2 className="mt-6 font-display text-3xl sm:text-4xl leading-[1.1] text-balance">{s.headline}</h2>
+
+          <div className="mt-5 space-y-4 text-foreground/70 leading-relaxed">
+            {s.intro.map((p, i) => (
+              <p key={i}>{p}</p>
+            ))}
+          </div>
+
+          <div className="mt-7 rounded-2xl bg-cream p-6">
+            <h3 className="font-display text-lg text-navy-deep">{s.why.title}</h3>
+            <p className="mt-2 text-foreground/70 leading-relaxed">{s.why.body}</p>
+          </div>
+
+          <Link
+            to="/contact"
+            className="mt-7 inline-flex items-center gap-2 text-sm font-medium text-navy"
+          >
+            <span className="gold-underline">Start with {s.title}</span>
+            <ArrowUpRight className="h-4 w-4" />
+          </Link>
+        </div>
+
+        {/* Right: what you'll get */}
+        <div className="lg:border-l lg:border-border lg:pl-14">
+          <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">What you'll get</p>
+          <ul className="mt-6 space-y-4">
+            {s.features.map((f) => (
+              <li key={f} className="flex items-start gap-3">
+                {/* Charcoal checkmarks per brand guidance — turquoise reserved for accents */}
+                <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-navy-deep text-ivory">
+                  <Check className="h-3 w-3" strokeWidth={3} />
+                </span>
+                <span className="text-foreground/85">{f}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </Reveal>
   );
 }
 

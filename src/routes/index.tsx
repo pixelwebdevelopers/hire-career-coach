@@ -21,66 +21,76 @@ export const Route = createFileRoute("/")({
 });
 
 const STATS = [
-  { v: "2,400+", l: "Careers transformed" },
-  { v: "94%", l: "Land interviews in 60 days" },
-  { v: "47", l: "Industries served" },
-  { v: "12yrs", l: "Average coach experience" },
+  { v: "Every stage", l: "Early career to C-suite" },
+  { v: "1:1", l: "A senior writer on every project" },
+  { v: "ATS-ready", l: "Tested on every résumé we deliver" },
+  { v: "Boutique", l: "A handful of clients each month" },
 ];
 
 const TESTIMONIALS = [
   {
     quote: "I had three interviews lined up within ten days of my new resume going live. Two became offers — both above my target band.",
     name: "Priya R.",
-    role: "Senior Product Manager · FinTech",
+    role: "Senior Product Manager",
+    industry: "Product · FinTech",
   },
   {
     quote: "They didn't just rewrite my resume. They re-articulated my career. The LinkedIn rework alone brought four recruiter intros that week.",
     name: "Marcus D.",
-    role: "VP, Engineering · SaaS",
+    role: "VP, Engineering",
+    industry: "Engineering Leadership",
   },
   {
     quote: "Interview prep was the unlock. I walked into the boardroom with answers I actually believed in.",
     name: "Helena S.",
     role: "Director of Operations",
+    industry: "Operations",
   },
   {
     quote: "I was switching industries and felt invisible. They reframed my story so the pivot looked like the obvious next step. Offer in five weeks.",
     name: "Daniel O.",
     role: "Marketing Lead → Product Manager",
+    industry: "Career Change",
   },
   {
     quote: "My executive bio finally reads like a leader, not a job description. Two board conversations opened up within a month.",
     name: "Aisha N.",
     role: "Chief Financial Officer",
+    industry: "Finance",
   },
   {
     quote: "My applications used to vanish into the void. After their ATS-optimized rewrite, I went from zero callbacks to six in three weeks.",
     name: "Rohan M.",
-    role: "Data Engineer · Healthcare",
+    role: "Data Engineer",
+    industry: "Data Engineering",
   },
   {
-    quote: "Fresh out of school with no 'real' experience — they made my projects and internships sound like impact. I had a role before graduation.",
-    name: "Sofia L.",
-    role: "Graduate · Computer Science",
+    quote: "They made my clinical experience read with real authority. I landed an associate role at the practice I was targeting.",
+    name: "Dr. Nadia F.",
+    role: "Dentist",
+    industry: "Dental",
   },
   {
     quote: "The salary-negotiation coaching paid for the whole package ten times over. I asked for more and got it without flinching.",
     name: "James K.",
     role: "Regional Sales Director",
+    industry: "Sales",
   },
   {
-    quote: "Eight years out of the workforce and I was terrified. They turned my career break into a narrative I'm proud of. I start Monday.",
-    name: "Meera T.",
-    role: "Returning to work · Finance",
+    quote: "Switching from retail pharmacy to clinical, my resume finally spoke the right language. Interviews started within the first week.",
+    name: "Omar S.",
+    role: "Pharmacist",
+    industry: "Pharmacy",
   },
   {
     quote: "The recruiter-outreach scripts and the refreshed LinkedIn did the heavy lifting. Inbound messages I never used to get are now routine.",
-    name: "Thomas B.",
-    role: "Senior Software Architect",
+    name: "Dr. Elaine W.",
+    role: "Physician",
+    industry: "Healthcare",
   },
 ];
 
-const PRESS = ["Forbes", "Fast Company", "Bloomberg", "The Wall Street Journal", "Fortune", "Inc.", "TechCrunch", "Harvard Business Review"];
+const INDUSTRIES = ["Technology", "Healthcare", "Finance", "Engineering", "Consulting", "Marketing", "Operations", "Sales", "Education", "Legal", "Pharma", "Data & Analytics"];
 
 function Home() {
   return (
@@ -90,10 +100,10 @@ function Home() {
       {/* Trust marquee */}
       <section className="relative border-y border-border/60 bg-cream/60 overflow-hidden">
         <div className="mx-auto max-w-7xl px-5 sm:px-8 py-6 flex items-center gap-8">
-          <span className="hidden sm:block text-xs uppercase tracking-[0.28em] text-muted-foreground shrink-0">As featured in</span>
+          <span className="hidden sm:block text-xs uppercase tracking-[0.28em] text-muted-foreground shrink-0">Industries we serve</span>
           <div className="relative flex-1 overflow-hidden">
             <div className="flex w-max animate-marquee gap-14 font-display text-2xl text-foreground/55">
-              {[...PRESS, ...PRESS].map((p, i) => (
+              {[...INDUSTRIES, ...INDUSTRIES].map((p, i) => (
                 <span key={i} className="italic">{p}</span>
               ))}
             </div>
@@ -124,7 +134,7 @@ function Home() {
         <div className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-px bg-border rounded-2xl overflow-hidden border border-border">
           {STATS.map((s, i) => (
             <Reveal key={s.l} delay={i * 90} className="bg-background p-8 sm:p-10">
-              <p className="font-display text-5xl sm:text-6xl text-navy">{s.v}</p>
+              <p className="font-display text-3xl sm:text-4xl text-navy">{s.v}</p>
               <p className="mt-3 text-sm text-muted-foreground">{s.l}</p>
             </Reveal>
           ))}
@@ -175,7 +185,7 @@ function Home() {
           <Reveal>
             <p className="text-xs uppercase tracking-[0.28em] text-gold">— What we do</p>
             <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl mt-4 leading-[1.05] text-balance">
-              Nine ways we move<br /><em>your career forward.</em>
+How we move<br /><em>your career forward.</em>
             </h2>
           </Reveal>
           <Reveal delay={120}>
@@ -187,8 +197,15 @@ function Home() {
         </div>
 
         <div className="grid gap-px bg-border border border-border rounded-3xl overflow-hidden md:grid-cols-2 lg:grid-cols-3">
-          {SERVICES.map((s, i) => (
-            <Reveal key={s.title} delay={i * 60} className="group relative bg-background p-8 sm:p-10 transition-colors hover:bg-cream">
+          {SERVICES.slice(0, 9).map((s, i) => (
+            <Reveal
+              key={s.slug}
+              delay={i * 60}
+              as={Link}
+              to="/services"
+              hash={s.slug}
+              className="group relative block bg-background p-8 sm:p-10 transition-colors hover:bg-cream"
+            >
               <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gold/10 text-gold transition-colors group-hover:bg-gold group-hover:text-ivory">
                 <s.icon className="h-6 w-6" />
               </span>
@@ -232,7 +249,7 @@ function Home() {
                 "Quiet, confidential support for confidential searches",
               ].map((t) => (
                 <li key={t} className="flex items-start gap-3">
-                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-gold shrink-0" />
+                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-navy-deep shrink-0" />
                   <span className="text-foreground/85">{t}</span>
                 </li>
               ))}
@@ -276,7 +293,7 @@ function Home() {
                 <ul className="space-y-2.5 text-sm text-foreground/80">
                   {pro.features.slice(0, 5).map((f) => (
                     <li key={f} className="flex items-start gap-2">
-                      <Check className="h-4 w-4 text-gold shrink-0 mt-0.5" />
+                      <Check className="h-4 w-4 text-navy-deep shrink-0 mt-0.5" strokeWidth={2.5} />
                       <span>{f}</span>
                     </li>
                   ))}
@@ -347,15 +364,25 @@ function Home() {
 function ReviewCard({ t }: { t: (typeof TESTIMONIALS)[number] }) {
   return (
     <figure className="flex w-[300px] shrink-0 flex-col rounded-3xl border border-border bg-card p-8 sm:w-[380px]">
-      <div className="flex gap-1 text-gold">
-        {Array.from({ length: 5 }).map((_, k) => (
-          <Star key={k} className="h-4 w-4 fill-current" />
-        ))}
+      <div className="flex items-center justify-between">
+        <div className="flex gap-1 text-gold">
+          {Array.from({ length: 5 }).map((_, k) => (
+            <Star key={k} className="h-4 w-4 fill-current" />
+          ))}
+        </div>
+        <span className="rounded-full bg-cream px-3 py-1 text-[0.7rem] font-medium uppercase tracking-[0.12em] text-foreground/70">
+          {t.industry}
+        </span>
       </div>
       <blockquote className="mt-6 flex-1 font-display italic text-xl leading-snug">"{t.quote}"</blockquote>
-      <figcaption className="mt-8 border-t border-border pt-6">
-        <p className="font-medium">{t.name}</p>
-        <p className="text-sm text-muted-foreground">{t.role}</p>
+      <figcaption className="mt-8 flex items-center gap-3 border-t border-border pt-6">
+        <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-navy text-ivory font-display text-sm">
+          {t.name.replace(/^Dr\.\s*/, "").split(" ").map((p) => p[0]).join("")}
+        </span>
+        <div>
+          <p className="font-medium leading-tight">{t.name}</p>
+          <p className="text-sm text-muted-foreground">{t.role}</p>
+        </div>
       </figcaption>
     </figure>
   );

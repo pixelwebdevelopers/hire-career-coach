@@ -49,7 +49,7 @@ function PricingOverview() {
                 <ul className="mt-6 grid gap-2.5 text-sm text-foreground/80 sm:grid-cols-2">
                   {pro.features.slice(0, 6).map((f) => (
                     <li key={f} className="flex items-start gap-2">
-                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
+                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-navy-deep" strokeWidth={2.5} />
                       <span>{f}</span>
                     </li>
                   ))}
