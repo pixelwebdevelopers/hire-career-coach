@@ -3,7 +3,7 @@ import { Reveal } from "@/components/Reveal";
 import { PageHero } from "./services";
 import workspace from "@/assets/workspace.jpg";
 import interview from "@/assets/interview.jpg";
-import aboutUs from "@/assets/about-us.webp";
+import aboutUs from "@/assets/about-us.jpeg";
 import { Check, Target, UserCheck, Layers, TrendingUp, Search, PenTool, SlidersHorizontal, Award } from "lucide-react";
 
 export const Route = createFileRoute("/about")({

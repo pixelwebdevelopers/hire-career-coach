@@ -119,6 +119,10 @@ const FAQS: Faq[] = [
     a: "Most projects are completed within 3–5 business days, depending on the service selected and project requirements.",
   },
   {
+    q: "Do you offer rush services?",
+    a: "Yes, rush services may be available. Please contact us to discuss your timeline and availability.",
+  },
+  {
     q: "How do revisions work?",
     a: "Revision rounds are included to ensure your documents accurately reflect your experience, achievements, and career goals before final delivery.",
   },

@@ -5,7 +5,21 @@ import { SERVICES, PACKAGES } from "@/lib/content";
 import workspace from "@/assets/workspace.jpg";
 import interview from "@/assets/interview.jpg";
 import process from "@/assets/process.jpg";
-import { ArrowUpRight, Check, Quote, Star } from "lucide-react";
+import {
+  ArrowUpRight,
+  Check,
+  Quote,
+  Star,
+  Package,
+  UserCheck,
+  CalendarClock,
+  PenTool,
+  FileCheck2,
+  Layers,
+  ShieldCheck,
+  Globe,
+  Gem,
+} from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -21,10 +35,10 @@ export const Route = createFileRoute("/")({
 });
 
 const STATS = [
-  { v: "Every stage", l: "Early career to C-suite" },
-  { v: "1:1", l: "A senior writer on every project" },
-  { v: "ATS-ready", l: "Tested on every résumé we deliver" },
-  { v: "Boutique", l: "A handful of clients each month" },
+  { v: "2,000+", l: "Professionals Served" },
+  { v: "20+", l: "Years in business" },
+  { v: "50 States & 30+ Countries", l: "with clients" },
+  { v: "Senior Writer Every Time", l: "No Outsourcing. No Templates. No Shortcuts." },
 ];
 
 const TESTIMONIALS = [
@@ -117,16 +131,20 @@ function Home() {
       <section className="mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-28">
         <div className="grid gap-10 lg:grid-cols-[1fr_1.3fr] items-end">
           <Reveal>
-            <p className="text-xs uppercase tracking-[0.28em] text-gold">— The work, in numbers</p>
+            <p className="text-xs uppercase tracking-[0.28em] text-gold">— The studio</p>
             <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl mt-4 leading-[1.05] text-balance">
-              Measured by interviews, <em className="text-foreground/70">offers</em>, and the<br className="hidden lg:block" /> careers that follow.
+              Where Careers Are Built. <em className="text-foreground/70">Not Just Written.</em>
             </h2>
+            <p className="mt-5 font-display text-xl sm:text-2xl text-navy leading-snug">
+              Executive Resume Writing, <span className="text-foreground/60">LinkedIn Optimization</span> &amp; Career Coaching
+            </p>
           </Reveal>
           <Reveal delay={120}>
             <p className="text-foreground/70 leading-relaxed text-lg max-w-xl lg:ml-auto">
-              We're a boutique studio — not a content mill. Every document is written
-              by a senior coach who has hired in your field, and every engagement is
-              built around the role you actually want.
+              From entry-level professionals to C-suite executives, we help clients stand
+              out, secure interviews, and advance their careers. Every resume is personally
+              written by senior writers — no templates, no shortcuts, no copied content.
+              Over 20 years of experience. Real results.
             </p>
           </Reveal>
         </div>
@@ -134,7 +152,7 @@ function Home() {
         <div className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-px bg-border rounded-2xl overflow-hidden border border-border">
           {STATS.map((s, i) => (
             <Reveal key={s.l} delay={i * 90} className="bg-background p-8 sm:p-10">
-              <p className="font-display text-3xl sm:text-4xl text-navy">{s.v}</p>
+              <p className="font-display text-2xl sm:text-[1.7rem] leading-tight text-navy text-balance">{s.v}</p>
               <p className="mt-3 text-sm text-muted-foreground">{s.l}</p>
             </Reveal>
           ))}
@@ -150,18 +168,24 @@ function Home() {
           <Reveal>
             <p className="text-xs uppercase tracking-[0.28em] text-gold">— Process</p>
             <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl mt-4 leading-[1.05] text-balance">
-              Four <em>quiet</em> weeks. One sharper career.
+              How it <em>works</em>.
             </h2>
             <div className="mt-12 grid sm:grid-cols-2 gap-x-10 gap-y-8">
               {[
-                ["Discovery", "A 45-minute call to map your goals, target roles and timeline."],
-                ["Audit", "We dissect your current materials and the market you're competing in."],
-                ["Craft", "Three drafts, two reviews, one document that sounds unmistakably like you."],
-                ["Launch", "LinkedIn live, outreach scripts in hand, interview prep on standby."],
-              ].map(([t, d], i) => (
+                { icon: Package, t: "Choose Your Package", d: "Select the service that best fits your career goals and complete your purchase. Not sure which option is right for you? Reach out before buying and we'll help you pick the package that matches your industry, experience level, and the outcome you're aiming for." },
+                { icon: UserCheck, t: "Connect with Your Career Coach", d: "After your purchase is confirmed, a dedicated Career Coach from your industry will contact you to discuss your goals and collect the information needed for your project, including your resume, target roles, and career objectives." },
+                { icon: CalendarClock, t: "Consultation (Where Included)", d: "For coaching and premium packages, we'll schedule a consultation to gain a deeper understanding of your experience, challenges, and career goals." },
+                { icon: PenTool, t: "We Get to Work", d: "Based on the information provided, your Career Coach will develop the services included in your package and create a personalized strategy tailored to your goals." },
+                { icon: FileCheck2, t: "Receive Your Deliverables", d: "Your completed documents and deliverables are typically delivered within 5 working days, along with any guidance and support included in your selected package." },
+              ].map(({ icon: Icon, t, d }, i) => (
                 <div key={t}>
-                  <p className="font-display text-gold text-sm">Step {i + 1}</p>
-                  <h3 className="mt-1 font-display text-2xl">{t}</h3>
+                  <div className="flex items-center gap-3">
+                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-gold/15 text-gold shrink-0">
+                      <Icon className="h-[18px] w-[18px]" />
+                    </span>
+                    <p className="font-display text-gold text-sm">Step {i + 1}</p>
+                  </div>
+                  <h3 className="mt-3 font-display text-2xl">{t}</h3>
                   <p className="mt-2 text-ivory/70 text-sm leading-relaxed">{d}</p>
                 </div>
               ))}
@@ -234,19 +258,20 @@ How we move<br /><em>your career forward.</em>
           <Reveal delay={120} className="order-1 lg:order-2">
             <p className="text-xs uppercase tracking-[0.28em] text-gold">— Our approach</p>
             <h2 className="font-display text-4xl sm:text-5xl lg:text-[3.5rem] mt-4 leading-[1.05] text-balance">
-              A hand-crafted résumé is still the <em>most leveraged</em> hour of your career.
+              A professionally written résumé is still one of the <em>most powerful tools</em> in your career.
             </h2>
             <p className="mt-6 text-foreground/70 text-lg leading-relaxed">
-              We sit with you — not a form. A discovery call, a deep audit, and three
-              passes of writing later, you walk away with documents that survive ATS
-              scans, recruiter skims, and the executive-team read-through.
+              We work directly with you — not through questionnaires. Through a personalized
+              consultation, career assessment, and strategic resume development process, you
+              receive an ATS-optimized résumé designed to attract recruiters, hiring managers,
+              and executive decision-makers.
             </p>
             <ul className="mt-8 space-y-4">
               {[
-                "Senior writers with hiring experience in your field",
-                "ATS-tested templates without the ATS look",
-                "Strategy, not just decoration — every line earns its place",
-                "Quiet, confidential support for confidential searches",
+                "Senior Resume Writers with industry-specific expertise",
+                "ATS-optimized resumes that remain professional and modern",
+                "Executive Resume Writing focused on positioning, impact, and results",
+                "Confidential career support for professionals, leaders, and executives",
               ].map((t) => (
                 <li key={t} className="flex items-start gap-3">
                   <span className="mt-2 h-1.5 w-1.5 rounded-full bg-navy-deep shrink-0" />
@@ -260,6 +285,43 @@ How we move<br /><em>your career forward.</em>
             </Link>
           </Reveal>
         </div>
+      </section>
+
+      {/* Why choose us */}
+      <section className="mx-auto max-w-7xl px-5 sm:px-8 py-24 sm:py-32">
+        <Reveal className="text-center max-w-3xl mx-auto">
+          <p className="text-xs uppercase tracking-[0.28em] text-gold">— Why us</p>
+          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl mt-4 leading-[1.05] text-balance">
+            Why clients <em>choose us</em>.
+          </h2>
+        </Reveal>
+
+        <div className="mt-16 grid gap-px bg-border border border-border rounded-3xl overflow-hidden sm:grid-cols-2 lg:grid-cols-4">
+          {[
+            { icon: Layers, t: "Every Career Stage", d: "Entry-level to executive clients." },
+            { icon: ShieldCheck, t: "ATS-Optimized", d: "Built to pass screening and win interviews." },
+            { icon: Globe, t: "Global Trust", d: "Serving clients across the globe." },
+            { icon: Gem, t: "Boutique by Design", d: "Personal, 1:1 service on every project." },
+          ].map(({ icon: Icon, t, d }, i) => (
+            <Reveal key={t} delay={i * 90} className="bg-background p-8 sm:p-10">
+              <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gold/10 text-gold">
+                <Icon className="h-6 w-6" />
+              </span>
+              <h3 className="mt-5 font-display text-xl sm:text-2xl">{t}</h3>
+              <p className="mt-2 text-foreground/70 leading-relaxed">{d}</p>
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal delay={120} className="mt-16 rounded-3xl bg-navy text-ivory p-10 sm:p-14 text-center">
+          <h3 className="font-display text-3xl sm:text-4xl lg:text-5xl leading-[1.1] text-balance">
+            Your next opportunity starts with the <em>right story</em>.
+          </h3>
+          <Link to="/contact" className="mt-8 inline-flex items-center gap-2 rounded-full bg-gold text-navy-deep px-7 py-3.5 text-sm font-semibold hover:bg-gold-soft transition-colors">
+            Start your transformation
+            <ArrowUpRight className="h-4 w-4" />
+          </Link>
+        </Reveal>
       </section>
 
       {/* Pricing preview */}

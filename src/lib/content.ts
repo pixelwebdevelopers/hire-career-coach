@@ -179,7 +179,7 @@ export const SERVICES: Service[] = [
   {
     slug: "resume-writing",
     title: "Resume Writing",
-    desc: "ATS-optimized resumes engineered around your goals, voice and target role.",
+    desc: "Professional resume writing services with ATS optimization, industry-specific keywords, and recruiter-focused formatting to increase interview opportunities.",
     icon: FileText,
     headline: "ATS-optimized resume writing that helps you get more interviews",
     intro: [
@@ -202,7 +202,7 @@ export const SERVICES: Service[] = [
   {
     slug: "resume-review",
     title: "Resume Review & ATS Audit",
-    desc: "An honest, line-by-line critique with a prioritized action plan.",
+    desc: "Expert resume review and ATS audit to identify weaknesses, improve keyword relevance, and strengthen your job search results.",
     icon: FileSearch,
     headline: "A professional resume audit designed to improve your results",
     intro: [
@@ -225,7 +225,7 @@ export const SERVICES: Service[] = [
   {
     slug: "cover-letter",
     title: "Cover Letter Crafting",
-    desc: "Tailored letters that lead with story, end with intent and never feel templated.",
+    desc: "Custom cover letter writing that aligns with your resume, showcases achievements, and supports successful job applications.",
     icon: PenLine,
     headline: "Professional cover letters that complement your resume",
     intro: [
@@ -247,7 +247,7 @@ export const SERVICES: Service[] = [
   {
     slug: "linkedin-optimization",
     title: "LinkedIn Optimization",
-    desc: "Headline, About, experience and visuals tuned for recruiter search and warm intros.",
+    desc: "LinkedIn profile optimization designed to improve recruiter visibility, keyword rankings, personal branding, and networking opportunities.",
     icon: Linkedin,
     headline: "LinkedIn optimization for recruiter visibility and personal branding",
     intro: [
@@ -270,7 +270,7 @@ export const SERVICES: Service[] = [
   {
     slug: "interview-prep",
     title: "Interview Preparation",
-    desc: "Mock interviews, STAR coaching and tailored Q&A for the company you're chasing.",
+    desc: "Interview coaching with mock interviews, STAR method training, and personalized feedback to improve confidence and performance.",
     icon: MessagesSquare,
     headline: "Interview coaching that builds confidence and improves performance",
     intro: [
@@ -293,7 +293,7 @@ export const SERVICES: Service[] = [
   {
     slug: "job-hunt-strategy",
     title: "Job Hunt Strategy",
-    desc: "A weekly cadence, target list and outreach scripts so the search compounds.",
+    desc: "Job search strategy and career planning support to help you target the right roles, connect with recruiters, and secure interviews.",
     icon: Target,
     headline: "Strategic job search coaching for faster career success",
     intro: [
@@ -316,7 +316,7 @@ export const SERVICES: Service[] = [
   {
     slug: "career-guidance",
     title: "Career Guidance",
-    desc: "Direction when the next move isn't obvious — pivots, returns, leadership leaps.",
+    desc: "Career guidance for professionals seeking career growth, industry transitions, leadership opportunities, or a clear career direction.",
     icon: Compass,
     headline: "Professional career guidance for growth and direction",
     intro: [
@@ -338,7 +338,7 @@ export const SERVICES: Service[] = [
   {
     slug: "career-development",
     title: "Career Development Coaching",
-    desc: "Programs designed around the role you want in eighteen months.",
+    desc: "Career coaching programs focused on professional development, leadership skills, personal branding, and long-term career success.",
     icon: TrendingUp,
     headline: "Career coaching designed for long-term professional success",
     intro: [
@@ -360,7 +360,7 @@ export const SERVICES: Service[] = [
   {
     slug: "personal-branding",
     title: "Personal Branding",
-    desc: "Consistent messaging across resume, LinkedIn and bios that positions you as a leader.",
+    desc: "Personal branding services that position you as a top candidate through strategic messaging, LinkedIn optimization, and career storytelling.",
     icon: Award,
     headline: "Personal branding that positions you as an industry leader",
     intro: [
@@ -382,7 +382,7 @@ export const SERVICES: Service[] = [
   {
     slug: "linkedin-ghostwriting",
     title: "LinkedIn Ghostwriting & Thought Leadership",
-    desc: "Posts, articles and bios written in your voice to build authority and visibility.",
+    desc: "Professional ghostwriting services for LinkedIn content, thought leadership articles, personal branding, executive communication, and content marketing that enhances professional visibility and authority.",
     icon: Feather,
     headline: "LinkedIn ghostwriting for personal branding and authority building",
     intro: [
