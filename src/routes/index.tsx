@@ -90,7 +90,7 @@ const TESTIMONIALS = [
   },
 ];
 
-const INDUSTRIES = ["Technology", "Healthcare", "Finance", "Engineering", "Consulting", "Marketing", "Operations", "Sales", "Education", "Legal", "Pharma", "Data & Analytics"];
+const INDUSTRIES = ["Technology", "Healthcare", "Finance", "Engineering", "Education", "Legal", "Marketing", "Sales", "Human Resources", "Operations", "Construction", "Manufacturing", "Retail", "Hospitality", "Energy", "Transportation", "Government", "Nonprofit", "Agriculture", "Pharmaceuticals"];
 
 function Home() {
   return (

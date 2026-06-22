@@ -105,22 +105,23 @@
   }
 
   /* Word reveal animation (premium, not the typical fade) */
+  /* No overflow clip — descenders / italic / gold overhang can never be cut.
+     The child rises a short distance with a fade + blur instead. */
   .reveal-mask {
     display: inline-block;
-    overflow: hidden;
     vertical-align: bottom;
     line-height: 1.05;
   }
   .reveal-mask > span {
     display: inline-block;
-    transform: translateY(110%);
+    transform: translateY(0.5em);
     opacity: 0;
+    filter: blur(6px);
     animation: word-rise 0.95s cubic-bezier(0.22, 1, 0.36, 1) forwards;
     animation-delay: var(--rd, 0ms);
   }
   @keyframes word-rise {
-    0% { transform: translateY(110%); opacity: 0; filter: blur(6px); }
-    60% { opacity: 1; filter: blur(0); }
+    0% { transform: translateY(0.5em); opacity: 0; filter: blur(6px); }
     100% { transform: translateY(0); opacity: 1; filter: blur(0); }
   }
 
@@ -219,6 +220,11 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    /* Extend the gradient paint box past the glyphs so the italic right-side
+       overhang still gets filled instead of clipping to transparent. Negative
+       margins keep the layout/spacing unchanged. */
+    padding-inline: 0.04em 0.14em;
+    margin-inline: -0.04em -0.14em;
     animation: gold-shimmer 5.5s ease-in-out infinite;
   }
   @keyframes gold-shimmer {
@@ -226,19 +232,27 @@
     100% { background-position: -120% center; }
   }
 
+  /* Same italic-overhang fix for Tailwind background-clip:text gold words
+     (e.g. the services hero headline). */
+  .bg-clip-text {
+    padding-inline: 0.04em 0.14em;
+    margin-inline: -0.04em -0.14em;
+  }
+
   /* Headline words: clip-path wipe + rise (writes itself in) */
+  /* Crop-proof reveal: NO clip-path / overflow, so descenders and italic/gold
+     overhang can never be cut. Pure fade + rise + blur reads just as premium. */
   .word-wipe {
     display: inline-block;
     opacity: 0;
-    transform: translateY(28%);
-    clip-path: inset(0 100% 0 0);
-    animation: word-wipe 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    transform: translateY(0.4em);
+    filter: blur(8px);
+    animation: word-wipe 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
     animation-delay: var(--rd, 0ms);
   }
   @keyframes word-wipe {
-    0% { opacity: 0; transform: translateY(28%); clip-path: inset(0 100% 0 0); filter: blur(5px); }
-    60% { opacity: 1; filter: blur(0); }
-    100% { opacity: 1; transform: translateY(0); clip-path: inset(0 0% 0 0); filter: blur(0); }
+    0%   { opacity: 0; transform: translateY(0.4em); filter: blur(8px); }
+    100% { opacity: 1; transform: translateY(0);     filter: blur(0); }
   }
 
   /* Per-letter "write up" reveal (eyebrow / fine text) */

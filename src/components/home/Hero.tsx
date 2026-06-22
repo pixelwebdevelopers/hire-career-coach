@@ -4,6 +4,7 @@ import h1 from "@/assets/hero-1.png";
 import h2 from "@/assets/hero-2.png";
 import h3 from "@/assets/hero-3.png";
 import h4 from "@/assets/hero-4.png";
+import h5 from "@/assets/hero-5.png";
 import { ArrowUpRight } from "lucide-react";
 
 type Word = { t: string; gold?: boolean; italic?: boolean; br?: boolean };
@@ -63,6 +64,18 @@ const SLIDES: Slide[] = [
     ],
     caption: "Pivot industries and step up — without losing momentum.",
   },
+  {
+    img: h5,
+    eyebrow: "Job Search Strategy",
+    title: [
+      { t: "Get" },
+      { t: "hired", gold: true, italic: true, br: true },
+      { t: "faster with a", br: true },
+      { t: "smarter", italic: true },
+      { t: "plan", gold: true },
+    ],
+    caption: "A targeted strategy that opens doors and shortens your search.",
+  },
 ];
 
 const DURATION = 7000;
@@ -85,16 +98,6 @@ export function Hero() {
         <div className="animate-aurora absolute -top-32 right-0 h-[42rem] w-[42rem] rounded-full bg-gold/15 blur-3xl" />
         <div className="animate-aurora absolute -bottom-40 -left-32 h-[38rem] w-[38rem] rounded-full bg-navy/10 blur-3xl [animation-delay:-6s]" />
       </div>
-
-      {/* Dot grid, top-left — desktop only (keeps mobile clean) */}
-      <svg className="pointer-events-none absolute left-6 top-8 hidden h-28 w-44 text-navy/30 lg:block" aria-hidden>
-        <defs>
-          <pattern id="dots" width="14" height="14" patternUnits="userSpaceOnUse">
-            <circle cx="2" cy="2" r="1.6" fill="currentColor" />
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#dots)" />
-      </svg>
 
       {/* Flowing lines, bottom-left — desktop only */}
       <svg className="pointer-events-none absolute bottom-0 left-0 hidden h-64 w-[36rem] text-gold/25 lg:block" viewBox="0 0 600 260" fill="none" aria-hidden>

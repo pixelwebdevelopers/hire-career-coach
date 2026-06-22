@@ -50,8 +50,8 @@ function ServicesPage() {
     <>
       <PageHero
         eyebrow="Professional Career Services"
-        title={[{ t: "Every chapter of your", italic: true }, { t: "career,", gold: true }, { t: "written by hand." }]}
-        sub="Single services or full packages. Each one delivered by a senior coach who has hired into your industry — strategy first, never a template."
+        title={[{ t: "Every chapter of your", italic: true }, { t: "career,", gold: true }, { t: "written by experts who understand your industry."}]}
+        sub="From ATS-optimized resumes to LinkedIn profiles and career coaching, every service is delivered with a personalized approach by experienced career specialists—not junior writers using generic templates. Because your career deserves strategy, expertise, and results"
       />
 
       {/* Quick-nav across all services */}
