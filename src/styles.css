@@ -287,4 +287,11 @@
     .reveal-mask > span, .word-wipe, .letter-rise > span, .word-fade > span { transform: none; opacity: 1; clip-path: none; filter: none; }
     .rule-draw { transform: scaleX(1); }
   }
+
+  /* Soft left blend fade for section images */
+  .image-blend-left {
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 25%, #000 100%);
+    mask-image: linear-gradient(to right, transparent 0%, #000 25%, #000 100%);
+  }
 }
+

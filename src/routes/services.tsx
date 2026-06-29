@@ -88,8 +88,8 @@ function ServicesPage() {
               Tell us where you want to be. We'll show you the paper trail that gets you there.
             </h3>
           </div>
-          <Link to="/contact" className="inline-flex items-center justify-center gap-2 rounded-full bg-gold text-navy-deep px-7 py-3.5 font-semibold whitespace-nowrap hover:bg-gold-soft transition-colors">
-            Book a call <ArrowUpRight className="h-4 w-4" />
+          <Link to="/pricing" className="inline-flex items-center justify-center gap-2 rounded-full bg-gold text-navy-deep px-7 py-3.5 font-semibold whitespace-nowrap hover:bg-gold-soft transition-colors">
+            Explore Packages <ArrowUpRight className="h-4 w-4" />
           </Link>
         </Reveal>
       </section>
@@ -128,7 +128,7 @@ function ServiceDetail({ s }: { s: (typeof SERVICES)[number] }) {
           </div>
 
           <Link
-            to="/contact"
+            to="/pricing"
             className="mt-7 inline-flex items-center gap-2 text-sm font-medium text-navy"
           >
             <span className="gold-underline">Start with {s.title}</span>

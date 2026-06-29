@@ -5,76 +5,124 @@ import h2 from "@/assets/hero-2.png";
 import h3 from "@/assets/hero-3.png";
 import h4 from "@/assets/hero-4.png";
 import h5 from "@/assets/hero-5.png";
-import { ArrowUpRight } from "lucide-react";
+import {
+  ArrowUpRight,
+  Check,
+  FileText,
+  FileSearch,
+  Linkedin,
+  MessagesSquare,
+  Target,
+  type LucideIcon,
+} from "lucide-react";
 
 type Word = { t: string; gold?: boolean; italic?: boolean; br?: boolean };
 
 type Slide = {
+  num: number;
+  icon: LucideIcon;
   img: string;
   eyebrow: string;
   title: Word[];
   caption: string;
+  bullets: string[];
+  buttonText: string;
+  buttonLink: string;
+  buttonHash?: string;
 };
 
 const SLIDES: Slide[] = [
   {
+    num: 1,
+    icon: FileText,
     img: h4,
-    eyebrow: "Resumes · LinkedIn · Coaching",
+    eyebrow: "Resume Writing",
     title: [
-      { t: "Elevate" },
-      { t: "your", gold: true, italic: true, br: true },
-      { t: "Resume" },
-      { t: "and", gold: true, italic: true },
-      { t: "Career", br: true },
-      { t: "with us", gold: true, italic: true },
+      { t: "Elevate your", br: true },
+      { t: "career with a", br: true },
+      { t: "resume that", br: true },
+      { t: "gets noticed", gold: true, italic: true },
     ],
-    caption: "Personal branding that gets you noticed, shortlisted and hired.",
+    caption:
+      "ATS-optimized resumes tailored to your experience, industry, and career goals. Designed to help you stand out and secure interviews.",
+    bullets: ["ATS Optimized", "Recruiter Focused", "Results Driven"],
+    buttonText: "Explore Resume Services",
+    buttonLink: "/services",
+    buttonHash: "resume-writing",
   },
   {
+    num: 2,
+    icon: FileSearch,
     img: h2,
-    eyebrow: "Interview Coaching",
+    eyebrow: "Resume Review & Audit",
     title: [
-      { t: "Land" },
-      { t: "interviews", gold: true, italic: true, br: true },
-      { t: "that turn", br: true },
-      { t: "into", italic: true },
-      { t: "offers", gold: true },
+      { t: "Discover", br: true },
+      { t: "what's" },
+      { t: "holding", gold: true, italic: true, br: true },
+      { t: "your" },
+      { t: "resume", gold: true, italic: true, br: true },
+      { t: "back" },
     ],
-    caption: "Coaching and prep that build the confidence to win the room.",
+    caption:
+      "Receive expert feedback on your resume's content, structure, ATS compatibility, and overall effectiveness with actionable recommendations.",
+    bullets: ["Detailed Feedback", "ATS Check", "Actionable Improvements"],
+    buttonText: "Get a Resume Audit",
+    buttonLink: "/services",
+    buttonHash: "resume-review",
   },
   {
+    num: 3,
+    icon: Linkedin,
     img: h3,
-    eyebrow: "Executive Branding",
+    eyebrow: "LinkedIn Optimization",
     title: [
-      { t: "Lead" },
-      { t: "with a", italic: true, br: true },
-      { t: "presence", gold: true, italic: true, br: true },
-      { t: "people remember" },
+      { t: "Turn your", br: true },
+      { t: "LinkedIn profile", br: true },
+      { t: "into a" },
+      { t: "recruiter", gold: true, italic: true, br: true },
+      { t: "magnet", gold: true },
     ],
-    caption: "Executive narratives and board-ready bios that command attention.",
+    caption:
+      "Optimize your headline, experience, keywords, and professional presence to increase visibility and attract more opportunities.",
+    bullets: ["Profile Optimization", "Keyword Strategy", "Increased Visibility"],
+    buttonText: "Optimize My LinkedIn",
+    buttonLink: "/services",
+    buttonHash: "linkedin-optimization",
   },
   {
+    num: 4,
+    icon: MessagesSquare,
     img: h1,
-    eyebrow: "Career Transitions",
+    eyebrow: "Interview Preparation",
     title: [
-      { t: "Reinvent", gold: true, italic: true, br: true },
-      { t: "your career" },
-      { t: "with", italic: true, br: true },
-      { t: "confidence", gold: true },
+      { t: "Land", br: true },
+      { t: "interviews", br: true },
+      { t: "that turn into", br: true },
+      { t: "offers", gold: true, italic: true },
     ],
-    caption: "Pivot industries and step up — without losing momentum.",
+    caption:
+      "Build confidence, refine your communication, and learn proven interview strategies through personalized coaching and mock sessions.",
+    bullets: ["Mock Interviews", "Proven Strategies", "Confidence Building"],
+    buttonText: "Explore Interview Coaching",
+    buttonLink: "/services",
+    buttonHash: "interview-prep",
   },
   {
+    num: 5,
+    icon: Target,
     img: h5,
-    eyebrow: "Job Search Strategy",
+    eyebrow: "Career Strategy Session",
     title: [
-      { t: "Get" },
-      { t: "hired", gold: true, italic: true, br: true },
-      { t: "faster with a", br: true },
-      { t: "smarter", italic: true },
-      { t: "plan", gold: true },
+      { t: "Build a", br: true },
+      { t: "smarter path", gold: true, italic: true, br: true },
+      { t: "toward your", br: true },
+      { t: "next opportunity" },
     ],
-    caption: "A targeted strategy that opens doors and shortens your search.",
+    caption:
+      "Personalized guidance for career growth, job search strategy, networking, salary negotiation, and long-term career planning.",
+    bullets: ["Career Guidance", "Job Search Strategy", "Growth & Advancement"],
+    buttonText: "Book a Strategy Session",
+    buttonLink: "/contact",
   },
 ];
 
@@ -100,7 +148,12 @@ export function Hero() {
       </div>
 
       {/* Flowing lines, bottom-left — desktop only */}
-      <svg className="pointer-events-none absolute bottom-0 left-0 hidden h-64 w-[36rem] text-gold/25 lg:block" viewBox="0 0 600 260" fill="none" aria-hidden>
+      <svg
+        className="pointer-events-none absolute bottom-0 left-0 hidden h-64 w-[36rem] text-gold/25 lg:block"
+        viewBox="0 0 600 260"
+        fill="none"
+        aria-hidden
+      >
         {[0, 1, 2, 3, 4].map((i) => (
           <path
             key={i}
@@ -122,7 +175,8 @@ export function Hero() {
               alt={s.eyebrow}
               loading={i === 0 ? "eager" : "lazy"}
               className={[
-                "absolute inset-0 h-full w-full object-cover object-[32%_center] transition-all duration-[1400ms] ease-[cubic-bezier(.22,1,.36,1)]",
+                "absolute inset-0 h-full w-full object-cover transition-all duration-[1400ms] ease-[cubic-bezier(.22,1,.36,1)]",
+                s.num <= 2 ? "object-[48%_center]" : "object-[32%_center]",
                 i === idx ? "opacity-100 blur-0 scale-100" : "opacity-0 blur-md scale-[1.03]",
               ].join(" ")}
             />
@@ -162,7 +216,9 @@ export function Hero() {
                 loading={i === 0 ? "eager" : "lazy"}
                 className={[
                   "absolute inset-0 h-full w-full object-cover object-top transition-all duration-[1400ms] ease-[cubic-bezier(.22,1,.36,1)]",
-                  i === idx ? "opacity-100 blur-0 scale-100 animate-ken" : "opacity-0 blur-md scale-[1.04]",
+                  i === idx
+                    ? "opacity-100 blur-0 scale-100 animate-ken"
+                    : "opacity-0 blur-md scale-[1.04]",
                 ].join(" ")}
               />
             ))}
@@ -179,30 +235,50 @@ export function Hero() {
 function HeroCopy({ slide, idx }: { slide: Slide; idx: number }) {
   return (
     <div>
-      <div key={`eb-${idx}`} className="mb-5 flex items-center gap-3 text-[0.62rem] uppercase tracking-[0.22em] text-muted-foreground sm:text-xs sm:tracking-[0.3em] lg:mb-6">
-        <span className="rule-draw hidden h-px w-8 bg-gold lg:inline-block" style={{ ["--rd" as any]: "0ms" }} />
-        <span className="letter-rise" aria-label={slide.eyebrow}>
-          {[...slide.eyebrow].map((ch, i) => (
-            <span key={i} aria-hidden style={{ ["--ld" as any]: `${i * 22}ms` }}>
-              {ch === " " ? " " : ch}
-            </span>
-          ))}
-        </span>
+      {/* Slide Icon & Eyebrow */}
+      <div className="mb-6 flex flex-col items-start gap-4">
+        {/* Circle Icon */}
+        <div
+          key={`icon-${idx}`}
+          className="flex h-12 w-12 items-center justify-center rounded-full border border-[#0a7a9b]/25 bg-white/70 text-[#0a7a9b] shadow-sm"
+          style={{
+            opacity: 0,
+            transform: "translateY(10px)",
+            animation: "word-fade 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards",
+            animationDelay: "150ms",
+          }}
+        >
+          <slide.icon className="h-5.5 w-5.5 stroke-[1.8]" />
+        </div>
+
+        {/* Eyebrow */}
+        <div
+          key={`eb-${idx}`}
+          className="text-[0.75rem] font-bold uppercase tracking-[0.2em] text-[#0a7a9b] lg:text-xs"
+          style={{
+            opacity: 0,
+            transform: "translateY(10px)",
+            animation: "word-fade 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards",
+            animationDelay: "250ms",
+          }}
+        >
+          {slide.eyebrow}
+        </div>
       </div>
 
       <h1
         key={`h-${idx}`}
-        className="font-display leading-[1.02] text-balance text-navy-deep text-[2.5rem] sm:text-5xl lg:text-[3.85rem] [@media(min-height:901px)]:lg:text-[5.75rem]"
+        className="font-display leading-[1.08] text-balance text-navy-deep text-[2.25rem] sm:text-[2.75rem] lg:text-[3.25rem] [@media(min-height:901px)]:lg:text-[4.25rem]"
       >
         {slide.title.map((w, i) => (
           <span key={i}>
             <span
               className={[
-                "word-wipe mr-3 sm:mr-4",
-                w.italic ? "italic font-normal" : "font-medium",
-                w.gold ? "text-gold-shimmer" : "",
+                "word-wipe mr-2 sm:mr-3",
+                w.italic ? "italic font-normal" : "font-extrabold",
+                w.gold || w.italic ? "text-[#0a7a9b]" : "text-navy-deep",
               ].join(" ")}
-              style={{ ["--rd" as any]: `${140 + i * 110}ms` }}
+              style={{ "--rd": `${140 + i * 110}ms` } as React.CSSProperties}
             >
               {w.t}
             </span>
@@ -211,42 +287,64 @@ function HeroCopy({ slide, idx }: { slide: Slide; idx: number }) {
         ))}
       </h1>
 
-      <div
-        key={`rule-${idx}`}
-        className="rule-draw mt-6 h-[2px] w-32 bg-gradient-gold lg:mt-8 lg:w-40"
-        style={{ ["--rd" as any]: "650ms" }}
-      />
-
       <p
         key={`cap-${idx}`}
-        className="word-fade mt-5 block max-w-md text-[0.95rem] leading-relaxed text-foreground/70 sm:text-base lg:mt-7 lg:text-lg"
+        className="word-fade mt-5 block max-w-md text-[0.95rem] leading-relaxed text-foreground/75 sm:text-base lg:mt-7 lg:text-lg"
         aria-label={slide.caption}
       >
         {slide.caption.split(" ").map((word, i) => (
-          <span key={i} aria-hidden style={{ ["--wd" as any]: `${820 + i * 55}ms` }} className="mr-[0.28em]">
+          <span
+            key={i}
+            aria-hidden
+            style={{ "--wd": `${820 + i * 55}ms` } as React.CSSProperties}
+            className="mr-[0.28em]"
+          >
             {word}
           </span>
         ))}
       </p>
 
-      <div className="mt-8 flex flex-wrap items-center gap-5 lg:mt-10">
+      {/* Bullet Checklist */}
+      <ul key={`bullets-${idx}`} className="mt-6 space-y-3 lg:mt-8">
+        {slide.bullets.map((bullet, bIdx) => (
+          <li
+            key={bIdx}
+            className="flex items-center gap-3 text-sm text-foreground/80 font-medium lg:text-base"
+            style={{
+              opacity: 0,
+              transform: "translateY(10px)",
+              animation: "word-fade 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards",
+              animationDelay: `${1100 + bIdx * 150}ms`,
+            }}
+          >
+            <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#0a7a9b] text-white">
+              <Check className="h-3 w-3 stroke-[3]" />
+            </div>
+            <span>{bullet}</span>
+          </li>
+        ))}
+      </ul>
+
+      {/* Primary Black CTA Button */}
+      <div
+        key={`btn-${idx}`}
+        className="mt-8 lg:mt-10"
+        style={{
+          opacity: 0,
+          transform: "translateY(10px)",
+          animation: "word-fade 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards",
+          animationDelay: "1550ms",
+        }}
+      >
         <Link
-          to="/contact"
-          className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full bg-navy px-7 py-3.5 text-sm font-medium tracking-wide text-ivory lg:px-8 lg:py-4"
+          to={slide.buttonLink as "/services" | "/contact"}
+          hash={slide.buttonHash}
+          className="group inline-flex items-center gap-3 rounded-full bg-[#1f2329] px-7 py-3.5 text-sm font-semibold tracking-wide text-white transition-all duration-300 hover:bg-[#0b0d0f] hover:scale-[1.02] shadow-md"
         >
-          <span className="absolute inset-0 bg-gradient-gold opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-          <span className="relative">Start your transformation</span>
-          <ArrowUpRight className="relative h-4 w-4 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-        </Link>
-        <Link
-          to="/services"
-          className="hidden items-center gap-2 text-sm font-medium text-foreground/80 hover:text-navy sm:inline-flex"
-        >
-          <span className="gold-underline">Explore our craft</span>
-          <ArrowUpRight className="h-4 w-4" />
+          <span>{slide.buttonText}</span>
+          <ArrowUpRight className="h-4.5 w-4.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </Link>
       </div>
-
     </div>
   );
 }
