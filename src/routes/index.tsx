@@ -58,9 +58,16 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Hire Career Coach — Resumes, LinkedIn & Career Coaching" },
-      { name: "description", content: "Premium resume writing, LinkedIn optimization, interview prep and career coaching for early-career to executive professionals." },
+      {
+        name: "description",
+        content:
+          "Premium resume writing, LinkedIn optimization, interview prep and career coaching for early-career to executive professionals.",
+      },
       { property: "og:title", content: "Hire Career Coach — Guide. Grow. Succeed." },
-      { property: "og:description", content: "Resumes, LinkedIn and coaching for every stage — graduate to C-suite." },
+      {
+        property: "og:description",
+        content: "Resumes, LinkedIn and coaching for every stage — graduate to C-suite.",
+      },
       { property: "og:image", content: workspace },
     ],
   }),
@@ -76,68 +83,99 @@ const STATS = [
 
 const TESTIMONIALS = [
   {
-    quote: "I had three interviews lined up within ten days of my new resume going live. Two became offers — both above my target band.",
+    quote:
+      "I had three interviews lined up within ten days of my new resume going live. Two became offers — both above my target band.",
     name: "Priya R.",
     role: "Senior Product Manager",
     industry: "Product · FinTech",
   },
   {
-    quote: "They didn't just rewrite my resume. They re-articulated my career. The LinkedIn rework alone brought four recruiter intros that week.",
+    quote:
+      "They didn't just rewrite my resume. They re-articulated my career. The LinkedIn rework alone brought four recruiter intros that week.",
     name: "Marcus D.",
     role: "VP, Engineering",
     industry: "Engineering Leadership",
   },
   {
-    quote: "Interview prep was the unlock. I walked into the boardroom with answers I actually believed in.",
+    quote:
+      "Interview prep was the unlock. I walked into the boardroom with answers I actually believed in.",
     name: "Helena S.",
     role: "Director of Operations",
     industry: "Operations",
   },
   {
-    quote: "I was switching industries and felt invisible. They reframed my story so the pivot looked like the obvious next step. Offer in five weeks.",
+    quote:
+      "I was switching industries and felt invisible. They reframed my story so the pivot looked like the obvious next step. Offer in five weeks.",
     name: "Daniel O.",
     role: "Marketing Lead → Product Manager",
     industry: "Career Change",
   },
   {
-    quote: "My executive bio finally reads like a leader, not a job description. Two board conversations opened up within a month.",
+    quote:
+      "My executive bio finally reads like a leader, not a job description. Two board conversations opened up within a month.",
     name: "Aisha N.",
     role: "Chief Financial Officer",
     industry: "Finance",
   },
   {
-    quote: "My applications used to vanish into the void. After their ATS-optimized rewrite, I went from zero callbacks to six in three weeks.",
+    quote:
+      "My applications used to vanish into the void. After their ATS-optimized rewrite, I went from zero callbacks to six in three weeks.",
     name: "Rohan M.",
     role: "Data Engineer",
     industry: "Data Engineering",
   },
   {
-    quote: "They made my clinical experience read with real authority. I landed an associate role at the practice I was targeting.",
+    quote:
+      "They made my clinical experience read with real authority. I landed an associate role at the practice I was targeting.",
     name: "Dr. Nadia F.",
     role: "Dentist",
     industry: "Dental",
   },
   {
-    quote: "The salary-negotiation coaching paid for the whole package ten times over. I asked for more and got it without flinching.",
+    quote:
+      "The salary-negotiation coaching paid for the whole package ten times over. I asked for more and got it without flinching.",
     name: "James K.",
     role: "Regional Sales Director",
     industry: "Sales",
   },
   {
-    quote: "Switching from retail pharmacy to clinical, my resume finally spoke the right language. Interviews started within the first week.",
+    quote:
+      "Switching from retail pharmacy to clinical, my resume finally spoke the right language. Interviews started within the first week.",
     name: "Omar S.",
     role: "Pharmacist",
     industry: "Pharmacy",
   },
   {
-    quote: "The recruiter-outreach scripts and the refreshed LinkedIn did the heavy lifting. Inbound messages I never used to get are now routine.",
+    quote:
+      "The recruiter-outreach scripts and the refreshed LinkedIn did the heavy lifting. Inbound messages I never used to get are now routine.",
     name: "Dr. Elaine W.",
     role: "Physician",
     industry: "Healthcare",
   },
 ];
 
-const INDUSTRIES = ["Technology", "Healthcare", "Finance", "Engineering", "Education", "Legal", "Marketing", "Sales", "Human Resources", "Operations", "Construction", "Manufacturing", "Retail", "Hospitality", "Energy", "Transportation", "Government", "Nonprofit", "Agriculture", "Pharmaceuticals"];
+const INDUSTRIES = [
+  "Technology",
+  "Healthcare",
+  "Finance",
+  "Engineering",
+  "Education",
+  "Legal",
+  "Marketing",
+  "Sales",
+  "Human Resources",
+  "Operations",
+  "Construction",
+  "Manufacturing",
+  "Retail",
+  "Hospitality",
+  "Energy",
+  "Transportation",
+  "Government",
+  "Nonprofit",
+  "Agriculture",
+  "Pharmaceuticals",
+];
 
 const PROCESS_STEPS = [
   {
@@ -147,22 +185,26 @@ const PROCESS_STEPS = [
   },
   {
     title: "Complete Your Intake",
-    description: "Share your experience, target roles, and career objectives through our simple intake.",
+    description:
+      "Share your experience, target roles, and career objectives through our simple intake.",
     icon: FileText,
   },
   {
     title: "Connect with Your Coach",
-    description: "For coaching and premium packages, we'll schedule a call to discuss your goals and strategy.",
+    description:
+      "For coaching and premium packages, we'll schedule a call to discuss your goals and strategy.",
     icon: MessagesSquare,
   },
   {
     title: "We Get to Work",
-    description: "Our experts craft and optimize your documents with industry best practices and ATS strategies.",
+    description:
+      "Our experts craft and optimize your documents with industry best practices and ATS strategies.",
     icon: Laptop,
   },
   {
     title: "Receive Your Deliverables",
-    description: "Get your completed documents on time with guidance and support to help you take the next step with confidence.",
+    description:
+      "Get your completed documents on time with guidance and support to help you take the next step with confidence.",
     icon: MailCheck,
   },
 ];
@@ -217,10 +259,7 @@ const HOME_SERVICES = [
     to: "/services",
     hash: "personal-branding",
     isPrimary: false,
-    bullets: [
-      "Professional headshots",
-      "Custom LinkedIn banner design",
-    ],
+    bullets: ["Professional headshots", "Custom LinkedIn banner design"],
   },
   {
     num: "6",
@@ -248,16 +287,18 @@ const HOME_SERVICES = [
     desc: "Custom portfolio websites that showcase your skills, experience, and achievements to help you stand out in a competitive job market.",
     icon: Laptop,
     btnText: "Explore Portfolio Websites",
-    to: "/contact",
+    to: "/services",
+    hash: "portfolio-website",
     isPrimary: false,
   },
   {
     num: "9",
-    title: "Priority Concierge Service (Rush Service)",
+    title: "Priority Rush Service",
     desc: "Expedited turnaround for urgent career needs without compromising on quality. Ideal for tight deadlines and time-sensitive opportunities.",
     icon: Zap,
     btnText: "Explore Rush Service",
-    to: "/contact",
+    to: "/services",
+    hash: "rush-service",
     isPrimary: false,
   },
 ];
@@ -269,7 +310,7 @@ const CAREER_STAGES = [
     image: helpHealthcare,
     icon: Heart,
     services: ["Resume Writing", "LinkedIn Optimization", "Interview Preparation"],
-    hash: "resume-writing"
+    hash: "resume-writing",
   },
   {
     title: "Managers & Executives",
@@ -277,7 +318,7 @@ const CAREER_STAGES = [
     image: helpManagement,
     icon: Briefcase,
     services: ["Executive Resume Writing", "Career Strategy Session", "LinkedIn Optimization"],
-    hash: "resume-writing"
+    hash: "resume-writing",
   },
   {
     title: "Engineering & Technical Professionals",
@@ -285,7 +326,7 @@ const CAREER_STAGES = [
     image: helpEngineering,
     icon: Settings,
     services: ["Resume Writing", "ATS Audit", "Portfolio Website"],
-    hash: "resume-writing"
+    hash: "resume-writing",
   },
   {
     title: "Technology Professionals",
@@ -293,7 +334,7 @@ const CAREER_STAGES = [
     image: helpTechnology,
     icon: Code2,
     services: ["Resume Writing", "LinkedIn Optimization", "Portfolio Website"],
-    hash: "resume-writing"
+    hash: "resume-writing",
   },
   {
     title: "Students & Recent Graduates",
@@ -301,7 +342,7 @@ const CAREER_STAGES = [
     image: helpStudents,
     icon: GraduationCap,
     services: ["Resume Writing", "ATS Audit", "Career Strategy Session"],
-    hash: "resume-review"
+    hash: "resume-review",
   },
   {
     title: "Career Changers",
@@ -309,7 +350,7 @@ const CAREER_STAGES = [
     image: helpChangers,
     icon: RefreshCw,
     services: ["Career Strategy Session", "Resume Writing", "Interview Preparation"],
-    hash: "job-hunt-strategy"
+    hash: "job-hunt-strategy",
   },
   {
     title: "Professionals Seeking Advancement",
@@ -317,7 +358,7 @@ const CAREER_STAGES = [
     image: helpAdvancement,
     icon: TrendingUp,
     services: ["Resume Writing", "LinkedIn Optimization", "Interview Preparation"],
-    hash: "career-development"
+    hash: "career-development",
   },
   {
     title: "Entrepreneurs & Business Owners",
@@ -325,8 +366,8 @@ const CAREER_STAGES = [
     image: helpEntrepreneurs,
     icon: Users,
     services: ["LinkedIn Optimization", "Portfolio Website", "Career Strategy Session"],
-    hash: "personal-branding"
-  }
+    hash: "personal-branding",
+  },
 ];
 
 function Home() {
@@ -349,93 +390,185 @@ function Home() {
     <>
       <Hero />
 
+      {/* Industries Marquee Section */}
+      <section className="bg-cream/40 border-b border-[#e2edf0] py-6 sm:py-8 overflow-hidden">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8 flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
+          <span className="text-xs uppercase tracking-[0.25em] text-[#006072] font-extrabold whitespace-nowrap shrink-0">
+            Industries We Serve:
+          </span>
+          <div className="relative flex-1 overflow-hidden flex items-center">
+            {/* Left and Right fades */}
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-cream/40 to-transparent z-10" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-cream/40 to-transparent z-10" />
+
+            <div className="flex w-max items-center gap-6 animate-marquee [animation-duration:38s]">
+              {[
+                "Technology",
+                "Cybersecurity",
+                "Healthcare",
+                "Finance",
+                "Engineering",
+                "Education",
+                "Legal",
+                "Marketing",
+                "Sales",
+                "Human Resources",
+                "Operations",
+                "Construction",
+                "Manufacturing",
+                "Retail",
+                "Hospitality",
+                "Energy",
+                "Transportation",
+                "Government",
+                "Nonprofit",
+                "Agriculture",
+                "Pharmaceuticals",
+              ]
+                .concat([
+                  "Technology",
+                  "Cybersecurity",
+                  "Healthcare",
+                  "Finance",
+                  "Engineering",
+                  "Education",
+                  "Legal",
+                  "Marketing",
+                  "Sales",
+                  "Human Resources",
+                  "Operations",
+                  "Construction",
+                  "Manufacturing",
+                  "Retail",
+                  "Hospitality",
+                  "Energy",
+                  "Transportation",
+                  "Government",
+                  "Nonprofit",
+                  "Agriculture",
+                  "Pharmaceuticals",
+                ])
+                .map((industry, index) => (
+                  <div
+                    key={index}
+                    className="text-sm sm:text-base font-extrabold text-navy-deep uppercase tracking-wider flex items-center gap-6"
+                  >
+                    <span>{industry}</span>
+                    <span className="text-[#006072]/30 select-none">•</span>
+                  </div>
+                ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* About Section */}
       <section className="relative bg-white pt-20 sm:pt-24 pb-12 overflow-hidden">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-16 items-center">
             <Reveal>
-              <p className="text-xs uppercase tracking-[0.28em] text-[#006072] font-semibold">ABOUT HIRE CAREER COACH</p>
+              <p className="text-xs uppercase tracking-[0.28em] text-[#006072] font-semibold">
+                ABOUT HIRE CAREER COACH
+              </p>
               <h2 className="font-display text-4xl sm:text-5xl font-bold tracking-tight text-slate-900 leading-[1.15] mt-4 mb-5 text-balance">
                 More Than Documents. <br className="hidden sm:inline" />
                 <span className="text-[#006072]">We Build Careers.</span>
               </h2>
-              <div className="w-12 h-[2.5px] bg-[#006072] mb-6" />
+              <div className="w-12 h-[2.5px] bg-[#006072] mb-8" />
+
+              {/* Blockquote Quote block */}
+              <div className="flex gap-4 border-l-[3.5px] border-[#006072]/50 pl-5 mb-8">
+                <Quote className="text-[#006072] w-9 h-9 shrink-0 opacity-70 rotate-180" />
+                <div className="space-y-2">
+                  <p className="font-display text-slate-900 font-extrabold text-xl sm:text-2xl italic leading-snug">
+                    You’ve Worked Too Hard to Be Invisible.
+                  </p>
+                  <p className="text-slate-500 text-sm italic leading-relaxed">
+                    Sometimes the difference between being overlooked and being hired is how your
+                    story is told.
+                  </p>
+                </div>
+              </div>
+
+              {/* Description copy */}
               <div className="space-y-5 text-slate-600 text-base sm:text-[1.05rem] leading-relaxed max-w-2xl">
-                <p className="font-medium text-slate-900 text-lg">
-                  Hire Career Coach was built on a simple belief: every professional deserves a career that reflects their potential.
+                <p>
+                  Hire Career Coach was built on a simple belief: talented professionals should
+                  never be overlooked because of an outdated résumé, weak professional visibility,
+                  or an unclear career strategy.
                 </p>
                 <p>
-                  What began as freelance career consulting and resume writing has grown into a trusted career services practice helping professionals across the globe achieve real results.
+                  What began as freelance career consulting and résumé writing evolved into a
+                  trusted career services practice helping professionals across industries position
+                  themselves for new opportunities, promotions, career transitions, and leadership
+                  roles.
                 </p>
                 <p>
-                  We combine 20+ years of hands-on experience with modern hiring insights to deliver personalized, strategic, and results-driven solutions.
+                  Through personalized guidance, ATS-optimized documents, LinkedIn optimization,
+                  interview preparation, and career strategy, we help professionals stand out in
+                  today’s competitive job market.
                 </p>
               </div>
             </Reveal>
             <Reveal delay={120} className="w-full max-w-md lg:max-w-none mx-auto">
               <div className="relative aspect-[4/3] overflow-hidden image-blend-left">
-                <img 
-                  src={aboutLaptopMockup} 
-                  alt="Laptop with Hire Career Coach logo" 
+                <img
+                  src={aboutLaptopMockup}
+                  alt="Laptop with Hire Career Coach logo"
                   className="w-full h-full object-cover"
                 />
               </div>
             </Reveal>
           </div>
 
-          {/* Stats horizontal panel */}
+          {/* Stats Cards Grid */}
           <Reveal delay={200} className="mt-16 sm:mt-20">
-            <div className="bg-white border border-[#e2edf0] rounded-3xl p-8 sm:p-10 shadow-[0_8px_30px_rgba(0,0,0,0.015)]">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 lg:divide-x lg:divide-[#e2edf0]">
-                {[
-                  {
-                    value: "1,500+",
-                    label: "Professionals Helped",
-                    desc: "We've supported professionals at all career levels to stand out and achieve their goals.",
-                    icon: Users,
-                  },
-                  {
-                    value: "15+",
-                    label: "Years of Experience",
-                    desc: "Combined experience in resume writing, recruiting, and career coaching.",
-                    icon: Calendar,
-                  },
-                  {
-                    value: "40+",
-                    label: "Countries Served",
-                    desc: "Clients from around the world trust us to advance their careers with confidence.",
-                    icon: Globe,
-                  },
-                  {
-                    value: "100%",
-                    label: "Personalized Service",
-                    desc: "Every project is custom-crafted by senior writers. No templates. No outsourcing.",
-                    icon: ShieldCheck,
-                  },
-                ].map((stat, idx) => {
-                  const Icon = stat.icon;
-                  return (
-                    <div key={idx} className="lg:px-8 first:pl-0 last:pr-0">
-                      <div className="flex items-center gap-3.5 mb-3.5">
-                        <div className="w-11 h-11 rounded-full bg-[#e6f2f5] flex items-center justify-center shrink-0">
-                          <Icon className="text-[#006072] w-5 h-5" />
-                        </div>
-                        <div>
-                          <div className="font-display font-extrabold text-slate-900 text-2xl tracking-tight leading-none">
-                            {stat.value}
-                          </div>
-                          <div className="text-[10px] font-bold text-[#006072] uppercase tracking-wider mt-1.5 leading-none">
-                            {stat.label}
-                          </div>
-                        </div>
-                      </div>
-                      <p className="text-slate-500 text-sm leading-relaxed">
-                        {stat.desc}
-                      </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                {
+                  value: "2,000+",
+                  label: "Professionals Helped",
+                  desc: "We've supported professionals at all career levels to stand out and achieve their goals.",
+                  icon: Users,
+                },
+                {
+                  value: "15+",
+                  label: "Years of Experience",
+                  desc: "Combined experience in resume writing, recruiting, and career coaching.",
+                  icon: Calendar,
+                },
+                {
+                  value: "40+",
+                  label: "Countries Served",
+                  desc: "Clients from around the world trust us to advance their careers with confidence.",
+                  icon: Globe,
+                },
+                {
+                  value: "100%",
+                  label: "Personalized Service",
+                  desc: "Every project is custom-crafted by senior writers. No templates. No outsourcing.",
+                  icon: ShieldCheck,
+                },
+              ].map((stat, idx) => {
+                const Icon = stat.icon;
+                return (
+                  <div
+                    key={idx}
+                    className="bg-white border border-[#e2edf0] rounded-3xl p-6 sm:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.015)] transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-md hover:border-[#006072]/40"
+                  >
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#e6f2f5] text-[#006072] mb-5">
+                      <Icon className="h-5.5 w-5.5" />
                     </div>
-                  );
-                })}
-              </div>
+                    <span className="font-display text-3xl sm:text-4xl font-extrabold text-slate-900 block tracking-tight">
+                      {stat.value}
+                    </span>
+                    <span className="text-xs font-bold text-[#006072] block mt-1.5 uppercase tracking-wider">
+                      {stat.label}
+                    </span>
+                    <p className="mt-3 text-slate-500 text-sm leading-relaxed">{stat.desc}</p>
+                  </div>
+                );
+              })}
             </div>
           </Reveal>
         </div>
@@ -453,7 +586,8 @@ function Home() {
               <span className="w-8 h-[1px] bg-[#006072]/60" />
             </div>
             <h2 className="font-display text-3xl sm:text-4.5xl md:text-5xl font-bold tracking-tight text-slate-900 leading-tight mt-3">
-              Strategic Guidance.<br />
+              Strategic Guidance.
+              <br />
               <span className="text-[#006072]">Proven Results.</span>
             </h2>
           </Reveal>
@@ -504,9 +638,7 @@ function Home() {
                   <h3 className="font-display font-bold text-slate-900 text-lg leading-tight mb-3">
                     {card.title}
                   </h3>
-                  <p className="text-slate-500 text-sm leading-relaxed">
-                    {card.desc}
-                  </p>
+                  <p className="text-slate-500 text-sm leading-relaxed">{card.desc}</p>
                 </Reveal>
               );
             })}
@@ -517,7 +649,6 @@ function Home() {
       {/* Who We Help Section */}
       <section className="bg-white py-24 sm:py-32 border-b border-[#e2edf0]">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          
           {/* Header Split */}
           <div className="grid grid-cols-1 lg:grid-cols-[1.25fr_0.75fr] gap-12 lg:gap-16 items-center mb-16">
             <Reveal>
@@ -527,16 +658,18 @@ function Home() {
                 </span>
                 <span className="w-8 h-[1px] bg-[#006072]/60" />
               </div>
-              
+
               <h2 className="font-display text-4xl sm:text-5xl font-bold tracking-tight text-slate-900 leading-[1.15] mt-3">
-                We Help Professionals<br />
+                We Help Professionals
+                <br />
                 At <span className="text-[#006072]">Every Career Stage</span>
               </h2>
-              
+
               <p className="mt-5 text-slate-600 text-base sm:text-lg leading-relaxed max-w-xl">
-                No matter where you are in your career journey, we have the expertise to help you stand out, get noticed, and achieve your goals.
+                No matter where you are in your career journey, we have the expertise to help you
+                stand out, get noticed, and achieve your goals.
               </p>
-              
+
               {/* Highlight points */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
                 <div className="flex items-start gap-4">
@@ -544,7 +677,9 @@ function Home() {
                     <Target className="text-[#006072] w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-slate-900 text-sm sm:text-base">Personalized Solutions</h4>
+                    <h4 className="font-semibold text-slate-900 text-sm sm:text-base">
+                      Personalized Solutions
+                    </h4>
                     <p className="text-slate-500 text-xs sm:text-sm mt-1 leading-relaxed">
                       Tailored to your unique goals and industry.
                     </p>
@@ -555,7 +690,9 @@ function Home() {
                     <Users className="text-[#006072] w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-slate-900 text-sm sm:text-base">Proven Expertise</h4>
+                    <h4 className="font-semibold text-slate-900 text-sm sm:text-base">
+                      Proven Expertise
+                    </h4>
                     <p className="text-slate-500 text-xs sm:text-sm mt-1 leading-relaxed">
                       Helping professionals across diverse industries succeed.
                     </p>
@@ -566,9 +703,9 @@ function Home() {
 
             <Reveal delay={120} className="w-full max-w-sm lg:max-w-none mx-auto lg:ml-auto">
               <div className="relative aspect-[4/3] overflow-hidden image-blend-left">
-                <img 
-                  src={whoWeHelpHeader} 
-                  alt="Desk setup with logo coffee cup, books and plant" 
+                <img
+                  src={whoWeHelpHeader}
+                  alt="Desk setup with logo coffee cup, books and plant"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -592,8 +729,8 @@ function Home() {
 
                   {/* Card Image */}
                   <div className="relative aspect-[4/3] w-full overflow-hidden">
-                    <img 
-                      src={stage.image} 
+                    <img
+                      src={stage.image}
                       alt={stage.title}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
@@ -607,14 +744,17 @@ function Home() {
                     <p className="text-slate-500 text-xs sm:text-sm leading-relaxed mb-5 min-h-[40px]">
                       {stage.desc}
                     </p>
-                    
+
                     <div className="mt-auto">
                       <div className="text-[10px] font-bold text-[#006072] uppercase tracking-wider mb-3">
                         Popular Services
                       </div>
                       <ul className="space-y-2">
                         {stage.services.map((service, sIdx) => (
-                          <li key={sIdx} className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-600">
+                          <li
+                            key={sIdx}
+                            className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-600"
+                          >
                             <span className="flex h-4.5 w-4.5 shrink-0 items-center justify-center rounded-full bg-[#e6f2f5] text-[#006072]">
                               <Check className="h-3 w-3 stroke-[3]" />
                             </span>
@@ -624,8 +764,8 @@ function Home() {
                       </ul>
 
                       {/* View Services Button */}
-                      <Link 
-                        to="/services" 
+                      <Link
+                        to="/services"
                         hash={stage.hash}
                         className="mt-6 w-full border border-[#006072]/20 hover:border-[#006072] hover:bg-[#006072] hover:text-white text-[#006072] font-semibold py-2.5 px-4 rounded-xl flex items-center justify-center gap-2 transition-all text-xs sm:text-sm group"
                       >
@@ -647,15 +787,19 @@ function Home() {
           <Reveal>
             <div className="flex items-center justify-center gap-2 mb-3">
               <span className="w-8 h-[1px] bg-[#006072]/60" />
-              <span className="text-xs uppercase tracking-[0.25em] text-[#006072] font-semibold">How It Works</span>
+              <span className="text-xs uppercase tracking-[0.25em] text-[#006072] font-semibold">
+                How It Works
+              </span>
               <span className="w-8 h-[1px] bg-[#006072]/60" />
             </div>
             <h2 className="font-display text-3xl sm:text-4.5xl md:text-5xl font-bold tracking-tight text-slate-900 leading-tight mt-3">
-              A Simple Process.<br />
+              A Simple Process.
+              <br />
               <span className="text-[#006072]">Meaningful Results.</span>
             </h2>
             <p className="mt-5 text-slate-600 text-base sm:text-lg leading-relaxed max-w-xl mx-auto">
-              We make career growth simple and stress-free. Our proven 5-step process is designed to deliver clarity, confidence, and career advancement.
+              We make career growth simple and stress-free. Our proven 5-step process is designed to
+              deliver clarity, confidence, and career advancement.
             </p>
           </Reveal>
         </div>
@@ -679,7 +823,7 @@ function Home() {
                     </div>
 
                     {/* Card container */}
-                    <div 
+                    <div
                       onClick={() => toggleStep(idx)}
                       className="bg-white border border-[#e2edf0] rounded-2xl p-5 sm:p-6 flex items-start gap-4 sm:gap-5 shadow-[0_4px_12px_rgba(0,0,0,0.015)] transition-all duration-300 hover:shadow-[0_8px_24px_rgba(0,96,114,0.05)] hover:border-[#b2d5de] cursor-pointer group"
                     >
@@ -698,7 +842,7 @@ function Home() {
                         <h3 className="font-display font-semibold text-slate-900 text-lg sm:text-xl transition-colors group-hover:text-[#006072]">
                           {step.title}
                         </h3>
-                        <div 
+                        <div
                           className={`mt-1.5 text-slate-600 text-sm leading-relaxed overflow-hidden transition-all duration-300 ${
                             isOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
                           }`}
@@ -708,7 +852,7 @@ function Home() {
                       </div>
 
                       {/* Chevron Down indicator */}
-                      <ChevronDown 
+                      <ChevronDown
                         className={`text-[#006072] w-5 h-5 shrink-0 self-center ml-auto transition-transform duration-300 ${
                           isOpen ? "rotate-180" : ""
                         }`}
@@ -729,12 +873,16 @@ function Home() {
                 <CalendarCheck className="text-[#006072] w-6 h-6" />
               </div>
               <div>
-                <h3 className="text-slate-900 font-bold text-lg sm:text-xl">Ready to Get Started?</h3>
-                <p className="text-slate-600 text-sm mt-1">Book a consultation and let's create a plan tailored to your career goals.</p>
+                <h3 className="text-slate-900 font-bold text-lg sm:text-xl">
+                  Ready to Get Started?
+                </h3>
+                <p className="text-slate-600 text-sm mt-1">
+                  Book a consultation and let's create a plan tailored to your career goals.
+                </p>
               </div>
             </div>
-            <Link 
-              to="/contact" 
+            <Link
+              to="/contact"
               className="w-full md:w-auto bg-[#006072] hover:bg-[#004e5d] text-white font-semibold px-6 py-3.5 rounded-xl flex items-center justify-center gap-2.5 transition-all shadow-[0_4px_12px_rgba(0,96,114,0.15)] shrink-0 text-sm group"
             >
               <CalendarCheck className="w-4 h-4 transition-transform group-hover:scale-110" />
@@ -750,7 +898,9 @@ function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-[1.3fr_0.7fr] gap-12 items-center mb-16">
             <Reveal>
               <div className="flex items-center gap-2">
-                <span className="text-xs uppercase tracking-[0.28em] text-[#006072] font-semibold">OUR SERVICES</span>
+                <span className="text-xs uppercase tracking-[0.28em] text-[#006072] font-semibold">
+                  OUR SERVICES
+                </span>
                 <span className="w-8 h-[1px] bg-[#006072]" />
               </div>
               <h2 className="font-display text-4xl sm:text-5xl font-bold tracking-tight text-slate-900 leading-[1.15] text-balance mt-3">
@@ -758,14 +908,15 @@ function Home() {
                 <span className="text-[#006072]">Designed Around You.</span>
               </h2>
               <p className="mt-5 text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl">
-                From career documents to strategy and professional visibility, our services are tailored to help you stand out, get noticed, and achieve your career goals.
+                From career documents to strategy and professional visibility, our services are
+                tailored to help you stand out, get noticed, and achieve your career goals.
               </p>
             </Reveal>
             <Reveal delay={120} className="w-full max-w-sm lg:max-w-none mx-auto">
               <div className="relative aspect-[4/3] overflow-hidden image-blend-left">
-                <img 
-                  src={deskSetupServices} 
-                  alt="Professional Desk Setup" 
+                <img
+                  src={deskSetupServices}
+                  alt="Professional Desk Setup"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -792,9 +943,7 @@ function Home() {
                   </h3>
 
                   {/* Description */}
-                  <p className="text-slate-600 text-sm leading-relaxed mb-6 flex-1">
-                    {s.desc}
-                  </p>
+                  <p className="text-slate-600 text-sm leading-relaxed mb-6 flex-1">{s.desc}</p>
 
                   {/* Bullet points for Card 5 */}
                   {s.bullets && (
@@ -813,7 +962,7 @@ function Home() {
                   {/* Button */}
                   {s.isPrimary ? (
                     <Link
-                      to={s.to as any}
+                      to={s.to as "/services" | "/contact"}
                       hash={s.hash}
                       className="w-full bg-[#006072] hover:bg-[#004e5d] text-white font-semibold py-3.5 px-6 rounded-xl flex items-center justify-center gap-2 transition-all shadow-[0_4px_12px_rgba(0,96,114,0.12)] text-sm group mt-auto"
                     >
@@ -822,7 +971,7 @@ function Home() {
                     </Link>
                   ) : (
                     <Link
-                      to={s.to as any}
+                      to={s.to as "/services" | "/contact"}
                       hash={s.hash}
                       className="w-full border border-[#006072]/30 text-[#006072] hover:bg-[#006072] hover:text-white font-semibold py-3.5 px-6 rounded-xl flex items-center justify-center gap-2 transition-all text-sm group mt-auto"
                     >
@@ -842,25 +991,37 @@ function Home() {
         <div className="mx-auto max-w-7xl px-5 sm:px-8 grid gap-12 lg:grid-cols-2 items-center">
           <Reveal className="relative order-2 lg:order-1">
             <div className="relative aspect-[5/6] overflow-hidden rounded-3xl">
-              <img src={workspace} alt="Career documents in progress" className="h-full w-full object-cover" loading="lazy" width={1600} height={1100} />
+              <img
+                src={workspace}
+                alt="Career documents in progress"
+                className="h-full w-full object-cover"
+                loading="lazy"
+                width={1600}
+                height={1100}
+              />
             </div>
             <div className="absolute -bottom-8 -right-4 sm:-right-8 max-w-xs rounded-2xl bg-navy text-ivory p-6 shadow-soft">
               <Quote className="h-5 w-5 text-gold" />
-              <p className="mt-3 font-display italic text-lg leading-snug">"A document that finally sounded like me — only sharper."</p>
-              <p className="mt-3 text-xs uppercase tracking-[0.22em] text-ivory/60">— Anya K., Director</p>
+              <p className="mt-3 font-display italic text-lg leading-snug">
+                "A document that finally sounded like me — only sharper."
+              </p>
+              <p className="mt-3 text-xs uppercase tracking-[0.22em] text-ivory/60">
+                — Anya K., Director
+              </p>
             </div>
           </Reveal>
 
           <Reveal delay={120} className="order-1 lg:order-2">
             <p className="text-xs uppercase tracking-[0.28em] text-gold">— Our approach</p>
             <h2 className="font-display text-4xl sm:text-5xl lg:text-[3.5rem] mt-4 leading-[1.05] text-balance">
-              A professionally written résumé is still one of the <em>most powerful tools</em> in your career.
+              A professionally written résumé is still one of the <em>most powerful tools</em> in
+              your career.
             </h2>
             <p className="mt-6 text-foreground/70 text-lg leading-relaxed">
               We work directly with you — not through questionnaires. Through a personalized
-              consultation, career assessment, and strategic resume development process, you
-              receive an ATS-optimized résumé designed to attract recruiters, hiring managers,
-              and executive decision-makers.
+              consultation, career assessment, and strategic resume development process, you receive
+              an ATS-optimized résumé designed to attract recruiters, hiring managers, and executive
+              decision-makers.
             </p>
             <ul className="mt-8 space-y-4">
               {[
@@ -912,7 +1073,14 @@ function Home() {
       <section className="mx-auto max-w-7xl px-5 sm:px-8 pb-24">
         <div className="relative overflow-hidden rounded-[2rem] bg-navy-deep text-ivory p-10 sm:p-16 grid gap-10 lg:grid-cols-[1.4fr_1fr] items-center">
           <div className="absolute inset-0 opacity-40">
-            <img src={interview} alt="" className="h-full w-full object-cover object-right" loading="lazy" width={1600} height={900} />
+            <img
+              src={interview}
+              alt=""
+              className="h-full w-full object-cover object-right"
+              loading="lazy"
+              width={1600}
+              height={900}
+            />
             <div className="absolute inset-0 bg-gradient-to-r from-navy-deep via-navy-deep/85 to-navy-deep/10" />
           </div>
           <div className="relative">
@@ -920,13 +1088,22 @@ function Home() {
             <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl mt-4 leading-[1.05] text-balance">
               The next move begins with a <em className="text-gold">conversation.</em>
             </h2>
-            <p className="mt-5 max-w-lg text-ivory/75 text-lg">Tell us where you want to be in eighteen months. We'll show you the paper trail that gets you there.</p>
+            <p className="mt-5 max-w-lg text-ivory/75 text-lg">
+              Tell us where you want to be in eighteen months. We'll show you the paper trail that
+              gets you there.
+            </p>
           </div>
           <div className="relative flex flex-col gap-3 lg:items-end">
-            <Link to="/contact" className="inline-flex items-center justify-center rounded-full bg-gold text-navy-deep px-8 py-4 text-sm font-semibold hover:bg-gold-soft transition-colors">
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-center rounded-full bg-gold text-navy-deep px-8 py-4 text-sm font-semibold hover:bg-gold-soft transition-colors"
+            >
               Book a free consultation
             </Link>
-            <Link to="/services" className="text-sm text-ivory/80 hover:text-gold transition-colors">
+            <Link
+              to="/services"
+              className="text-sm text-ivory/80 hover:text-gold transition-colors"
+            >
               Or browse our services →
             </Link>
           </div>
@@ -949,10 +1126,16 @@ function ReviewCard({ t }: { t: (typeof TESTIMONIALS)[number] }) {
           {t.industry}
         </span>
       </div>
-      <blockquote className="mt-6 flex-1 font-display italic text-xl leading-snug">"{t.quote}"</blockquote>
+      <blockquote className="mt-6 flex-1 font-display italic text-xl leading-snug">
+        "{t.quote}"
+      </blockquote>
       <figcaption className="mt-8 flex items-center gap-3 border-t border-border pt-6">
         <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-navy text-ivory font-display text-sm">
-          {t.name.replace(/^Dr\.\s*/, "").split(" ").map((p) => p[0]).join("")}
+          {t.name
+            .replace(/^Dr\.\s*/, "")
+            .split(" ")
+            .map((p) => p[0])
+            .join("")}
         </span>
         <div>
           <p className="font-medium leading-tight">{t.name}</p>

@@ -19,7 +19,7 @@ const NAV = [
   { to: "/", label: "Home", icon: Home },
   { to: "/services", label: "Services", icon: Briefcase },
   { to: "/pricing", label: "Pricing", icon: Tag },
-  { to: "/about", label: "About", icon: Info },
+  { to: "/about", label: "Success Stories", icon: Info },
   { to: "/faq", label: "FAQ", icon: HelpCircle },
   { to: "/contact", label: "Contact", icon: Mail },
 ] as const;
@@ -27,7 +27,7 @@ const NAV = [
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [mobileTab, setMobileTab] = useState<"services" | "menu">("services");
+  const [servicesOpen, setServicesOpen] = useState(false);
 
   useEffect(() => {
     const on = () => setScrolled(window.scrollY > 12);
@@ -147,9 +147,9 @@ export function SiteHeader() {
           />
 
           {/* panel */}
-          <div className="absolute inset-y-0 left-0 w-full sm:max-w-md flex flex-col bg-[#f8f9fa] shadow-2xl animate-in slide-in-from-left duration-400">
+          <div className="absolute inset-y-0 left-0 w-full sm:max-w-md flex flex-col bg-gradient-to-b from-white via-[#dceef3] to-[#bde0ea] shadow-2xl animate-in slide-in-from-left duration-400">
             {/* Top Bar */}
-            <div className="flex items-center justify-between px-6 py-4 bg-white border-b border-border/40">
+            <div className="flex items-center justify-between px-6 py-4 bg-transparent border-b border-border/40">
               <img src={logo} alt="Hire Career Coach" className="h-12 w-auto" />
               <button
                 aria-label="Close menu"
@@ -160,73 +160,82 @@ export function SiteHeader() {
               </button>
             </div>
 
-            {/* Tabs */}
-            <div className="grid grid-cols-2 bg-[#f1f3f5] border-b border-border">
-              <button
-                onClick={() => setMobileTab("services")}
-                className={[
-                  "py-3.5 text-xs font-bold uppercase tracking-wider transition-colors duration-200 border-r border-border/40",
-                  mobileTab === "services"
-                    ? "bg-white text-[#0a7a9b] border-b-2 border-[#0a7a9b]"
-                    : "bg-[#e9ecef] text-foreground/50 hover:bg-[#e2e6ea] hover:text-foreground",
-                ].join(" ")}
-              >
-                Services
-              </button>
-              <button
-                onClick={() => setMobileTab("menu")}
-                className={[
-                  "py-3.5 text-xs font-bold uppercase tracking-wider transition-colors duration-200",
-                  mobileTab === "menu"
-                    ? "bg-white text-[#0a7a9b] border-b-2 border-[#0a7a9b]"
-                    : "bg-[#e9ecef] text-foreground/50 hover:bg-[#e2e6ea] hover:text-foreground",
-                ].join(" ")}
-              >
-                Menu
-              </button>
-            </div>
-
             {/* List Content */}
-            <div className="flex-1 overflow-y-auto bg-white">
-              {mobileTab === "services" ? (
-                <div className="divide-y divide-border/60">
-                  {SERVICES.map((s) => (
-                    <Link
-                      key={s.slug}
-                      to="/services"
-                      hash={s.slug}
-                      onClick={() => setOpen(false)}
-                      className="flex items-center gap-4 bg-white px-6 py-4 text-sm font-semibold text-foreground/90 transition-colors hover:bg-cream/40"
-                    >
-                      <s.icon className="h-5 w-5 text-foreground/60 shrink-0" />
-                      <span>{s.title}</span>
-                    </Link>
-                  ))}
-                </div>
-              ) : (
-                <div className="divide-y divide-border/60">
-                  {NAV.map((n) => (
-                    <div key={n.to}>
-                      <Link
-                        to={n.to}
-                        onClick={() => setOpen(false)}
-                        activeOptions={{ exact: n.to === "/" }}
-                        activeProps={{ className: "bg-cream/50 !text-[#0a7a9b]" }}
-                        className="flex items-center gap-4 bg-white px-6 py-4 text-sm font-semibold text-foreground/90 transition-colors hover:bg-cream/40"
-                      >
-                        <n.icon className="h-5 w-5 text-foreground/60 shrink-0" />
-                        <span>{n.label}</span>
-                      </Link>
+            <div className="flex-1 overflow-y-auto bg-transparent">
+              <div className="divide-y divide-border/60">
+                {NAV.map((n) => {
+                  if (n.to === "/services") {
+                    return (
+                      <div key={n.to} className="flex flex-col">
+                        <button
+                          onClick={() => setServicesOpen(!servicesOpen)}
+                          className="flex items-center justify-between w-full px-6 py-4 text-sm font-semibold text-foreground/90 hover:bg-cream/40 transition-colors border-b border-border/40"
+                        >
+                          <div className="flex items-center gap-4">
+                            <n.icon className="h-5 w-5 text-foreground/60 shrink-0" />
+                            <span>{n.label}</span>
+                          </div>
+                          <ChevronDown
+                            className={[
+                              "h-4 w-4 text-foreground/60 transition-transform duration-300",
+                              servicesOpen ? "rotate-180" : "",
+                            ].join(" ")}
+                          />
+                        </button>
 
-                      {/* Packages Sub-menu inside the Menu list if Pricing is selected */}
-                    </div>
-                  ))}
-                </div>
-              )}
+                        {/* Collapsible services list */}
+                        <div
+                          className={[
+                            "transition-all duration-300 overflow-hidden",
+                            servicesOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0",
+                          ].join(" ")}
+                        >
+                          <div className="bg-slate-50/50 py-1 pl-4 divide-y divide-border/40">
+                            {SERVICES.map((s) => (
+                              <Link
+                                key={s.slug}
+                                to="/services"
+                                hash={s.slug}
+                                onClick={() => setOpen(false)}
+                                className="flex items-center gap-3 px-6 py-3.5 text-xs font-bold text-foreground/80 hover:text-[#0a7a9b] transition-colors"
+                              >
+                                <s.icon className="h-4 w-4 text-[#0a7a9b] shrink-0" />
+                                <span>{s.title}</span>
+                              </Link>
+                            ))}
+                            <Link
+                              to="/services"
+                              onClick={() => setOpen(false)}
+                              className="flex items-center gap-2 px-6 py-3 text-xs font-extrabold text-gold hover:text-gold/80 transition-colors"
+                            >
+                              <span>All Services</span>
+                              <ArrowUpRight className="h-3.5 w-3.5" />
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  }
+
+                  return (
+                    <Link
+                      key={n.to}
+                      to={n.to}
+                      onClick={() => setOpen(false)}
+                      activeOptions={{ exact: n.to === "/" }}
+                      activeProps={{ className: "bg-cream/50 !text-[#0a7a9b]" }}
+                      className="flex items-center gap-4 px-6 py-4 text-sm font-semibold text-foreground/90 transition-colors hover:bg-cream/40"
+                    >
+                      <n.icon className="h-5 w-5 text-foreground/60 shrink-0" />
+                      <span>{n.label}</span>
+                    </Link>
+                  );
+                })}
+              </div>
             </div>
 
             {/* Bottom CTA Block */}
-            <div className="px-6 py-5 bg-white border-t border-border/80">
+            <div className="px-6 py-5 bg-transparent border-t border-border/80">
               <Link
                 to="/contact"
                 onClick={() => setOpen(false)}

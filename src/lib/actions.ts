@@ -146,7 +146,7 @@ export const completeOrderAndSendEmail = createServerFn({ method: "POST" })
     const smtpPort = parseInt(cleanEnvStr(process.env.SMTP_PORT || "587"), 10);
     const smtpUser = cleanEnvStr(process.env.SMTP_USER || "");
     const smtpPass = cleanEnvStr(process.env.SMTP_PASS || "");
-    const adminEmail = cleanEnvStr(process.env.ADMIN_EMAIL || "hello@hirecareercoach.com");
+    const adminEmail = cleanEnvStr(process.env.ADMIN_EMAIL || "contact@hirecareercoach.com");
     const emailCc = cleanEnvStr(process.env.EMAIL_CC || "");
 
     // Verify status directly with Stripe to prevent client-side tampering
@@ -276,7 +276,7 @@ export const completeOrderAndSendEmail = createServerFn({ method: "POST" })
         html: string;
         attachments?: { filename: string; content: Buffer }[];
       } = {
-        from: `"Hire Career Coach Orders" <${hasAuth ? smtpUser : "hello@hirecareercoach.com"}>`,
+        from: `"Hire Career Coach Orders" <${hasAuth ? smtpUser : "contact@hirecareercoach.com"}>`,
         to: recipients,
         subject: `ORDER COMPLETED: ${orderNumber} - ${personalInfo.fullName}`,
         html: htmlBody,

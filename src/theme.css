@@ -36,12 +36,12 @@
          classes like bg-navy / text-gold keep working — only the
          VALUES changed to the new scheme.)
      ------------------------------------------------------------------ */
-  --navy: #1f2329;        /* near-black — dark buttons / dark surfaces   */
-  --navy-deep: #0b0d0f;   /* black — primary text                        */
-  --gold: #2cbacc;        /* greenish blue — accent / highlights         */
-  --gold-soft: #7fd6e0;   /* lighter greenish blue — soft accent         */
-  --ivory: #ffffff;       /* white — main background                     */
-  --cream: #f3f5f6;       /* light grey — soft section backgrounds       */
+  --navy: #1f2329; /* near-black — dark buttons / dark surfaces   */
+  --navy-deep: #0b0d0f; /* black — primary text                        */
+  --gold: #2cbacc; /* greenish blue — accent / highlights         */
+  --gold-soft: #7fd6e0; /* lighter greenish blue — soft accent         */
+  --ivory: #ffffff; /* white — main background                     */
+  --cream: #f3f5f6; /* light grey — soft section backgrounds       */
 
   /* Neutral greys used by semantic roles below */
   --grey-100: #eef0f1;
@@ -52,25 +52,25 @@
      3. LIGHT THEME  —  semantic roles built from the brand colors.
         (These are what the UI components actually reference.)
      ------------------------------------------------------------------ */
-  --background: var(--ivory);            /* white  */
-  --foreground: var(--navy-deep);        /* black  */
+  --background: var(--ivory); /* white  */
+  --foreground: var(--navy-deep); /* black  */
   --card: #ffffff;
   --card-foreground: var(--navy-deep);
   --popover: #ffffff;
   --popover-foreground: var(--navy-deep);
-  --primary: var(--navy);                /* near-black buttons */
-  --primary-foreground: var(--ivory);    /* white text on them */
-  --secondary: var(--cream);             /* light grey */
+  --primary: var(--navy); /* near-black buttons */
+  --primary-foreground: var(--ivory); /* white text on them */
+  --secondary: var(--cream); /* light grey */
   --secondary-foreground: var(--navy-deep);
-  --muted: var(--grey-100);              /* light grey */
-  --muted-foreground: var(--grey-500);   /* mid grey   */
-  --accent: var(--gold);                 /* greenish blue */
+  --muted: var(--grey-100); /* light grey */
+  --muted-foreground: var(--grey-500); /* mid grey   */
+  --accent: var(--gold); /* greenish blue */
   --accent-foreground: var(--navy-deep);
-  --destructive: #dc2626;                /* red (errors) */
+  --destructive: #dc2626; /* red (errors) */
   --destructive-foreground: #ffffff;
-  --border: var(--grey-200);             /* grey */
+  --border: var(--grey-200); /* grey */
   --input: var(--grey-200);
-  --ring: var(--gold);                   /* greenish blue focus ring */
+  --ring: var(--gold); /* greenish blue focus ring */
 
   /* Chart palette */
   --chart-1: var(--navy);
@@ -93,13 +93,13 @@
       (Black background, white text, greenish-blue accent.)
    ------------------------------------------------------------------ */
 .dark {
-  --background: var(--navy-deep);        /* black */
-  --foreground: var(--ivory);            /* white */
+  --background: var(--navy-deep); /* black */
+  --foreground: var(--ivory); /* white */
   --card: #15181c;
   --card-foreground: var(--ivory);
   --popover: #15181c;
   --popover-foreground: var(--ivory);
-  --primary: var(--gold);                /* greenish blue */
+  --primary: var(--gold); /* greenish blue */
   --primary-foreground: var(--navy-deep);
   --secondary: #1f2329;
   --secondary-foreground: var(--ivory);

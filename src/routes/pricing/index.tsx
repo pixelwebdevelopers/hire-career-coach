@@ -46,7 +46,7 @@ const LEVELS = [
   {
     id: "mid",
     num: "02",
-    title: "Mid-Level",
+    title: "Mid Career",
     desc: "4 - 9 Years of Experience",
     icon: Briefcase,
     fits: ["Individual Contributors", "Specialists", "Supervisors", "Experienced Professionals"],
@@ -54,7 +54,7 @@ const LEVELS = [
   {
     id: "senior",
     num: "03",
-    title: "Senior-Level",
+    title: "Senior Management",
     desc: "10+ Years of Experience",
     icon: Users,
     fits: ["Managers", "Senior Managers", "Directors", "Department Leaders"],
@@ -160,7 +160,9 @@ function PricingOverview() {
                 <h3 className="mt-5 font-display text-base xl:text-lg font-bold uppercase tracking-wider text-[#0a7a9b]">
                   {lvl.title}
                 </h3>
-                <p className="mt-1 text-xs xl:text-sm font-semibold text-foreground/60">{lvl.desc}</p>
+                <p className="mt-1 text-xs xl:text-sm font-semibold text-foreground/60">
+                  {lvl.desc}
+                </p>
 
                 <div className="my-5 h-px w-full bg-border/60" />
 

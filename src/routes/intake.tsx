@@ -132,11 +132,6 @@ function IntakePage() {
       return;
     }
 
-    if (!file) {
-      toast.error("Please upload your current resume to proceed.");
-      return;
-    }
-
     setIsSubmitting(true);
     const loadingToast = toast.loading("Submitting your intake form details...");
 
@@ -146,8 +141,8 @@ function IntakePage() {
         professionalInfo: { currentTitle, targetTitles, linkedin },
         cart,
         notes,
-        fileName: file.name,
-        fileBase64,
+        fileName: file ? file.name : "",
+        fileBase64: file ? fileBase64 : "",
       };
 
       // Save locally to persist selection state
@@ -348,11 +343,13 @@ function IntakePage() {
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#0a7a9b]/10 text-[#0a7a9b]">
                   <UploadCloud className="h-5 w-5" />
                 </div>
-                <h3 className="font-display text-lg font-bold text-navy-deep">Resume Upload</h3>
+                <h3 className="font-display text-lg font-bold text-navy-deep">
+                  Resume Upload (Optional)
+                </h3>
               </div>
 
               <p className="text-xs text-foreground/60 mb-4">
-                Please upload your current resume (PDF, DOCX, or DOC)
+                Please upload your current resume if available (PDF, DOCX, or DOC) (Optional)
               </p>
 
               {/* Drag drop area */}

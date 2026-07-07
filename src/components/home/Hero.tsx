@@ -40,8 +40,8 @@ const SLIDES: Slide[] = [
     title: [
       { t: "Elevate your", br: true },
       { t: "career with a", br: true },
-      { t: "resume that", br: true },
-      { t: "gets noticed", gold: true, italic: true },
+      { t: "resume", gold: true, italic: true, br: true },
+      { t: "that gets noticed" },
     ],
     caption:
       "ATS-optimized resumes tailored to your experience, industry, and career goals. Designed to help you stand out and secure interviews.",
@@ -56,10 +56,8 @@ const SLIDES: Slide[] = [
     img: h2,
     eyebrow: "Resume Review & Audit",
     title: [
-      { t: "Discover", br: true },
-      { t: "what's" },
-      { t: "holding", gold: true, italic: true, br: true },
-      { t: "your" },
+      { t: "Discover what's", br: true },
+      { t: "holding your", br: true },
       { t: "resume", gold: true, italic: true, br: true },
       { t: "back" },
     ],
@@ -77,10 +75,8 @@ const SLIDES: Slide[] = [
     eyebrow: "LinkedIn Optimization",
     title: [
       { t: "Turn your", br: true },
-      { t: "LinkedIn profile", br: true },
-      { t: "into a" },
-      { t: "recruiter", gold: true, italic: true, br: true },
-      { t: "magnet", gold: true },
+      { t: "LinkedIn profile", gold: true, italic: true, br: true },
+      { t: "into a recruiter magnet" },
     ],
     caption:
       "Optimize your headline, experience, keywords, and professional presence to increase visibility and attract more opportunities.",
@@ -96,9 +92,8 @@ const SLIDES: Slide[] = [
     eyebrow: "Interview Preparation",
     title: [
       { t: "Land", br: true },
-      { t: "interviews", br: true },
-      { t: "that turn into", br: true },
-      { t: "offers", gold: true, italic: true },
+      { t: "interviews", gold: true, italic: true, br: true },
+      { t: "that turn into offers" },
     ],
     caption:
       "Build confidence, refine your communication, and learn proven interview strategies through personalized coaching and mock sessions.",
@@ -114,9 +109,8 @@ const SLIDES: Slide[] = [
     eyebrow: "Career Strategy Session",
     title: [
       { t: "Build a", br: true },
-      { t: "smarter path", gold: true, italic: true, br: true },
-      { t: "toward your", br: true },
-      { t: "next opportunity" },
+      { t: "career strategy", gold: true, italic: true, br: true },
+      { t: "for your next opportunity" },
     ],
     caption:
       "Personalized guidance for career growth, job search strategy, networking, salary negotiation, and long-term career planning.",
@@ -275,8 +269,8 @@ function HeroCopy({ slide, idx }: { slide: Slide; idx: number }) {
             <span
               className={[
                 "word-wipe mr-2 sm:mr-3",
-                w.italic ? "italic font-normal" : "font-extrabold",
-                w.gold || w.italic ? "text-[#0a7a9b]" : "text-navy-deep",
+                w.gold || w.italic ? "font-extrabold text-[#0a7a9b]" : "font-medium text-navy-deep",
+                w.italic ? "italic" : "",
               ].join(" ")}
               style={{ "--rd": `${140 + i * 110}ms` } as React.CSSProperties}
             >

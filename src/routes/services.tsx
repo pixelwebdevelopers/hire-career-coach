@@ -9,9 +9,16 @@ export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
       { title: "Services — Hire Career Coach" },
-      { name: "description", content: "Resume writing, ATS audits, LinkedIn optimization, interview prep, personal branding, ghostwriting and career coaching for every stage." },
+      {
+        name: "description",
+        content:
+          "Resume writing, ATS audits, LinkedIn optimization, interview prep, personal branding, ghostwriting and career coaching for every stage.",
+      },
       { property: "og:title", content: "Professional Career Services — Hire Career Coach" },
-      { property: "og:description", content: "Ten ways we move your career forward — from first résumé to executive narrative." },
+      {
+        property: "og:description",
+        content: "Ten ways we move your career forward — from first résumé to executive narrative.",
+      },
       { property: "og:image", content: workspace },
     ],
   }),
@@ -50,7 +57,11 @@ function ServicesPage() {
     <>
       <PageHero
         eyebrow="Professional Career Services"
-        title={[{ t: "Every chapter of your", italic: true }, { t: "career,", gold: true }, { t: "written by experts who understand your industry."}]}
+        title={[
+          { t: "Every chapter of your", italic: true },
+          { t: "career,", gold: true },
+          { t: "written by experts who understand your industry." },
+        ]}
         sub="From ATS-optimized resumes to LinkedIn profiles and career coaching, every service is delivered with a personalized approach by experienced career specialists—not junior writers using generic templates. Because your career deserves strategy, expertise, and results"
       />
 
@@ -83,12 +94,17 @@ function ServicesPage() {
         {/* Closing CTA */}
         <Reveal className="mt-16 rounded-3xl bg-navy text-ivory p-10 sm:p-14 flex flex-col lg:flex-row gap-6 lg:items-center lg:justify-between">
           <div>
-            <p className="text-xs uppercase tracking-[0.22em] text-gold">— Ready to accelerate your career?</p>
+            <p className="text-xs uppercase tracking-[0.22em] text-gold">
+              — Ready to accelerate your career?
+            </p>
             <h3 className="font-display text-3xl sm:text-4xl mt-3 leading-tight max-w-2xl">
               Tell us where you want to be. We'll show you the paper trail that gets you there.
             </h3>
           </div>
-          <Link to="/pricing" className="inline-flex items-center justify-center gap-2 rounded-full bg-gold text-navy-deep px-7 py-3.5 font-semibold whitespace-nowrap hover:bg-gold-soft transition-colors">
+          <Link
+            to="/pricing"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-gold text-navy-deep px-7 py-3.5 font-semibold whitespace-nowrap hover:bg-gold-soft transition-colors"
+          >
             Explore Packages <ArrowUpRight className="h-4 w-4" />
           </Link>
         </Reveal>
@@ -114,7 +130,9 @@ function ServiceDetail({ s }: { s: (typeof SERVICES)[number] }) {
             <p className="text-xs uppercase tracking-[0.28em] text-gold">{s.title}</p>
           </div>
 
-          <h2 className="mt-6 font-display text-3xl sm:text-4xl leading-[1.1] text-balance">{s.headline}</h2>
+          <h2 className="mt-6 font-display text-3xl sm:text-4xl lg:text-4xl font-extrabold text-navy-deep leading-[1.1] text-balance">
+            {s.headline}
+          </h2>
 
           <div className="mt-5 space-y-4 text-foreground/70 leading-relaxed">
             {s.intro.map((p, i) => (
@@ -138,7 +156,9 @@ function ServiceDetail({ s }: { s: (typeof SERVICES)[number] }) {
 
         {/* Right: what you'll get */}
         <div className="lg:border-l lg:border-border lg:pl-14">
-          <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">What you'll get</p>
+          <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
+            What you'll get
+          </p>
           <ul className="mt-6 space-y-4">
             {s.features.map((f) => (
               <li key={f} className="flex items-start gap-3">
@@ -156,20 +176,31 @@ function ServiceDetail({ s }: { s: (typeof SERVICES)[number] }) {
   );
 }
 
-export function PageHero({ eyebrow, title, sub }: { eyebrow: string; title: { t: string; gold?: boolean; italic?: boolean }[]; sub: string }) {
+export function PageHero({
+  eyebrow,
+  title,
+  sub,
+}: {
+  eyebrow: string;
+  title: { t: string; gold?: boolean; italic?: boolean }[];
+  sub: string;
+}) {
   return (
     <section className="relative overflow-hidden">
       <div className="pointer-events-none absolute -top-40 -right-40 h-[36rem] w-[36rem] rounded-full bg-gold/10 blur-3xl" />
       <div className="mx-auto max-w-7xl px-5 sm:px-8 pt-16 sm:pt-24 pb-16">
         <p className="reveal-mask text-xs uppercase tracking-[0.3em] text-gold">
-          <span style={{ ['--rd' as any]: '0ms' }}>— {eyebrow}</span>
+          <span style={{ "--rd": "0ms" } as React.CSSProperties}>— {eyebrow}</span>
         </p>
         <h1 className="font-display mt-6 text-5xl sm:text-6xl lg:text-7xl leading-[1.05] text-balance max-w-5xl">
           {title.map((w, i) => (
             <span key={i} className="reveal-mask mr-3">
               <span
-                style={{ ['--rd' as any]: `${100 + i * 120}ms` }}
-                className={[w.italic ? "italic font-normal" : "font-medium", w.gold ? "text-transparent bg-clip-text bg-gradient-gold" : ""].join(" ")}
+                style={{ "--rd": `${100 + i * 120}ms` } as React.CSSProperties}
+                className={[
+                  w.italic ? "italic font-normal" : "font-medium",
+                  w.gold ? "text-transparent bg-clip-text bg-gradient-gold" : "",
+                ].join(" ")}
               >
                 {w.t}
               </span>
@@ -177,7 +208,7 @@ export function PageHero({ eyebrow, title, sub }: { eyebrow: string; title: { t:
           ))}
         </h1>
         <p className="reveal-mask block mt-8 max-w-2xl text-lg text-foreground/70 leading-relaxed">
-          <span style={{ ['--rd' as any]: '600ms' }}>{sub}</span>
+          <span style={{ "--rd": "600ms" } as React.CSSProperties}>{sub}</span>
         </p>
       </div>
       <div className="hairline" />

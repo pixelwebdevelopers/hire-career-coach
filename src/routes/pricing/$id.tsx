@@ -88,74 +88,61 @@ const LEVEL_DATA: Record<
     badgeText: "All packages include ATS optimization and professional formatting.",
     packages: [
       {
-        name: "Resume Writing",
-        category: "ESSENTIAL PACKAGE",
-        icon: FileText,
+        name: "Resume + Cover Letter",
+        category: "BASIC PACKAGE",
+        icon: Mail,
         price: 120,
         features: [
-          "ATS-Optimized Resume",
-          "Keyword Optimization",
-          "Achievement-Focused Content",
-          "Professional Formatting",
-          "2 Rounds of Revisions",
-          "5 Business Day Turnaround",
-        ],
-      },
-      {
-        name: "Resume + Cover Letter",
-        category: "PROFESSIONAL PACKAGE",
-        icon: Mail,
-        price: 170,
-        features: [
-          "ATS-Optimized Resume",
-          "Custom Cover Letter",
-          "Keyword & Skills Optimization",
-          "Professional Formatting",
-          "2 Rounds of Revisions",
+          "Executive **Resume**",
+          "Executive **Cover Letter**",
+          "2 **Revisions**",
           "5 Business Day Turnaround",
         ],
       },
       {
         name: "Resume + Cover Letter + LinkedIn Optimization",
-        category: "CAREER LAUNCH PACKAGE",
+        category: "ADVANCED PACKAGE",
         icon: Linkedin,
-        price: 250,
-        popular: true,
+        price: 180,
         features: [
-          "ATS-Optimized Resume",
-          "Custom Cover Letter",
-          "LinkedIn Profile Optimization",
-          "Keyword & Skills Optimization",
-          "Professional Formatting",
-          "2 Rounds of Revisions",
+          "Executive **Resume**",
+          "Executive **Cover Letter**",
+          "**LinkedIn** Optimization",
+          "2 **Revisions**",
           "5 Business Day Turnaround",
         ],
       },
       {
         name: "Resume + Cover Letter + Career Profile Enhancement",
-        category: "CAREER BOOST PACKAGE",
+        category: "PROFESSIONAL PACKAGE",
         icon: Users,
         price: 230,
+        popular: true,
         features: [
-          "ATS-Optimized Resume",
-          "Custom Cover Letter",
-          "Career Profile Enhancement (Headshot + Banner)",
-          "Professional Formatting",
-          "2 Rounds of Revisions",
+          "Executive **Resume**",
+          "Executive **Cover Letter**",
+          "**LinkedIn** Optimization",
+          "**Career Profile** Enhancement",
+          "**Indeed** Optimization",
+          "30-Day Email Support",
+          "2 **Revisions**",
           "5 Business Day Turnaround",
         ],
       },
       {
         name: "Resume + Career Strategy Session",
-        category: "CAREER CLARITY PACKAGE",
+        category: "CAREER STRATEGY PACKAGE",
         icon: Target,
-        price: 270,
+        price: 250,
         features: [
-          "ATS-Optimized Resume",
-          "1-on-1 Career Strategy Session (60 Minutes)",
+          "90-Minute One-on-One **Career Strategy** Session",
+          "Executive **Resume** Writing",
+          "**Indeed** Optimization",
+          "Networking Templates",
           "Personalized Career Roadmap",
-          "Action Plan & Next Steps",
-          "2 Rounds of Revisions",
+          "Job Search & Positioning Strategy",
+          "30-Day Email Support",
+          "2 **Revisions**",
           "5 Business Day Turnaround",
         ],
       },
@@ -163,9 +150,9 @@ const LEVEL_DATA: Record<
     individualServices: [
       {
         id: "resume",
-        title: "Resume Writing",
+        title: "Executive Resume Writing",
         desc: "Professionally written, ATS-optimized resume.",
-        price: 120,
+        price: 90,
         icon: FileText,
       },
       {
@@ -177,16 +164,16 @@ const LEVEL_DATA: Record<
       },
       {
         id: "cover_letter",
-        title: "Cover Letter Writing",
+        title: "Executive Cover Letter Writing",
         desc: "Personalized cover letter tailored to your goals.",
-        price: 70,
+        price: 60,
         icon: Mail,
       },
       {
         id: "linkedin",
         title: "LinkedIn Optimization",
         desc: "Optimize your profile to attract recruiters.",
-        price: 110,
+        price: 100,
         icon: Linkedin,
       },
       {
@@ -214,73 +201,57 @@ const LEVEL_DATA: Record<
         id: "website",
         title: "Professional Portfolio Website",
         desc: "Custom portfolio to showcase your work.",
-        price: 400,
+        price: 250,
         icon: Briefcase,
       },
     ],
   },
   mid: {
-    levelName: "Mid-Career",
+    levelName: "Mid Career",
     stage: "4 - 9 Years of Experience",
     desc: "Take the next step in your career with strategic documents and expert support designed for experienced professionals.",
     rushPrice: 50,
     badgeText: "All packages include ATS optimization and professional formatting.",
     packages: [
       {
-        name: "Resume Writing",
-        category: "PROFESSIONAL PACKAGE",
-        icon: FileText,
-        price: 150,
-        features: [
-          "ATS-Optimized Resume",
-          "Keyword Optimization",
-          "Achievement-Focused Content",
-          "Professional Formatting",
-          "2 Rounds of Revisions",
-          "5 Business Day Turnaround",
-        ],
-      },
-      {
         name: "Resume + Cover Letter",
-        category: "CAREER ADVANCEMENT PACKAGE",
+        category: "BASIC PACKAGE",
         icon: Mail,
-        price: 200,
+        price: 160,
         features: [
-          "ATS-Optimized Resume",
-          "Custom Cover Letter",
-          "Keyword & Skills Optimization",
-          "Professional Formatting",
-          "2 Rounds of Revisions",
+          "Executive **Resume**",
+          "Executive **Cover Letter**",
+          "2 **Revisions**",
           "5 Business Day Turnaround",
         ],
       },
       {
         name: "Resume + Cover Letter + LinkedIn Optimization",
-        category: "CAREER GROWTH PACKAGE",
+        category: "ADVANCED PACKAGE",
         icon: Linkedin,
-        price: 270,
-        popular: true,
+        price: 220,
         features: [
-          "ATS-Optimized Resume",
-          "Custom Cover Letter",
-          "LinkedIn Profile Optimization",
-          "Keyword & Skills Optimization",
-          "Professional Formatting",
-          "2 Rounds of Revisions",
+          "Executive **Resume**",
+          "Executive **Cover Letter**",
+          "**LinkedIn** Optimization",
+          "2 **Revisions**",
           "5 Business Day Turnaround",
         ],
       },
       {
         name: "Resume + Cover Letter + Career Profile Enhancement",
-        category: "LEADERSHIP PACKAGE",
+        category: "PROFESSIONAL PACKAGE",
         icon: Users,
-        price: 290,
+        price: 280,
+        popular: true,
         features: [
-          "ATS-Optimized Resume",
-          "Custom Cover Letter",
-          "Career Profile Enhancement (Headshot + Banner)",
-          "Professional Formatting",
-          "2 Rounds of Revisions",
+          "Executive **Resume**",
+          "Executive **Cover Letter**",
+          "**LinkedIn** Optimization",
+          "**Career Profile** Enhancement",
+          "**Indeed** Optimization",
+          "30-Day Email Support",
+          "2 **Revisions**",
           "5 Business Day Turnaround",
         ],
       },
@@ -290,11 +261,14 @@ const LEVEL_DATA: Record<
         icon: Target,
         price: 300,
         features: [
-          "ATS-Optimized Resume",
-          "1-on-1 Career Strategy Session (60 Minutes)",
+          "90-Minute One-on-One **Career Strategy** Session",
+          "Executive **Resume** Writing",
+          "**Indeed** Optimization",
+          "Networking Templates",
           "Personalized Career Roadmap",
-          "Action Plan & Next Steps",
-          "2 Rounds of Revisions",
+          "Job Search & Positioning Strategy",
+          "30-Day Email Support",
+          "2 **Revisions**",
           "5 Business Day Turnaround",
         ],
       },
@@ -302,23 +276,23 @@ const LEVEL_DATA: Record<
     individualServices: [
       {
         id: "resume",
-        title: "Resume Writing",
+        title: "Executive Resume Writing",
         desc: "Professionally written, ATS-optimized resume.",
-        price: 150,
+        price: 120,
         icon: FileText,
       },
       {
         id: "audit",
         title: "Resume Review & ATS Audit",
         desc: "Detailed review with actionable recommendations.",
-        price: 60,
+        price: 50,
         icon: FileCheck2,
       },
       {
         id: "cover_letter",
-        title: "Cover Letter Writing",
+        title: "Executive Cover Letter Writing",
         desc: "Personalized cover letter tailored to your goals.",
-        price: 80,
+        price: 70,
         icon: Mail,
       },
       {
@@ -353,87 +327,74 @@ const LEVEL_DATA: Record<
         id: "website",
         title: "Professional Portfolio Website",
         desc: "Custom portfolio to showcase your work.",
-        price: 400,
+        price: 350,
         icon: Briefcase,
       },
     ],
   },
   senior: {
-    levelName: "Senior-Level",
+    levelName: "Senior Management",
     stage: "10+ Years of Experience",
     desc: "Advance your career to the next level with executive-caliber documents and strategic guidance that position you as a leader.",
     rushPrice: 70,
     badgeText: "All packages include ATS optimization and professional formatting.",
     packages: [
       {
-        name: "Resume Writing",
-        category: "LEADERSHIP ESSENTIALS",
-        icon: FileText,
-        price: 170,
-        features: [
-          "ATS-Optimized Resume",
-          "Achievement-Focused Content",
-          "Leadership & Impact Highlights",
-          "Professional Formatting",
-          "2 Rounds of Revisions",
-          "5 Business Day Turnaround",
-        ],
-      },
-      {
         name: "Resume + Cover Letter",
-        category: "DIRECTOR PACKAGE",
+        category: "BASIC PACKAGE",
         icon: Mail,
-        price: 220,
+        price: 180,
         features: [
-          "ATS-Optimized Resume",
-          "Custom Cover Letter",
-          "Achievement-Focused Content",
-          "Professional Formatting",
-          "2 Rounds of Revisions",
+          "Executive **Resume**",
+          "Executive **Cover Letter**",
+          "2 **Revisions**",
           "5 Business Day Turnaround",
         ],
       },
       {
         name: "Resume + Cover Letter + LinkedIn Optimization",
-        category: "EXECUTIVE ADVANCEMENT PACKAGE",
+        category: "ADVANCED PACKAGE",
         icon: Linkedin,
-        price: 300,
-        popular: true,
+        price: 250,
         features: [
-          "ATS-Optimized Resume",
-          "Custom Cover Letter",
-          "LinkedIn Profile Optimization",
-          "Keyword & Skills Optimization",
-          "Professional Formatting",
-          "2 Rounds of Revisions",
+          "Executive **Resume**",
+          "Executive **Cover Letter**",
+          "**LinkedIn** Optimization",
+          "2 **Revisions**",
           "5 Business Day Turnaround",
         ],
       },
       {
         name: "Resume + Cover Letter + Career Profile Enhancement",
-        category: "LEADERSHIP IMPACT PACKAGE",
+        category: "PROFESSIONAL PACKAGE",
         icon: Users,
-        price: 330,
+        price: 300,
+        popular: true,
         features: [
-          "ATS-Optimized Resume",
-          "Custom Cover Letter",
-          "Career Profile Enhancement (Headshot + Banner)",
-          "Professional Formatting",
-          "2 Rounds of Revisions",
+          "Executive **Resume**",
+          "Executive **Cover Letter**",
+          "**LinkedIn** Optimization",
+          "**Career Profile** Enhancement",
+          "**Indeed** Optimization",
+          "30-Day Email Support",
+          "2 **Revisions**",
           "5 Business Day Turnaround",
         ],
       },
       {
         name: "Resume + Career Strategy Session",
-        category: "EXECUTIVE STRATEGY PACKAGE",
+        category: "CAREER STRATEGY PACKAGE",
         icon: Target,
-        price: 375,
+        price: 350,
         features: [
-          "ATS-Optimized Resume",
-          "1-on-1 Career Strategy Session (60 Minutes)",
+          "90-Minute One-on-One **Career Strategy** Session",
+          "Executive **Resume** Writing",
+          "**Indeed** Optimization",
+          "Networking Templates",
           "Personalized Career Roadmap",
-          "Action Plan & Next Steps",
-          "2 Rounds of Revisions",
+          "Job Search & Positioning Strategy",
+          "30-Day Email Support",
+          "2 **Revisions**",
           "5 Business Day Turnaround",
         ],
       },
@@ -441,21 +402,21 @@ const LEVEL_DATA: Record<
     individualServices: [
       {
         id: "resume",
-        title: "Resume Writing",
+        title: "Executive Resume Writing",
         desc: "Professionally written, ATS-optimized resume.",
-        price: 170,
+        price: 150,
         icon: FileText,
       },
       {
         id: "audit",
         title: "Resume Review & ATS Audit",
         desc: "Detailed review with actionable recommendations.",
-        price: 80,
+        price: 70,
         icon: FileCheck2,
       },
       {
         id: "cover_letter",
-        title: "Cover Letter Writing",
+        title: "Executive Cover Letter Writing",
         desc: "Personalized cover letter tailored to your goals.",
         price: 90,
         icon: Mail,
@@ -492,7 +453,7 @@ const LEVEL_DATA: Record<
         id: "website",
         title: "Professional Portfolio Website",
         desc: "Custom portfolio to showcase your work.",
-        price: 400,
+        price: 450,
         icon: Briefcase,
       },
     ],
@@ -505,76 +466,62 @@ const LEVEL_DATA: Record<
     badgeText: "All packages include ATS optimization and executive-level formatting.",
     packages: [
       {
-        name: "Executive Resume Writing",
-        category: "EXECUTIVE ESSENTIALS",
-        icon: FileText,
-        price: 350,
-        features: [
-          "Executive Resume Writing",
-          "Leadership & Impact Highlights",
-          "ATS & Recruiter Optimized",
-          "2 Rounds of Revisions",
-          "5 Business Day Turnaround",
-        ],
-      },
-      {
         name: "Resume + Cover Letter",
-        category: "EXECUTIVE PROFESSIONAL",
+        category: "BASIC PACKAGE",
         icon: Mail,
-        price: 450,
+        price: 250,
         features: [
-          "Executive Resume Writing",
-          "Custom Executive Cover Letter",
-          "Leadership Branding",
-          "2 Rounds of Revisions",
+          "Executive **Resume**",
+          "Executive **Cover Letter**",
+          "2 **Revisions**",
           "5 Business Day Turnaround",
         ],
       },
       {
         name: "Resume + Cover Letter + LinkedIn Profile",
-        category: "EXECUTIVE LEADERSHIP PACKAGE",
+        category: "ADVANCED PACKAGE",
         icon: Linkedin,
-        price: 600,
-        popular: true,
+        price: 300,
         features: [
-          "Executive Resume Writing",
-          "Custom Executive Cover Letter",
-          "LinkedIn Profile Optimization",
-          "Leadership Branding",
-          "2 Rounds of Revisions",
+          "Executive **Resume**",
+          "Executive **Cover Letter**",
+          "**LinkedIn** Optimization",
+          "2 **Revisions**",
           "5 Business Day Turnaround",
         ],
       },
       {
         name: "Resume + Cover Letter + Career Profile Enhancement",
-        category: "EXECUTIVE CAREER TRANSFORMATION",
+        category: "PROFESSIONAL PACKAGE",
         icon: Users,
-        price: 750,
+        price: 350,
+        popular: true,
         features: [
-          "Executive Resume Writing",
-          "Custom Executive Cover Letter",
-          "LinkedIn Profile Optimization",
-          "Career Strategy Session (60 Min)",
-          "Personalized Career Roadmap",
-          "2 Rounds of Revisions",
+          "Executive **Resume**",
+          "Executive **Cover Letter**",
+          "**LinkedIn** Optimization",
+          "**Career Profile** Enhancement",
+          "Networking Templates",
+          "30-Minute **Career Strategy** Consultation",
+          "30-Day Email Support",
+          "2 **Revisions**",
           "5 Business Day Turnaround",
         ],
       },
       {
         name: "Resume + Career Strategy Session",
-        category: "EXECUTIVE VIP PACKAGE",
+        category: "RESUME + CAREER STRATEGY",
         icon: Crown,
-        price: 950,
+        price: 450,
         features: [
-          "Executive Resume Writing",
-          "Custom Executive Cover Letter",
-          "LinkedIn Profile Optimization",
-          "Career Strategy Session (90 Min)",
-          "Personal Brand Strategy",
+          "90-Minute One-on-One **Career Strategy** Session",
+          "Executive **Resume** Writing",
+          "Networking Templates",
+          "**Indeed** Optimization",
           "Personalized Career Roadmap",
-          "Priority Concierge Support",
-          "2 Rounds of Revisions",
-          "3 Business Day Turnaround",
+          "30-Day Email Support",
+          "2 **Revisions**",
+          "5 Business Day Turnaround",
         ],
       },
     ],
@@ -583,7 +530,7 @@ const LEVEL_DATA: Record<
         id: "resume",
         title: "Executive Resume Writing",
         desc: "Strategically written to showcase leadership and impact.",
-        price: 350,
+        price: 200,
         icon: FileText,
       },
       {
@@ -597,14 +544,14 @@ const LEVEL_DATA: Record<
         id: "cover_letter",
         title: "Executive Cover Letter Writing",
         desc: "Custom letter that strengthens your executive brand.",
-        price: 150,
+        price: 100,
         icon: Mail,
       },
       {
         id: "linkedin",
         title: "LinkedIn Profile Optimization",
         desc: "Elevate your LinkedIn profile to attract opportunities.",
-        price: 200,
+        price: 170,
         icon: Linkedin,
       },
       {
@@ -618,14 +565,14 @@ const LEVEL_DATA: Record<
         id: "strategy_60",
         title: "Career Strategy Session (60 Min)",
         desc: "1-on-1 session to clarify goals and create strategy.",
-        price: 225,
+        price: 200,
         icon: Target,
       },
       {
         id: "strategy_90",
         title: "Career Strategy Session (90 Min)",
         desc: "Deep-dive session with action plan and next steps.",
-        price: 325,
+        price: 250,
         icon: Crown,
       },
       {
@@ -639,7 +586,7 @@ const LEVEL_DATA: Record<
         id: "website",
         title: "Professional Portfolio Website",
         desc: "Custom portfolio to showcase your leadership.",
-        price: 600,
+        price: 500,
         icon: Briefcase,
       },
     ],
@@ -651,8 +598,26 @@ const TRUST_FACTORS = [
   { title: "Expert Writers", desc: "Professionals specialized in your field.", icon: Award },
   { title: "Personalized Service", desc: "Tailored strategies for your goals.", icon: ShieldCheck },
   { title: "Timely Delivery", desc: "On-time delivery you can count on.", icon: Clock },
-  { title: "Unlimited Revisions", desc: "We work until you're satisfied.", icon: HelpCircle },
+  {
+    title: "Revisions Included",
+    desc: "Revisions included to ensure satisfaction.",
+    icon: HelpCircle,
+  },
 ];
+
+const renderBoldText = (text: string) => {
+  const parts = text.split(/(\*\*.*?\*\*)/g);
+  return parts.map((part, index) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return (
+        <strong key={index} className="font-extrabold text-navy-deep">
+          {part.slice(2, -2)}
+        </strong>
+      );
+    }
+    return part;
+  });
+};
 
 function PackageSelectionPage() {
   const { id } = Route.useLoaderData();
@@ -831,32 +796,32 @@ function PackageSelectionPage() {
         </div>
       </section>
 
-      {/* 3. 5-Package Tiers Horizontal Slider/Scroll */}
+      {/* 3. 4-Package Tiers Horizontal Slider/Scroll */}
       <section className="mx-auto max-w-[85rem] xl:max-w-[92rem] px-5 sm:px-8 py-8">
-        <div className="flex lg:grid lg:grid-cols-5 overflow-x-auto lg:overflow-x-visible gap-6 lg:gap-3 xl:gap-5 pb-6 lg:pb-0 pt-2 snap-x max-w-full">
+        <div className="flex lg:grid lg:grid-cols-4 overflow-x-auto lg:overflow-x-visible gap-6 lg:gap-3 xl:gap-5 pb-6 lg:pb-0 pt-2 snap-x max-w-full">
           {data.packages.map((pkg, idx) => {
             const isSelected = selectedType === "package" && selectedPackageIdx === idx;
             return (
               <div
                 key={idx}
                 className={[
-                  "relative flex flex-col w-[17.5rem] lg:w-auto shrink-0 lg:shrink snap-center rounded-3xl border bg-white p-6 lg:p-4 xl:p-6 shadow-sm transition-all duration-300",
+                  "relative flex flex-col w-[17.5rem] lg:w-auto shrink-0 lg:shrink snap-center rounded-3xl border bg-white pt-14 pb-6 px-6 lg:pt-12 lg:pb-4 lg:px-4 xl:pt-14 xl:pb-6 xl:px-6 shadow-sm transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-2 hover:scale-[1.01] hover:shadow-[0_20px_40px_rgba(10,122,155,0.08)]",
                   isSelected
                     ? "border-[#0a7a9b] ring-1 ring-[#0a7a9b]/35 shadow-md shadow-[#0a7a9b]/5"
-                    : "border-border/80 hover:border-[#0a7a9b]/60",
+                    : "border-border/80 hover:border-[#0a7a9b]/80",
                 ].join(" ")}
               >
                 {/* Popular Badge */}
                 {pkg.popular && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-[#0a7a9b] text-white text-[9px] font-bold uppercase tracking-wider px-3.5 py-1 z-10 shadow-sm">
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-[#b89460] text-white text-[9px] font-bold uppercase tracking-wider px-3.5 py-1 z-10 shadow-sm">
                     Most Popular
                   </span>
                 )}
 
-                {/* Header categories */}
-                <span className="text-[10px] font-bold uppercase tracking-wider text-foreground/40 text-center block mt-2">
+                {/* Category Header Banner */}
+                <div className="absolute top-0 inset-x-0 rounded-t-[1.35rem] bg-[#0a7a9b] text-white py-2 text-center text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wider">
                   {pkg.category}
-                </span>
+                </div>
 
                 {/* Circular Outline Icon */}
                 <div className="mx-auto mt-4 flex h-14 w-14 items-center justify-center rounded-full bg-[#0a7a9b]/10 text-[#0a7a9b]">
@@ -880,7 +845,7 @@ function PackageSelectionPage() {
                   {pkg.features.map((f, fidx) => (
                     <li key={fidx} className="flex items-start gap-2">
                       <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#0a7a9b] stroke-[2.5]" />
-                      <span>{f}</span>
+                      <span>{renderBoldText(f)}</span>
                     </li>
                   ))}
                 </ul>

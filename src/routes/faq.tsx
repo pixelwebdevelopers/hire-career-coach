@@ -1,27 +1,34 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
 import { useState } from "react";
-import { 
-  Search, 
-  HelpCircle, 
-  FileText, 
-  FileSearch, 
-  Linkedin, 
-  Users, 
-  Target, 
-  Settings, 
-  Lock, 
-  ChevronDown, 
-  CalendarCheck 
+import {
+  Search,
+  HelpCircle,
+  FileText,
+  FileSearch,
+  Linkedin,
+  Users,
+  Target,
+  Settings,
+  Lock,
+  ChevronDown,
+  CalendarCheck,
 } from "lucide-react";
 
 export const Route = createFileRoute("/faq")({
   head: () => ({
     meta: [
       { title: "FAQ — Hire Career Coach" },
-      { name: "description", content: "Answers about timelines, revisions, ATS, confidentiality, refunds and how to start." },
+      {
+        name: "description",
+        content:
+          "Answers about timelines, revisions, ATS, confidentiality, refunds and how to start.",
+      },
       { property: "og:title", content: "Frequently Asked Questions — Hire Career Coach" },
-      { property: "og:description", content: "Everything you wanted to ask before booking — in one convenient page." },
+      {
+        property: "og:description",
+        content: "Everything you wanted to ask before booking — in one convenient page.",
+      },
     ],
   }),
   component: FAQPage,
@@ -45,17 +52,17 @@ const FAQ_CATEGORIES: FaqCategory[] = [
     items: [
       {
         q: "What services does Hire Career Coach offer?",
-        a: "We offer professional resume writing, resume reviews & ATS audits, cover letter writing, LinkedIn profile optimization, professional headshots and LinkedIn banners, interview preparation coaching, and career strategy sessions."
+        a: "We offer professional resume writing, resume reviews & ATS audits, cover letter writing, LinkedIn profile optimization, professional headshots and LinkedIn banners, interview preparation coaching, and career strategy sessions.",
       },
       {
         q: "Who do you work with?",
-        a: "We work with professionals at all career levels — from recent graduates and entry-level employees launching their careers, to mid-career managers, career changers, and C-suite executives."
+        a: "We work with professionals at all career levels — from recent graduates and entry-level employees launching their careers, to mid-career managers, career changers, and C-suite executives.",
       },
       {
         q: "Do you work with clients outside the United States?",
-        a: "Yes. We work with clients globally, including professionals in the United States, Canada, the United Kingdom, Australia, Europe, the Middle East, and Asia."
-      }
-    ]
+        a: "Yes. We work with clients globally, including professionals in the United States, Canada, the United Kingdom, Australia, Europe, the Middle East, and Asia.",
+      },
+    ],
   },
   {
     title: "Resume Writing",
@@ -63,21 +70,21 @@ const FAQ_CATEGORIES: FaqCategory[] = [
     items: [
       {
         q: "Are your resumes ATS-friendly?",
-        a: "Yes. Every resume we write is built from scratch using ATS-optimized formatting, structures, and keyword strategy to ensure it successfully parses through applicant tracking systems."
+        a: "Yes. Every resume we write is built from scratch using ATS-optimized formatting, structures, and keyword strategy to ensure it successfully parses through applicant tracking systems.",
       },
       {
         q: "Can you update my existing resume?",
-        a: "Yes. We can rebuild, rewrite, and modernize your existing resume, aligning it with your current goals and optimized keywords."
+        a: "Yes. We can rebuild, rewrite, and modernize your existing resume, aligning it with your current goals and optimized keywords.",
       },
       {
         q: "What if I don't have a resume?",
-        a: "If you don't have a resume, we will guide you through a comprehensive intake process to gather details about your experience, achievements, and career goals to build one from scratch."
+        a: "If you don't have a resume, we will guide you through a comprehensive intake process to gather details about your experience, achievements, and career goals to build one from scratch.",
       },
       {
         q: "What industries do you specialize in?",
-        a: "We specialize in a wide range of industries including Tech (Software, Cybersecurity, IT), Healthcare, Finance, Engineering, Sales, Marketing, Human Resources, Education, Operations, Legal, and executive-level roles."
-      }
-    ]
+        a: "We specialize in a wide range of industries including Tech (Software, Cybersecurity, IT), Healthcare, Finance, Engineering, Sales, Marketing, Human Resources, Education, Operations, Legal, and executive-level roles.",
+      },
+    ],
   },
   {
     title: "Resume Review & ATS Audit",
@@ -85,13 +92,13 @@ const FAQ_CATEGORIES: FaqCategory[] = [
     items: [
       {
         q: "What is a Resume Review & ATS Audit?",
-        a: "It is an expert review of your current resume to evaluate its visual layout, keyword optimization, alignment with target roles, and how it parses through ATS systems, highlighting areas for improvement."
+        a: "It is an expert review of your current resume to evaluate its visual layout, keyword optimization, alignment with target roles, and how it parses through ATS systems, highlighting areas for improvement.",
       },
       {
         q: "Will my audit fee be credited toward a resume package?",
-        a: "Yes. If you decide to upgrade to any of our professional resume writing packages within 14 days, the fee paid for your audit will be fully credited."
-      }
-    ]
+        a: "Yes. If you decide to upgrade to any of our professional resume writing packages within 14 days, the fee paid for your audit will be fully credited.",
+      },
+    ],
   },
   {
     title: "LinkedIn Optimization",
@@ -99,13 +106,13 @@ const FAQ_CATEGORIES: FaqCategory[] = [
     items: [
       {
         q: "What does LinkedIn Optimization include?",
-        a: "We optimize your headline, About summary, experience entries, skills keywords, and profile configuration to maximize your search visibility to recruiters."
+        a: "We optimize your headline, About summary, experience entries, skills keywords, and profile configuration to maximize your search visibility to recruiters.",
       },
       {
         q: "What is the difference between LinkedIn Optimization and Career Profile Enhancement?",
-        a: "LinkedIn Optimization focuses on text positioning, profile content, SEO, and recruiter settings. Career Profile Enhancement includes visual assets like custom LinkedIn banner designs and professional headshots."
-      }
-    ]
+        a: "LinkedIn Optimization focuses on text positioning, profile content, SEO, and recruiter settings. Career Profile Enhancement includes visual assets like custom LinkedIn banner designs and professional headshots.",
+      },
+    ],
   },
   {
     title: "Interview Preparation",
@@ -113,13 +120,13 @@ const FAQ_CATEGORIES: FaqCategory[] = [
     items: [
       {
         q: "What does Interview Preparation include?",
-        a: "It includes personalized coaching, mock interviews, STAR method guidance for behavioral questions, salary negotiation strategies, and building overall performance confidence."
+        a: "It includes personalized coaching, mock interviews, STAR method guidance for behavioral questions, salary negotiation strategies, and building overall performance confidence.",
       },
       {
         q: "Can you help me prepare for a specific interview?",
-        a: "Yes. We can research the specific company and role you are interviewing for and tailor our mock interview prep to that exact target."
-      }
-    ]
+        a: "Yes. We can research the specific company and role you are interviewing for and tailor our mock interview prep to that exact target.",
+      },
+    ],
   },
   {
     title: "Career Strategy Sessions",
@@ -127,13 +134,13 @@ const FAQ_CATEGORIES: FaqCategory[] = [
     items: [
       {
         q: "What happens during a Career Strategy Session?",
-        a: "We discuss your short-term and long-term career goals, refine your target roles, review job search strategies, and create an actionable roadmap to hit your milestones."
+        a: "We discuss your short-term and long-term career goals, refine your target roles, review job search strategies, and create an actionable roadmap to hit your milestones.",
       },
       {
         q: "Who should book a Career Strategy Session?",
-        a: "It is ideal for career changers, professionals feeling stuck in their current role, or leaders targeting executive advancements who need high-level strategic direction."
-      }
-    ]
+        a: "It is ideal for career changers, professionals feeling stuck in their current role, or leaders targeting executive advancements who need high-level strategic direction.",
+      },
+    ],
   },
   {
     title: "Process & Delivery",
@@ -141,25 +148,25 @@ const FAQ_CATEGORIES: FaqCategory[] = [
     items: [
       {
         q: "How does the process work?",
-        a: "Choose your service, fill out our simple intake form, collaborate with your writer/coach during the development phase, review drafts, and receive your finalized deliverables."
+        a: "Choose your service, fill out our simple intake form, collaborate with your writer/coach during the development phase, review drafts, and receive your finalized deliverables.",
       },
       {
         q: "How long does the process take?",
-        a: "Standard delivery is between 3 to 5 business days from the time your intake and materials are completed."
+        a: "Standard delivery is between 3 to 5 business days from the time your intake and materials are completed.",
       },
       {
         q: "Do you offer rush services?",
-        a: "Yes, concierge priority rush services are available for urgent timelines. Please contact us or select the rush option to coordinate."
+        a: "Yes, concierge priority rush services are available for urgent timelines. Please contact us or select the rush option to coordinate.",
       },
       {
         q: "How many revisions are included?",
-        a: "Revision rounds are included with every resume package (typically 2 to 4 rounds depending on the tier) to ensure complete satisfaction."
+        a: "Revision rounds are included with every resume package (typically 2 to 4 rounds depending on the tier) to ensure complete satisfaction.",
       },
       {
         q: "What file formats will I receive?",
-        a: "You will receive editable Microsoft Word (.docx) formats as well as finalized PDF versions."
-      }
-    ]
+        a: "You will receive editable Microsoft Word (.docx) formats as well as finalized PDF versions.",
+      },
+    ],
   },
   {
     title: "Payments & Policies",
@@ -167,22 +174,22 @@ const FAQ_CATEGORIES: FaqCategory[] = [
     items: [
       {
         q: "What payment methods do you accept?",
-        a: "We accept all major credit cards, debit cards, and Stripe for secure online payment processing."
+        a: "We accept all major credit cards, debit cards, and Stripe for secure online payment processing.",
       },
       {
         q: "Do you offer refunds?",
-        a: "Due to the custom, highly personalized nature of our career consulting and writing services, refunds are generally not available once work begins."
+        a: "Due to the custom, highly personalized nature of our career consulting and writing services, refunds are generally not available once work begins.",
       },
       {
         q: "Do you guarantee interviews or job offers?",
-        a: "We guarantee high-quality, ATS-optimized deliverables that significantly improve your search success, but we cannot guarantee third-party hiring decisions."
+        a: "We guarantee high-quality, ATS-optimized deliverables that significantly improve your search success, but we cannot guarantee third-party hiring decisions.",
       },
       {
         q: "Is my information kept confidential?",
-        a: "Yes. All your information, resume drafts, career history, and communications are held in strict privacy and are never shared."
-      }
-    ]
-  }
+        a: "Yes. All your information, resume drafts, career history, and communications are held in strict privacy and are never shared.",
+      },
+    ],
+  },
 ];
 
 function FAQPage() {
@@ -193,7 +200,7 @@ function FAQPage() {
     const key = `${categoryIndex}-${itemIndex}`;
     setOpenAccordions((prev) => ({
       ...prev,
-      [key]: !prev[key]
+      [key]: !prev[key],
     }));
   };
 
@@ -201,22 +208,18 @@ function FAQPage() {
   const filteredCategories = FAQ_CATEGORIES.map((category, catIdx) => {
     const filteredItems = category.items.filter((item) => {
       const matchQuery = searchQuery.toLowerCase();
-      return (
-        item.q.toLowerCase().includes(matchQuery) ||
-        item.a.toLowerCase().includes(matchQuery)
-      );
+      return item.q.toLowerCase().includes(matchQuery) || item.a.toLowerCase().includes(matchQuery);
     });
 
     return {
       ...category,
       items: filteredItems,
-      originalIndex: catIdx
+      originalIndex: catIdx,
     };
   }).filter((category) => category.items.length > 0);
 
   return (
     <div className="bg-[#f8fafc] min-h-screen">
-      
       {/* Hero Header */}
       <section className="bg-white border-b border-[#e2edf0] py-20 text-center relative overflow-hidden">
         <div className="mx-auto max-w-3xl px-5 sm:px-8">
@@ -225,13 +228,14 @@ function FAQPage() {
               <HelpCircle className="w-3.5 h-3.5" />
               Frequently Asked Questions
             </div>
-            
+
             <h1 className="font-display text-4xl sm:text-5xl font-bold tracking-tight text-slate-900 leading-tight mb-4">
               How Can We Help You?
             </h1>
-            
+
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-xl mx-auto mb-8">
-              Find answers to common questions about our services, process, and how we can help you achieve your career goals.
+              Find answers to common questions about our services, process, and how we can help you
+              achieve your career goals.
             </p>
 
             {/* Search Input */}
@@ -272,8 +276,8 @@ function FAQPage() {
                     {category.items.map((item, itemIdx) => {
                       const isOpen = !!openAccordions[`${category.originalIndex}-${itemIdx}`];
                       return (
-                        <Reveal 
-                          key={item.q} 
+                        <Reveal
+                          key={item.q}
                           delay={itemIdx * 50}
                           className="bg-white border border-[#e2edf0] rounded-2xl overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.005)] transition-all hover:border-[#b2d5de]"
                         >
@@ -281,11 +285,13 @@ function FAQPage() {
                             onClick={() => toggleAccordion(category.originalIndex, itemIdx)}
                             className="w-full text-left p-4 sm:p-5 flex items-center justify-between gap-4 font-semibold text-slate-800 text-sm sm:text-base group"
                           >
-                            <span className="group-hover:text-[#006072] transition-colors">{item.q}</span>
-                            <ChevronDown 
+                            <span className="group-hover:text-[#006072] transition-colors">
+                              {item.q}
+                            </span>
+                            <ChevronDown
                               className={`text-[#006072] w-5 h-5 shrink-0 transition-transform duration-300 ${
                                 isOpen ? "rotate-180" : ""
-                              }`} 
+                              }`}
                             />
                           </button>
 
@@ -311,8 +317,8 @@ function FAQPage() {
         ) : (
           <Reveal className="text-center py-12">
             <p className="text-slate-500 text-lg">No questions match "{searchQuery}"</p>
-            <button 
-              onClick={() => setSearchQuery("")} 
+            <button
+              onClick={() => setSearchQuery("")}
               className="mt-4 text-[#006072] font-semibold text-sm hover:underline"
             >
               Clear search filter
@@ -328,13 +334,18 @@ function FAQPage() {
                 <CalendarCheck className="text-[#006072] w-6 h-6" />
               </div>
               <div>
-                <h3 className="text-slate-900 font-bold text-lg sm:text-xl">Still Have Questions?</h3>
-                <p className="text-slate-600 text-sm mt-1">We're here to help! Book a 1-on-1 consultation with our career expert and get personalized answers.</p>
+                <h3 className="text-slate-900 font-bold text-lg sm:text-xl">
+                  Still Have Questions?
+                </h3>
+                <p className="text-slate-600 text-sm mt-1">
+                  We're here to help! Book a 1-on-1 consultation with our career expert and get
+                  personalized answers.
+                </p>
               </div>
             </div>
-            
-            <Link 
-              to="/contact" 
+
+            <Link
+              to="/contact"
               className="w-full md:w-auto bg-[#006072] hover:bg-[#004e5d] text-white font-semibold px-6 py-3.5 rounded-xl flex items-center justify-center gap-2.5 transition-all shadow-[0_4px_12px_rgba(0,96,114,0.15)] shrink-0 text-sm group"
             >
               Book a Consultation

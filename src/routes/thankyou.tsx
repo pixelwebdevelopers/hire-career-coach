@@ -24,6 +24,20 @@ export const Route = createFileRoute("/thankyou")({
   component: ThankYouPage,
 });
 
+const renderFeatureText = (text: string) => {
+  const parts = text.split("**");
+  return parts.map((part, index) => {
+    if (index % 2 === 1) {
+      return (
+        <strong key={index} className="text-navy-deep font-extrabold">
+          {part}
+        </strong>
+      );
+    }
+    return part;
+  });
+};
+
 function ThankYouPage() {
   const [order, setOrder] = useState<StoredOrder | null>(null);
 
@@ -64,6 +78,32 @@ function ThankYouPage() {
             email: "john.doe@example.com",
             phone: "(123) 456-7890",
           },
+          professionalInfo: {
+            currentTitle: "Software Engineer",
+            targetTitles: "Senior Software Engineer",
+            linkedin: "https://linkedin.com/in/johndoe",
+          },
+          cart: {
+            levelId: "mid",
+            selectedType: "package",
+            selectedPackage: {
+              name: "Career Growth",
+              price: 270,
+              features: [
+                "Resume Writing",
+                "Cover Letter Writing",
+                "LinkedIn Optimization",
+                "Career Strategy Session (60 Min)",
+                "2 Rounds of Revisions",
+                "5 Business Day Turnaround",
+              ],
+            },
+            packageRush: true,
+            totalPrice: 320,
+          },
+          notes: "Looking to transition to a leadership role.",
+          fileName: "resume.pdf",
+          fileBase64: "",
         },
       });
     }
@@ -212,7 +252,7 @@ function ThankYouPage() {
                             className="text-xs text-foreground/75 flex items-center gap-1.5"
                           >
                             <Check className="h-3 w-3 shrink-0 text-[#0a7a9b]" />
-                            <span>{f}</span>
+                            <span>{renderFeatureText(f)}</span>
                           </li>
                         ))}
                       </ul>
@@ -344,7 +384,7 @@ function ThankYouPage() {
             <div>
               <div
                 className="calendly-inline-widget w-full rounded-2xl border border-border/60 overflow-hidden"
-                data-url="https://calendly.com/ridashakeel98"
+                data-url="https://calendly.com/hirecareercoach/30min"
                 style={{ minWidth: 0, height: 500 }}
               />
             </div>
