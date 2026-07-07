@@ -89,7 +89,7 @@ const LEVEL_DATA: Record<
     packages: [
       {
         name: "Resume + Cover Letter",
-        category: "BASIC PACKAGE",
+        category: "Career Core",
         icon: Mail,
         price: 120,
         features: [
@@ -101,7 +101,7 @@ const LEVEL_DATA: Record<
       },
       {
         name: "Resume + Cover Letter + LinkedIn Optimization",
-        category: "ADVANCED PACKAGE",
+        category: "Career Plus",
         icon: Linkedin,
         price: 180,
         features: [
@@ -114,7 +114,7 @@ const LEVEL_DATA: Record<
       },
       {
         name: "Resume + Cover Letter + Career Profile Enhancement",
-        category: "PROFESSIONAL PACKAGE",
+        category: "Career Pro",
         icon: Users,
         price: 230,
         popular: true,
@@ -131,7 +131,7 @@ const LEVEL_DATA: Record<
       },
       {
         name: "Resume + Career Strategy Session",
-        category: "CAREER STRATEGY PACKAGE",
+        category: "Career Strategy Plus",
         icon: Target,
         price: 250,
         features: [
@@ -150,9 +150,16 @@ const LEVEL_DATA: Record<
     individualServices: [
       {
         id: "resume",
-        title: "Executive Resume Writing",
+        title: "Resume Writing",
         desc: "Professionally written, ATS-optimized resume.",
         price: 90,
+        icon: FileText,
+      },
+      {
+        id: "scratch",
+        title: "Resume from scratch",
+        desc: "Don't have an existing resume? We'll create one through a 60-minute one-on-one consultation.",
+        price: 120,
         icon: FileText,
       },
       {
@@ -215,7 +222,7 @@ const LEVEL_DATA: Record<
     packages: [
       {
         name: "Resume + Cover Letter",
-        category: "BASIC PACKAGE",
+        category: "Career Core",
         icon: Mail,
         price: 160,
         features: [
@@ -227,7 +234,7 @@ const LEVEL_DATA: Record<
       },
       {
         name: "Resume + Cover Letter + LinkedIn Optimization",
-        category: "ADVANCED PACKAGE",
+        category: "Career Plus",
         icon: Linkedin,
         price: 220,
         features: [
@@ -240,7 +247,7 @@ const LEVEL_DATA: Record<
       },
       {
         name: "Resume + Cover Letter + Career Profile Enhancement",
-        category: "PROFESSIONAL PACKAGE",
+        category: "Career Pro",
         icon: Users,
         price: 280,
         popular: true,
@@ -257,7 +264,7 @@ const LEVEL_DATA: Record<
       },
       {
         name: "Resume + Career Strategy Session",
-        category: "CAREER STRATEGY PACKAGE",
+        category: "Career Strategy Plus",
         icon: Target,
         price: 300,
         features: [
@@ -276,9 +283,16 @@ const LEVEL_DATA: Record<
     individualServices: [
       {
         id: "resume",
-        title: "Executive Resume Writing",
+        title: "Resume Writing",
         desc: "Professionally written, ATS-optimized resume.",
         price: 120,
+        icon: FileText,
+      },
+      {
+        id: "scratch",
+        title: "Resume from scratch",
+        desc: "Don't have an existing resume? We'll create one through a 60-minute one-on-one consultation.",
+        price: 150,
         icon: FileText,
       },
       {
@@ -341,7 +355,7 @@ const LEVEL_DATA: Record<
     packages: [
       {
         name: "Resume + Cover Letter",
-        category: "BASIC PACKAGE",
+        category: "Career Core",
         icon: Mail,
         price: 180,
         features: [
@@ -353,7 +367,7 @@ const LEVEL_DATA: Record<
       },
       {
         name: "Resume + Cover Letter + LinkedIn Optimization",
-        category: "ADVANCED PACKAGE",
+        category: "Career Plus",
         icon: Linkedin,
         price: 250,
         features: [
@@ -366,7 +380,7 @@ const LEVEL_DATA: Record<
       },
       {
         name: "Resume + Cover Letter + Career Profile Enhancement",
-        category: "PROFESSIONAL PACKAGE",
+        category: "Career Pro",
         icon: Users,
         price: 300,
         popular: true,
@@ -383,7 +397,7 @@ const LEVEL_DATA: Record<
       },
       {
         name: "Resume + Career Strategy Session",
-        category: "CAREER STRATEGY PACKAGE",
+        category: "Career Strategy Plus",
         icon: Target,
         price: 350,
         features: [
@@ -402,9 +416,16 @@ const LEVEL_DATA: Record<
     individualServices: [
       {
         id: "resume",
-        title: "Executive Resume Writing",
+        title: "Resume Writing",
         desc: "Professionally written, ATS-optimized resume.",
         price: 150,
+        icon: FileText,
+      },
+      {
+        id: "scratch",
+        title: "Resume from scratch",
+        desc: "Don't have an existing resume? We'll create one through a 60-minute one-on-one consultation.",
+        price: 180,
         icon: FileText,
       },
       {
@@ -467,7 +488,7 @@ const LEVEL_DATA: Record<
     packages: [
       {
         name: "Resume + Cover Letter",
-        category: "BASIC PACKAGE",
+        category: "Career Core",
         icon: Mail,
         price: 250,
         features: [
@@ -479,7 +500,7 @@ const LEVEL_DATA: Record<
       },
       {
         name: "Resume + Cover Letter + LinkedIn Profile",
-        category: "ADVANCED PACKAGE",
+        category: "Career Plus",
         icon: Linkedin,
         price: 300,
         features: [
@@ -492,7 +513,7 @@ const LEVEL_DATA: Record<
       },
       {
         name: "Resume + Cover Letter + Career Profile Enhancement",
-        category: "PROFESSIONAL PACKAGE",
+        category: "Career Pro",
         icon: Users,
         price: 350,
         popular: true,
@@ -510,7 +531,7 @@ const LEVEL_DATA: Record<
       },
       {
         name: "Resume + Career Strategy Session",
-        category: "RESUME + CAREER STRATEGY",
+        category: "Career Strategy Plus",
         icon: Crown,
         price: 450,
         features: [
@@ -531,6 +552,13 @@ const LEVEL_DATA: Record<
         title: "Executive Resume Writing",
         desc: "Strategically written to showcase leadership and impact.",
         price: 200,
+        icon: FileText,
+      },
+      {
+        id: "scratch",
+        title: "Resume from scratch",
+        desc: "Don't have an existing resume? We'll create one through a 60-minute one-on-one consultation.",
+        price: 250,
         icon: FileText,
       },
       {
@@ -805,28 +833,29 @@ function PackageSelectionPage() {
               <div
                 key={idx}
                 className={[
-                  "relative flex flex-col w-[17.5rem] lg:w-auto shrink-0 lg:shrink snap-center rounded-3xl border bg-white pt-14 pb-6 px-6 lg:pt-12 lg:pb-4 lg:px-4 xl:pt-14 xl:pb-6 xl:px-6 shadow-sm transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-2 hover:scale-[1.01] hover:shadow-[0_20px_40px_rgba(10,122,155,0.08)]",
+                  "group relative flex flex-col w-[17.5rem] lg:w-auto shrink-0 lg:shrink snap-center rounded-3xl border bg-white pt-14 pb-6 px-6 lg:pt-12 lg:pb-4 lg:px-4 xl:pt-14 xl:pb-6 xl:px-6 shadow-sm transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-2 hover:scale-[1.01] hover:shadow-[0_20px_40px_rgba(10,122,155,0.08)]",
                   isSelected
                     ? "border-[#0a7a9b] ring-1 ring-[#0a7a9b]/35 shadow-md shadow-[#0a7a9b]/5"
                     : "border-border/80 hover:border-[#0a7a9b]/80",
                 ].join(" ")}
               >
-                {/* Popular Badge */}
-                {pkg.popular && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-[#b89460] text-white text-[9px] font-bold uppercase tracking-wider px-3.5 py-1 z-10 shadow-sm">
-                    Most Popular
-                  </span>
-                )}
-
                 {/* Category Header Banner */}
                 <div className="absolute top-0 inset-x-0 rounded-t-[1.35rem] bg-[#0a7a9b] text-white py-2 text-center text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wider">
                   {pkg.category}
                 </div>
 
                 {/* Circular Outline Icon */}
-                <div className="mx-auto mt-4 flex h-14 w-14 items-center justify-center rounded-full bg-[#0a7a9b]/10 text-[#0a7a9b]">
+                <div className="mx-auto mt-4 flex h-14 w-14 items-center justify-center rounded-full bg-[#0a7a9b]/10 text-[#0a7a9b] group-hover:scale-110 group-hover:rotate-2 transition-transform duration-500">
                   <pkg.icon className="h-6 w-6" />
                 </div>
+
+                {pkg.popular && (
+                  <div className="mt-2.5 flex justify-center">
+                    <span className="rounded-full bg-[#b89460]/10 text-[#b89460] text-[9px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 border border-[#b89460]/20">
+                      Most Popular
+                    </span>
+                  </div>
+                )}
 
                 {/* Name & price */}
                 <h3 className="mt-4 text-center font-display text-base font-bold text-navy-deep min-h-[2.5rem] flex items-center justify-center">
@@ -870,7 +899,7 @@ function PackageSelectionPage() {
                 <button
                   onClick={() => handleSelectPackage(idx)}
                   className={[
-                    "w-full py-3 rounded-xl text-xs font-bold transition-all duration-200 flex items-center justify-center gap-1.5 shadow-sm",
+                    "group/btn w-full py-3 rounded-xl text-xs font-bold transition-all duration-300 flex items-center justify-center gap-1.5 shadow-sm hover:scale-[1.02] active:scale-[0.98] hover:shadow-md",
                     isSelected
                       ? "bg-[#0a7a9b] hover:bg-[#08627c] text-white"
                       : "bg-navy hover:bg-navy-deep text-white",
@@ -879,12 +908,12 @@ function PackageSelectionPage() {
                   {isSelected ? (
                     <>
                       <span>Selected</span>
-                      <Check className="h-3.5 w-3.5 stroke-[3]" />
+                      <Check className="h-3.5 w-3.5 stroke-[3] transition-transform duration-300 group-hover/btn:scale-110" />
                     </>
                   ) : (
                     <>
                       <span>Select Package</span>
-                      <ArrowRight className="h-3.5 w-3.5" />
+                      <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover/btn:translate-x-1" />
                     </>
                   )}
                 </button>
@@ -957,7 +986,7 @@ function PackageSelectionPage() {
                   key={srv.id}
                   onClick={() => handleToggleService(srv.id)}
                   className={[
-                    "flex items-start gap-4 rounded-2xl border p-4 transition-all duration-300 cursor-pointer select-none bg-white",
+                    "group/srv flex items-start gap-4 rounded-2xl border p-4 transition-all duration-300 cursor-pointer select-none bg-white hover:scale-[1.01] hover:shadow-md active:scale-[0.99]",
                     isChecked
                       ? "border-[#0a7a9b] bg-[#0a7a9b]/5 shadow-sm shadow-[#0a7a9b]/5"
                       : "border-border/80 hover:border-[#0a7a9b]/40",
@@ -967,18 +996,18 @@ function PackageSelectionPage() {
                   <div className="mt-1 flex items-center justify-center shrink-0">
                     <div
                       className={[
-                        "h-5 w-5 rounded border flex items-center justify-center transition-colors",
+                        "h-5 w-5 rounded border flex items-center justify-center transition-colors group-hover/srv:border-[#0a7a9b]/80",
                         isChecked
                           ? "bg-[#0a7a9b] border-[#0a7a9b] text-white"
                           : "border-border/80 text-transparent bg-white",
                       ].join(" ")}
                     >
-                      <Check className="h-3.5 w-3.5 stroke-[3]" />
+                      <Check className="h-3.5 w-3.5 stroke-[3] transition-transform duration-300 group-hover/srv:scale-110" />
                     </div>
                   </div>
 
                   {/* Icon */}
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-cream/80 text-foreground/80">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-cream/80 text-foreground/80 group-hover/srv:scale-110 group-hover/srv:text-[#0a7a9b] transition-all duration-300">
                     <srv.icon className="h-5 w-5" />
                   </div>
 

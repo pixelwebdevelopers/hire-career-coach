@@ -163,7 +163,6 @@ const INDUSTRIES = [
   "Legal",
   "Marketing",
   "Sales",
-  "Human Resources",
   "Operations",
   "Construction",
   "Manufacturing",
@@ -412,7 +411,6 @@ function Home() {
                 "Legal",
                 "Marketing",
                 "Sales",
-                "Human Resources",
                 "Operations",
                 "Construction",
                 "Manufacturing",
@@ -435,7 +433,6 @@ function Home() {
                   "Legal",
                   "Marketing",
                   "Sales",
-                  "Human Resources",
                   "Operations",
                   "Construction",
                   "Manufacturing",
@@ -554,9 +551,9 @@ function Home() {
                 return (
                   <div
                     key={idx}
-                    className="bg-white border border-[#e2edf0] rounded-3xl p-6 sm:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.015)] transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-md hover:border-[#006072]/40"
+                    className="group bg-white border border-[#e2edf0] rounded-3xl p-6 sm:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.015)] transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-md hover:border-[#006072]/40"
                   >
-                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#e6f2f5] text-[#006072] mb-5">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#e6f2f5] text-[#006072] mb-5 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                       <Icon className="h-5.5 w-5.5" />
                     </div>
                     <span className="font-display text-3xl sm:text-4xl font-extrabold text-slate-900 block tracking-tight">
@@ -630,9 +627,9 @@ function Home() {
                 <Reveal
                   key={idx}
                   delay={idx * 60}
-                  className="flex flex-col items-center text-center bg-white border border-[#e2edf0]/80 p-7 sm:p-8 rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.015)] transition-all duration-300 hover:shadow-[0_12px_40px_rgba(0,96,114,0.05)] hover:border-[#b2d5de]"
+                  className="group flex flex-col items-center text-center bg-white border border-[#e2edf0]/80 p-7 sm:p-8 rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.015)] transition-all duration-300 hover:shadow-[0_12px_40px_rgba(0,96,114,0.05)] hover:border-[#b2d5de] hover:-translate-y-1"
                 >
-                  <div className="w-14 h-14 rounded-full bg-[#e6f2f5] flex items-center justify-center mb-5 shrink-0">
+                  <div className="w-14 h-14 rounded-full bg-[#e6f2f5] flex items-center justify-center mb-5 shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                     <Icon className="text-[#006072] w-6 h-6" />
                   </div>
                   <h3 className="font-display font-bold text-slate-900 text-lg leading-tight mb-3">
@@ -723,7 +720,7 @@ function Home() {
                   className="flex flex-col bg-white border border-[#e2edf0] rounded-2xl overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.01)] hover:shadow-[0_12px_30px_rgba(0,96,114,0.06)] hover:border-[#b2d5de] transition-all duration-300 relative group"
                 >
                   {/* Floating Icon */}
-                  <div className="absolute top-4 left-4 z-10 w-10 h-10 rounded-full bg-white shadow-[0_4px_12px_rgba(0,0,0,0.08)] flex items-center justify-center border border-slate-100/50">
+                  <div className="absolute top-4 left-4 z-10 w-10 h-10 rounded-full bg-white shadow-[0_4px_12px_rgba(0,0,0,0.08)] flex items-center justify-center border border-slate-100/50 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                     <Icon className="text-[#006072] w-5 h-5" />
                   </div>
 
@@ -767,7 +764,7 @@ function Home() {
                       <Link
                         to="/services"
                         hash={stage.hash}
-                        className="mt-6 w-full border border-[#006072]/20 hover:border-[#006072] hover:bg-[#006072] hover:text-white text-[#006072] font-semibold py-2.5 px-4 rounded-xl flex items-center justify-center gap-2 transition-all text-xs sm:text-sm group"
+                        className="mt-6 w-full border border-[#006072]/20 hover:border-[#006072] hover:bg-[#006072] hover:text-white text-[#006072] font-semibold py-2.5 px-4 rounded-xl flex items-center justify-center gap-2 transition-all text-xs sm:text-sm hover:scale-[1.02] active:scale-[0.98] shadow-sm hover:shadow-md group"
                       >
                         <span>View Services</span>
                         <span className="transition-transform group-hover:translate-x-1">→</span>
@@ -883,9 +880,9 @@ function Home() {
             </div>
             <Link
               to="/contact"
-              className="w-full md:w-auto bg-[#006072] hover:bg-[#004e5d] text-white font-semibold px-6 py-3.5 rounded-xl flex items-center justify-center gap-2.5 transition-all shadow-[0_4px_12px_rgba(0,96,114,0.15)] shrink-0 text-sm group"
+              className="w-full md:w-auto bg-[#006072] hover:bg-[#004e5d] text-white font-semibold px-6 py-3.5 rounded-xl flex items-center justify-center gap-2.5 transition-all hover:scale-[1.02] active:scale-[0.98] shadow-[0_4px_12px_rgba(0,96,114,0.15)] hover:shadow-[0_6px_16px_rgba(0,96,114,0.22)] shrink-0 text-sm group"
             >
-              <CalendarCheck className="w-4 h-4 transition-transform group-hover:scale-110" />
+              <CalendarCheck className="w-4 h-4 transition-transform group-hover:scale-110 group-hover:rotate-6" />
               Book a Consultation
             </Link>
           </div>
@@ -930,10 +927,10 @@ function Home() {
                 <Reveal
                   key={s.num}
                   delay={i * 50}
-                  className="flex flex-col rounded-2xl bg-white border border-[#e2edf0]/80 p-7 sm:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] transition-all duration-300 hover:shadow-[0_12px_40px_rgba(0,96,114,0.06)] hover:border-[#b2d5de] relative group"
+                  className="flex flex-col rounded-2xl bg-white border border-[#e2edf0]/80 p-7 sm:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] transition-all duration-300 hover:shadow-[0_12px_40px_rgba(0,96,114,0.06)] hover:border-[#b2d5de] hover:-translate-y-1.5 relative group"
                 >
                   {/* Icon Container */}
-                  <div className="w-12 h-12 rounded-full bg-[#e6f2f5] flex items-center justify-center mb-6">
+                  <div className="w-12 h-12 rounded-full bg-[#e6f2f5] flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                     <IconComponent className="text-[#006072] w-6 h-6" />
                   </div>
 
@@ -964,19 +961,19 @@ function Home() {
                     <Link
                       to={s.to as "/services" | "/contact"}
                       hash={s.hash}
-                      className="w-full bg-[#006072] hover:bg-[#004e5d] text-white font-semibold py-3.5 px-6 rounded-xl flex items-center justify-center gap-2 transition-all shadow-[0_4px_12px_rgba(0,96,114,0.12)] text-sm group mt-auto"
+                      className="group/btn w-full bg-[#006072] hover:bg-[#004e5d] text-white font-semibold py-3.5 px-6 rounded-xl flex items-center justify-center gap-2 transition-all hover:scale-[1.02] active:scale-[0.98] shadow-[0_4px_12px_rgba(0,96,114,0.12)] hover:shadow-[0_6px_16px_rgba(0,96,114,0.2)] text-sm mt-auto"
                     >
                       <span>{s.btnText}</span>
-                      <span className="transition-transform group-hover:translate-x-1">→</span>
+                      <span className="transition-transform group-hover/btn:translate-x-1">→</span>
                     </Link>
                   ) : (
                     <Link
                       to={s.to as "/services" | "/contact"}
                       hash={s.hash}
-                      className="w-full border border-[#006072]/30 text-[#006072] hover:bg-[#006072] hover:text-white font-semibold py-3.5 px-6 rounded-xl flex items-center justify-center gap-2 transition-all text-sm group mt-auto"
+                      className="group/btn w-full border border-[#006072]/30 text-[#006072] hover:bg-[#006072] hover:text-white font-semibold py-3.5 px-6 rounded-xl flex items-center justify-center gap-2 transition-all hover:scale-[1.02] active:scale-[0.98] text-sm mt-auto"
                     >
                       <span>{s.btnText}</span>
-                      <span className="transition-transform group-hover:translate-x-1">→</span>
+                      <span className="transition-transform group-hover/btn:translate-x-1">→</span>
                     </Link>
                   )}
                 </Reveal>
@@ -1036,9 +1033,12 @@ function Home() {
                 </li>
               ))}
             </ul>
-            <Link to="/about" className="mt-10 inline-flex items-center gap-2 text-sm font-medium">
+            <Link
+              to="/about"
+              className="group mt-10 inline-flex items-center gap-2 text-sm font-medium hover:text-[#006072] transition-colors"
+            >
               <span className="gold-underline">Meet the studio</span>
-              <ArrowUpRight className="h-4 w-4" />
+              <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
           </Reveal>
         </div>
@@ -1096,15 +1096,18 @@ function Home() {
           <div className="relative flex flex-col gap-3 lg:items-end">
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center rounded-full bg-gold text-navy-deep px-8 py-4 text-sm font-semibold hover:bg-gold-soft transition-colors"
+              className="inline-flex items-center justify-center rounded-full bg-gold text-navy-deep px-8 py-4 text-sm font-semibold hover:bg-gold-soft transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-lg"
             >
               Book a free consultation
             </Link>
             <Link
               to="/services"
-              className="text-sm text-ivory/80 hover:text-gold transition-colors"
+              className="group text-sm text-ivory/80 hover:text-gold transition-all duration-300"
             >
-              Or browse our services →
+              Or browse our services{" "}
+              <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
+                →
+              </span>
             </Link>
           </div>
         </div>

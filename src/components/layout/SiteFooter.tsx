@@ -130,11 +130,14 @@ export function SiteFooter() {
         </div>
 
         <div className="hairline mt-16" />
-        <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-ivory/60">
+        <p className="mt-6 text-center text-[11px] sm:text-xs text-ivory/50 leading-relaxed max-w-4xl mx-auto">
+          Hire Career Coach provides career guidance and professional document preparation services.
+          Employment outcomes cannot be guaranteed and vary based on individual qualifications,
+          market conditions, and hiring practices.
+        </p>
+        <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-x-8 gap-y-3 text-center text-xs text-ivory/60">
           <p>© {new Date().getFullYear()} Hire Career Coach. Crafted with care.</p>
-
           <span className="text-ivory/60 font-medium">Developed by Hire Career Coach</span>
-
           <p className="font-display italic text-gold/80 text-sm">Guide · Grow · Succeed</p>
         </div>
       </div>

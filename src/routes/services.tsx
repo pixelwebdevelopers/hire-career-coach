@@ -73,9 +73,9 @@ function ServicesPage() {
               <a
                 key={s.slug}
                 href={`#${s.slug}`}
-                className="group inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm text-foreground/80 transition-colors hover:border-gold hover:text-foreground"
+                className="group inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm text-foreground/80 transition-all duration-300 hover:border-gold hover:text-foreground hover:scale-[1.03] hover:shadow-sm active:scale-[0.98]"
               >
-                <s.icon className="h-4 w-4 text-gold" />
+                <s.icon className="h-4 w-4 text-gold transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3" />
                 {s.title}
               </a>
             ))}
@@ -103,9 +103,10 @@ function ServicesPage() {
           </div>
           <Link
             to="/pricing"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-gold text-navy-deep px-7 py-3.5 font-semibold whitespace-nowrap hover:bg-gold-soft transition-colors"
+            className="group/btn inline-flex items-center justify-center gap-2 rounded-full bg-gold text-navy-deep px-7 py-3.5 font-semibold whitespace-nowrap hover:bg-gold-soft transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-lg"
           >
-            Explore Packages <ArrowUpRight className="h-4 w-4" />
+            <span>Explore Packages</span>
+            <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
           </Link>
         </Reveal>
       </section>
@@ -147,10 +148,10 @@ function ServiceDetail({ s }: { s: (typeof SERVICES)[number] }) {
 
           <Link
             to="/pricing"
-            className="mt-7 inline-flex items-center gap-2 text-sm font-medium text-navy"
+            className="group mt-7 inline-flex items-center gap-2 text-sm font-medium text-navy transition-colors hover:text-navy-deep"
           >
             <span className="gold-underline">Start with {s.title}</span>
-            <ArrowUpRight className="h-4 w-4" />
+            <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
         </div>
 

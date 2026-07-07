@@ -146,14 +146,14 @@ function PricingOverview() {
             <Reveal key={lvl.id} delay={index * 80}>
               <div
                 className={[
-                  "group relative flex flex-col items-center text-center rounded-3xl border bg-white p-6 sm:p-8 lg:p-6 xl:p-8 shadow-sm transition-all duration-300 h-full",
+                  "group relative flex flex-col items-center text-center rounded-3xl border bg-white p-6 sm:p-8 lg:p-6 xl:p-8 shadow-sm transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-2 h-full",
                   lvl.id === "early"
                     ? "border-[#0a7a9b] ring-1 ring-[#0a7a9b]/35 shadow-md shadow-[#0a7a9b]/5"
-                    : "border-border/80 hover:border-[#0a7a9b] hover:shadow-md hover:shadow-[#0a7a9b]/5",
+                    : "border-border/80 hover:border-[#0a7a9b] hover:shadow-[0_20px_40px_rgba(10,122,155,0.06)]",
                 ].join(" ")}
               >
                 {/* Large circular icon */}
-                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#0a7a9b]/10 text-[#0a7a9b] group-hover:scale-105 transition-transform duration-300">
+                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#0a7a9b]/10 text-[#0a7a9b] group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500">
                   <lvl.icon className="h-7 w-7" />
                 </div>
 
@@ -180,10 +180,10 @@ function PricingOverview() {
                 <Link
                   to="/pricing/$id"
                   params={{ id: lvl.id }}
-                  className="w-full flex items-center justify-center gap-2 rounded-xl bg-[#0a7a9b] hover:bg-[#08627c] text-white py-3 px-4 xl:py-3.5 xl:px-6 font-bold text-sm transition-colors duration-200 shadow-sm"
+                  className="group/btn w-full flex items-center justify-center gap-2 rounded-xl bg-[#0a7a9b] hover:bg-[#08627c] text-white py-3 px-4 xl:py-3.5 xl:px-6 font-bold text-sm transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-sm hover:shadow-md"
                 >
                   <span>View Packages</span>
-                  <ArrowRight className="h-4 w-4" />
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
                 </Link>
               </div>
             </Reveal>

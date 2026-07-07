@@ -299,7 +299,7 @@ function SuccessStoriesPage() {
                 <Quote className="text-[#0a7a9b] w-9 h-9 shrink-0 opacity-70 rotate-180" />
                 <div className="space-y-2">
                   <p className="font-display text-slate-900 font-extrabold text-xl sm:text-2xl italic leading-snug">
-                    The Proof is in the Progress.
+                    Being qualified is important. Being noticed is essential.
                   </p>
                   <p className="text-slate-500 text-sm italic leading-relaxed">
                     Read how our clients successfully positioned their stories, stood out in

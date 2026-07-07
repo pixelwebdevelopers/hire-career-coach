@@ -170,7 +170,7 @@ export function Hero() {
               loading={i === 0 ? "eager" : "lazy"}
               className={[
                 "absolute inset-0 h-full w-full object-cover transition-all duration-[1400ms] ease-[cubic-bezier(.22,1,.36,1)]",
-                s.num <= 2 ? "object-[48%_center]" : "object-[32%_center]",
+                "object-[48%_center]",
                 i === idx ? "opacity-100 blur-0 scale-100" : "opacity-0 blur-md scale-[1.03]",
               ].join(" ")}
             />
