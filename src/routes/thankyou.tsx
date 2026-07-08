@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Reveal } from "@/components/Reveal";
 import {
   Check,
@@ -10,14 +10,68 @@ import {
   ArrowRight,
   ShieldCheck,
   Lock,
+  Sparkles,
 } from "lucide-react";
 import { getPricingSummary, type CartItem, type IntakePayload } from "@/lib/actions";
+
+declare global {
+  interface Window {
+    Calendly?: {
+      initInlineWidget: (options: { url: string; parentElement: HTMLElement | null }) => void;
+    };
+  }
+}
 
 interface StoredOrder {
   orderNumber: string;
   date: string;
   cart: CartItem;
   intakeData: IntakePayload;
+}
+
+function CalendlyInline() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const id = "calendly-widget-script";
+    const scriptExists = document.getElementById(id);
+
+    const initWidget = () => {
+      if (window.Calendly && containerRef.current) {
+        containerRef.current.innerHTML = "";
+        window.Calendly.initInlineWidget({
+          url: "https://calendly.com/hirecareercoach/30min",
+          parentElement: containerRef.current,
+        });
+      }
+    };
+
+    if (!scriptExists) {
+      const s = document.createElement("script");
+      s.id = id;
+      s.src = "https://assets.calendly.com/assets/external/widget.js";
+      s.async = true;
+      s.onload = initWidget;
+      document.body.appendChild(s);
+    } else {
+      if (window.Calendly) {
+        initWidget();
+      } else {
+        const scriptElement = document.getElementById(id);
+        if (scriptElement) {
+          scriptElement.addEventListener("load", initWidget);
+        }
+      }
+    }
+  }, []);
+
+  return (
+    <div
+      ref={containerRef}
+      className="w-full rounded-2xl border border-border/60 overflow-hidden"
+      style={{ minWidth: 0, height: 500 }}
+    />
+  );
 }
 
 export const Route = createFileRoute("/thankyou")({
@@ -106,16 +160,6 @@ function ThankYouPage() {
           fileBase64: "",
         },
       });
-    }
-
-    // Load Calendly Script
-    const id = "calendly-widget-script";
-    if (!document.getElementById(id)) {
-      const s = document.createElement("script");
-      s.id = id;
-      s.src = "https://assets.calendly.com/assets/external/widget.js";
-      s.async = true;
-      document.body.appendChild(s);
     }
   }, []);
 
@@ -382,11 +426,7 @@ function ThankYouPage() {
 
             {/* Calendly booking widget */}
             <div>
-              <div
-                className="calendly-inline-widget w-full rounded-2xl border border-border/60 overflow-hidden"
-                data-url="https://calendly.com/hirecareercoach/30min"
-                style={{ minWidth: 0, height: 500 }}
-              />
+              <CalendlyInline />
             </div>
           </div>
         </div>

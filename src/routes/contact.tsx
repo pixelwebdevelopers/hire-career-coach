@@ -2,7 +2,15 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
 import { PageHero } from "./services";
 import { Mail, MapPin, Phone, Clock } from "lucide-react";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+
+declare global {
+  interface Window {
+    Calendly?: {
+      initInlineWidget: (options: { url: string; parentElement: HTMLElement | null }) => void;
+    };
+  }
+}
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -95,21 +103,45 @@ function ContactPage() {
 }
 
 function CalendlyInline() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const id = "calendly-widget-script";
-    if (!document.getElementById(id)) {
+    const scriptExists = document.getElementById(id);
+
+    const initWidget = () => {
+      if (window.Calendly && containerRef.current) {
+        containerRef.current.innerHTML = "";
+        window.Calendly.initInlineWidget({
+          url: "https://calendly.com/hirecareercoach/30min",
+          parentElement: containerRef.current,
+        });
+      }
+    };
+
+    if (!scriptExists) {
       const s = document.createElement("script");
       s.id = id;
       s.src = "https://assets.calendly.com/assets/external/widget.js";
       s.async = true;
+      s.onload = initWidget;
       document.body.appendChild(s);
+    } else {
+      if (window.Calendly) {
+        initWidget();
+      } else {
+        const scriptElement = document.getElementById(id);
+        if (scriptElement) {
+          scriptElement.addEventListener("load", initWidget);
+        }
+      }
     }
   }, []);
 
   return (
     <div
-      className="calendly-inline-widget w-full rounded-2xl overflow-hidden"
-      data-url="https://calendly.com/hirecareercoach/30min"
+      ref={containerRef}
+      className="w-full rounded-2xl overflow-hidden"
       style={{ minWidth: 0, height: 700 }}
     />
   );

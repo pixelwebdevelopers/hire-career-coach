@@ -39,6 +39,7 @@ function IntakePage() {
   const [targetTitles, setTargetTitles] = useState("");
   const [linkedin, setLinkedin] = useState("");
   const [notes, setNotes] = useState("");
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
   // Resume attachment state
   const [file, setFile] = useState<File | null>(null);
@@ -47,6 +48,42 @@ function IntakePage() {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const validateForm = () => {
+    const newErrors: Record<string, string> = {};
+
+    if (!fullName.trim()) {
+      newErrors.fullName = "Full name is required";
+    }
+
+    if (!email.trim()) {
+      newErrors.email = "Email address is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      newErrors.email = "Please enter a valid email address";
+    }
+
+    if (!phone.trim()) {
+      newErrors.phone = "Phone number is required";
+    } else if (phone.trim().replace(/[^0-9]/g, "").length < 7) {
+      newErrors.phone = "Please enter a valid phone number (at least 7 digits)";
+    }
+
+    if (!currentTitle.trim()) {
+      newErrors.currentTitle = "Current job title is required";
+    }
+
+    if (!targetTitles.trim()) {
+      newErrors.targetTitles = "Target job title(s) are required";
+    }
+
+    if (linkedin.trim() && !/^https?:\/\/(www\.)?linkedin\.com\/.*$/i.test(linkedin)) {
+      newErrors.linkedin =
+        "Please enter a valid LinkedIn URL (e.g., https://www.linkedin.com/in/username)";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   useEffect(() => {
     const stored = localStorage.getItem("hcc_cart");
@@ -127,8 +164,9 @@ function IntakePage() {
       return;
     }
 
-    if (!fullName || !email || !phone || !currentTitle || !targetTitles) {
-      toast.error("Please fill in all required fields marked with *");
+    const isValid = validateForm();
+    if (!isValid) {
+      toast.error("Please fill in all required fields and correct any errors.");
       return;
     }
 
@@ -231,45 +269,93 @@ function IntakePage() {
 
               <div className="grid gap-5 sm:grid-cols-2">
                 <div>
-                  <label className="block text-xs font-bold text-navy-deep mb-2 uppercase tracking-wide">
+                  <label
+                    className={`block text-xs font-bold mb-2 uppercase tracking-wide ${errors.fullName ? "text-red-500" : "text-navy-deep"}`}
+                  >
                     Full Name *
                   </label>
                   <input
                     type="text"
-                    required
                     value={fullName}
-                    onChange={(e) => setFullName(e.target.value)}
+                    onChange={(e) => {
+                      setFullName(e.target.value);
+                      if (errors.fullName)
+                        setErrors((prev) => {
+                          const clone = { ...prev };
+                          delete clone.fullName;
+                          return clone;
+                        });
+                    }}
                     placeholder="Enter your full name"
-                    className="w-full rounded-xl border border-border/80 px-4 py-3 text-sm text-foreground focus:ring-[#0a7a9b] focus:border-[#0a7a9b] outline-none"
+                    className={`w-full rounded-xl border px-4 py-3 text-sm text-foreground outline-none transition-all ${
+                      errors.fullName
+                        ? "border-red-500 focus:ring-red-500 focus:border-red-500 bg-red-50/10"
+                        : "border-border/80 focus:ring-[#0a7a9b] focus:border-[#0a7a9b]"
+                    }`}
                   />
+                  {errors.fullName && (
+                    <p className="mt-1.5 text-xs font-semibold text-red-500">{errors.fullName}</p>
+                  )}
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-navy-deep mb-2 uppercase tracking-wide">
+                  <label
+                    className={`block text-xs font-bold mb-2 uppercase tracking-wide ${errors.email ? "text-red-500" : "text-navy-deep"}`}
+                  >
                     Email Address *
                   </label>
                   <input
-                    type="email"
-                    required
+                    type="text"
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                      if (errors.email)
+                        setErrors((prev) => {
+                          const clone = { ...prev };
+                          delete clone.email;
+                          return clone;
+                        });
+                    }}
                     placeholder="Enter your email address"
-                    className="w-full rounded-xl border border-border/80 px-4 py-3 text-sm text-foreground focus:ring-[#0a7a9b] focus:border-[#0a7a9b] outline-none"
+                    className={`w-full rounded-xl border px-4 py-3 text-sm text-foreground outline-none transition-all ${
+                      errors.email
+                        ? "border-red-500 focus:ring-red-500 focus:border-red-500 bg-red-50/10"
+                        : "border-border/80 focus:ring-[#0a7a9b] focus:border-[#0a7a9b]"
+                    }`}
                   />
+                  {errors.email && (
+                    <p className="mt-1.5 text-xs font-semibold text-red-500">{errors.email}</p>
+                  )}
                 </div>
 
                 <div className="sm:col-span-2">
-                  <label className="block text-xs font-bold text-navy-deep mb-2 uppercase tracking-wide">
+                  <label
+                    className={`block text-xs font-bold mb-2 uppercase tracking-wide ${errors.phone ? "text-red-500" : "text-navy-deep"}`}
+                  >
                     Phone Number *
                   </label>
                   <input
-                    type="tel"
-                    required
+                    type="text"
                     value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
+                    onChange={(e) => {
+                      setPhone(e.target.value);
+                      if (errors.phone)
+                        setErrors((prev) => {
+                          const clone = { ...prev };
+                          delete clone.phone;
+                          return clone;
+                        });
+                    }}
                     placeholder="(123) 456-7890"
-                    className="w-full rounded-xl border border-border/80 px-4 py-3 text-sm text-foreground focus:ring-[#0a7a9b] focus:border-[#0a7a9b] outline-none"
+                    className={`w-full rounded-xl border px-4 py-3 text-sm text-foreground outline-none transition-all ${
+                      errors.phone
+                        ? "border-red-500 focus:ring-red-500 focus:border-red-500 bg-red-50/10"
+                        : "border-border/80 focus:ring-[#0a7a9b] focus:border-[#0a7a9b]"
+                    }`}
                   />
+                  {errors.phone && (
+                    <p className="mt-1.5 text-xs font-semibold text-red-500">{errors.phone}</p>
+                  )}
                 </div>
               </div>
             </div>
@@ -287,35 +373,73 @@ function IntakePage() {
 
               <div className="grid gap-5 sm:grid-cols-2">
                 <div>
-                  <label className="block text-xs font-bold text-navy-deep mb-2 uppercase tracking-wide">
+                  <label
+                    className={`block text-xs font-bold mb-2 uppercase tracking-wide ${errors.currentTitle ? "text-red-500" : "text-navy-deep"}`}
+                  >
                     Current Job Title *
                   </label>
                   <input
                     type="text"
-                    required
                     value={currentTitle}
-                    onChange={(e) => setCurrentTitle(e.target.value)}
+                    onChange={(e) => {
+                      setCurrentTitle(e.target.value);
+                      if (errors.currentTitle)
+                        setErrors((prev) => {
+                          const clone = { ...prev };
+                          delete clone.currentTitle;
+                          return clone;
+                        });
+                    }}
                     placeholder="e.g., Marketing Coordinator"
-                    className="w-full rounded-xl border border-border/80 px-4 py-3 text-sm text-foreground focus:ring-[#0a7a9b] focus:border-[#0a7a9b] outline-none"
+                    className={`w-full rounded-xl border px-4 py-3 text-sm text-foreground outline-none transition-all ${
+                      errors.currentTitle
+                        ? "border-red-500 focus:ring-red-500 focus:border-red-500 bg-red-50/10"
+                        : "border-border/80 focus:ring-[#0a7a9b] focus:border-[#0a7a9b]"
+                    }`}
                   />
+                  {errors.currentTitle && (
+                    <p className="mt-1.5 text-xs font-semibold text-red-500">
+                      {errors.currentTitle}
+                    </p>
+                  )}
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-navy-deep mb-2 uppercase tracking-wide">
+                  <label
+                    className={`block text-xs font-bold mb-2 uppercase tracking-wide ${errors.targetTitles ? "text-red-500" : "text-navy-deep"}`}
+                  >
                     Target Job Title(s) *
                   </label>
                   <input
                     type="text"
-                    required
                     value={targetTitles}
-                    onChange={(e) => setTargetTitles(e.target.value)}
+                    onChange={(e) => {
+                      setTargetTitles(e.target.value);
+                      if (errors.targetTitles)
+                        setErrors((prev) => {
+                          const clone = { ...prev };
+                          delete clone.targetTitles;
+                          return clone;
+                        });
+                    }}
                     placeholder="e.g., Marketing Manager, Brand Manager"
-                    className="w-full rounded-xl border border-border/80 px-4 py-3 text-sm text-foreground focus:ring-[#0a7a9b] focus:border-[#0a7a9b] outline-none"
+                    className={`w-full rounded-xl border px-4 py-3 text-sm text-foreground outline-none transition-all ${
+                      errors.targetTitles
+                        ? "border-red-500 focus:ring-red-500 focus:border-red-500 bg-red-50/10"
+                        : "border-border/80 focus:ring-[#0a7a9b] focus:border-[#0a7a9b]"
+                    }`}
                   />
+                  {errors.targetTitles && (
+                    <p className="mt-1.5 text-xs font-semibold text-red-500">
+                      {errors.targetTitles}
+                    </p>
+                  )}
                 </div>
 
                 <div className="sm:col-span-2">
-                  <label className="block text-xs font-bold text-navy-deep mb-2 uppercase tracking-wide">
+                  <label
+                    className={`block text-xs font-bold mb-2 uppercase tracking-wide ${errors.linkedin ? "text-red-500" : "text-navy-deep"}`}
+                  >
                     LinkedIn Profile URL
                   </label>
                   <div className="relative">
@@ -323,16 +447,32 @@ function IntakePage() {
                       <Linkedin className="h-4 w-4" />
                     </div>
                     <input
-                      type="url"
+                      type="text"
                       value={linkedin}
-                      onChange={(e) => setLinkedin(e.target.value)}
+                      onChange={(e) => {
+                        setLinkedin(e.target.value);
+                        if (errors.linkedin)
+                          setErrors((prev) => {
+                            const clone = { ...prev };
+                            delete clone.linkedin;
+                            return clone;
+                          });
+                      }}
                       placeholder="e.g., https://www.linkedin.com/in/yourprofile"
-                      className="w-full rounded-xl border border-border/80 pl-16 pr-4 py-3 text-sm text-foreground focus:ring-[#0a7a9b] focus:border-[#0a7a9b] outline-none"
+                      className={`w-full rounded-xl border pl-16 pr-4 py-3 text-sm text-foreground outline-none transition-all ${
+                        errors.linkedin
+                          ? "border-red-500 focus:ring-red-500 focus:border-red-500 bg-red-50/10"
+                          : "border-border/80 focus:ring-[#0a7a9b] focus:border-[#0a7a9b]"
+                      }`}
                     />
                   </div>
-                  <p className="mt-2 text-xs text-foreground/50">
-                    This helps us understand your professional background better.
-                  </p>
+                  {errors.linkedin ? (
+                    <p className="mt-1.5 text-xs font-semibold text-red-500">{errors.linkedin}</p>
+                  ) : (
+                    <p className="mt-2 text-xs text-foreground/50">
+                      This helps us understand your professional background better.
+                    </p>
+                  )}
                 </div>
               </div>
             </div>

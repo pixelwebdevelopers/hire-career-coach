@@ -124,6 +124,7 @@ const LEVEL_DATA: Record<
           "**LinkedIn** Optimization",
           "**Career Profile** Enhancement",
           "**Indeed** Optimization",
+          "40-Minute **Discovery Call**",
           "30-Day Email Support",
           "2 **Revisions**",
           "5 Business Day Turnaround",
@@ -257,6 +258,7 @@ const LEVEL_DATA: Record<
           "**LinkedIn** Optimization",
           "**Career Profile** Enhancement",
           "**Indeed** Optimization",
+          "40-Minute **Discovery Call**",
           "30-Day Email Support",
           "2 **Revisions**",
           "5 Business Day Turnaround",
@@ -390,6 +392,7 @@ const LEVEL_DATA: Record<
           "**LinkedIn** Optimization",
           "**Career Profile** Enhancement",
           "**Indeed** Optimization",
+          "40-Minute **Discovery Call**",
           "30-Day Email Support",
           "2 **Revisions**",
           "5 Business Day Turnaround",
@@ -523,6 +526,7 @@ const LEVEL_DATA: Record<
           "**LinkedIn** Optimization",
           "**Career Profile** Enhancement",
           "Networking Templates",
+          "40-Minute **Discovery Call**",
           "30-Minute **Career Strategy** Consultation",
           "30-Day Email Support",
           "2 **Revisions**",
@@ -840,22 +844,25 @@ function PackageSelectionPage() {
                 ].join(" ")}
               >
                 {/* Category Header Banner */}
-                <div className="absolute top-0 inset-x-0 rounded-t-[1.35rem] bg-[#0a7a9b] text-white py-2 text-center text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wider">
+                <div className="absolute top-0 inset-x-0 rounded-t-[1.35rem] bg-[#38b4bf] text-white py-2 text-center text-xs sm:text-[13px] font-black uppercase tracking-wider">
                   {pkg.category}
                 </div>
 
-                {/* Circular Outline Icon */}
-                <div className="mx-auto mt-4 flex h-14 w-14 items-center justify-center rounded-full bg-[#0a7a9b]/10 text-[#0a7a9b] group-hover:scale-110 group-hover:rotate-2 transition-transform duration-500">
-                  <pkg.icon className="h-6 w-6" />
-                </div>
-
-                {pkg.popular && (
-                  <div className="mt-2.5 flex justify-center">
-                    <span className="rounded-full bg-[#b89460]/10 text-[#b89460] text-[9px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 border border-[#b89460]/20">
-                      Most Popular
+                {/* Most Popular Badge / Spacer */}
+                {pkg.popular ? (
+                  <div className="mt-4 flex justify-center">
+                    <span className="inline-flex items-center gap-1 rounded-full bg-yellow-400 text-black text-[10px] font-black uppercase tracking-wider px-3 py-1 border border-yellow-500/20 shadow-sm">
+                      <Sparkles className="h-3 w-3 fill-current" /> Most Popular
                     </span>
                   </div>
+                ) : (
+                  <div className="mt-4 h-[26px]" />
                 )}
+
+                {/* Circular Outline Icon */}
+                <div className="mx-auto mt-3 flex h-14 w-14 items-center justify-center rounded-full bg-[#0a7a9b]/10 text-[#0a7a9b] group-hover:scale-110 group-hover:rotate-2 transition-transform duration-500">
+                  <pkg.icon className="h-6 w-6" />
+                </div>
 
                 {/* Name & price */}
                 <h3 className="mt-4 text-center font-display text-base font-bold text-navy-deep min-h-[2.5rem] flex items-center justify-center">
