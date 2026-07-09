@@ -151,7 +151,7 @@ const LEVEL_DATA: Record<
     individualServices: [
       {
         id: "resume",
-        title: "Resume Writing",
+        title: "ATS Optimized Resume",
         desc: "Professionally written, ATS-optimized resume.",
         price: 90,
         icon: FileText,
@@ -172,7 +172,7 @@ const LEVEL_DATA: Record<
       },
       {
         id: "cover_letter",
-        title: "Executive Cover Letter Writing",
+        title: "Tailored Cover Letter",
         desc: "Personalized cover letter tailored to your goals.",
         price: 60,
         icon: Mail,
@@ -285,7 +285,7 @@ const LEVEL_DATA: Record<
     individualServices: [
       {
         id: "resume",
-        title: "Resume Writing",
+        title: "ATS Optimized Resume",
         desc: "Professionally written, ATS-optimized resume.",
         price: 120,
         icon: FileText,
@@ -306,7 +306,7 @@ const LEVEL_DATA: Record<
       },
       {
         id: "cover_letter",
-        title: "Executive Cover Letter Writing",
+        title: "Tailored Cover Letter",
         desc: "Personalized cover letter tailored to your goals.",
         price: 70,
         icon: Mail,
@@ -419,7 +419,7 @@ const LEVEL_DATA: Record<
     individualServices: [
       {
         id: "resume",
-        title: "Resume Writing",
+        title: "ATS Optimized Resume",
         desc: "Professionally written, ATS-optimized resume.",
         price: 150,
         icon: FileText,
@@ -440,7 +440,7 @@ const LEVEL_DATA: Record<
       },
       {
         id: "cover_letter",
-        title: "Executive Cover Letter Writing",
+        title: "Tailored Cover Letter",
         desc: "Personalized cover letter tailored to your goals.",
         price: 90,
         icon: Mail,

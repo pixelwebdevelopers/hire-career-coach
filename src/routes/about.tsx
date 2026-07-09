@@ -72,7 +72,15 @@ export const Route = createFileRoute("/about")({
 });
 
 const STORIES = [
-  // Early Career
+  {
+    name: "Jonathan Mercer",
+    role: "Chief Executive Officer (CEO)",
+    stage: "Executive",
+    pkg: "Career Strategy",
+    avatar: imgJonathanMercer,
+    quote:
+      "At this stage of my career, I wasn’t looking for someone to improve my resume. I needed clarity on how to position myself for future board and advisory opportunities. The Career Strategy session gave me a practical roadmap, refined my executive positioning, and helped me focus on the opportunities that best matched my long-term goals. A few months later, I was having conversations about board-level roles that I hadn’t previously considered pursuing.",
+  },
   {
     name: "Ariana Cole",
     role: "Graduate Software Developer",
@@ -83,52 +91,6 @@ const STORIES = [
       "Graduating was exciting, but standing out in a competitive market was a lot harder than I expected. My applications weren’t getting much attention, so I decided to invest in Career Pro. My resume, cover letter, LinkedIn profile, Indeed profile, and personal branding finally worked together instead of feeling disconnected. Within a few weeks, recruiters started reaching out through LinkedIn, and I secured interviews with two graduate software companies. It gave me confidence that I was finally presenting myself the right way.",
   },
   {
-    name: "Mason Reid",
-    role: "Junior Data Analyst",
-    stage: "Early Career",
-    pkg: "Resume Writing",
-    avatar: imgMasonReid,
-    quote:
-      "I always felt my resume undersold my skills. My projects and technical experience were there, but employers didn’t seem to notice them. After the rewrite, everything was much clearer and easier to follow. Not long after updating my applications, I started getting interview invitations for data analyst roles instead of wondering why I wasn’t hearing back.",
-  },
-  {
-    name: "Lena Whitmore",
-    role: "Marketing Coordinator",
-    stage: "Early Career",
-    pkg: "Career Strategy",
-    avatar: imgLenaWhitmore,
-    quote:
-      "I spent months applying for jobs without any real direction, which was frustrating. The Career Strategy session helped me narrow my focus, build a realistic job search plan, and approach networking with much more confidence. A few weeks later, I was interviewing for marketing roles that actually matched my long-term goals instead of applying for anything I could find.",
-  },
-  {
-    name: "Noah Ellery",
-    role: "Junior Accountant",
-    stage: "Early Career",
-    pkg: "Career Plus",
-    avatar: imgNoahEllery,
-    quote:
-      "My internship gave me valuable experience, but my applications weren’t reflecting what I’d learned. Career Plus changed that. My resume, cover letter, and LinkedIn profile finally told a consistent story about my skills and potential. I noticed more recruiter activity on LinkedIn and was invited to interview with firms that had previously overlooked my applications.",
-  },
-  {
-    name: "Sienna Brooks",
-    role: "Dental Assistant",
-    stage: "Early Career",
-    pkg: "Career Core",
-    avatar: imgSiennaBrooks,
-    quote:
-      "I wanted employers to see more than a list of responsibilities. Career Core helped present my chairside assistance, patient care, and administrative experience in a much stronger way. The updated resume and cover letter gave me the confidence to apply to larger practices, and I was invited to interview for a role that offered far better career growth than I expected.",
-  },
-  {
-    name: "Ethan Mercer",
-    role: "Customer Support Specialist",
-    stage: "Early Career",
-    pkg: "Career Pro",
-    avatar: imgEthanMercer,
-    quote:
-      "Changing careers meant I needed to present my previous experience differently. Career Pro helped me build a complete professional profile that reflected my transferable skills. After updating everything, including my LinkedIn and Indeed profiles, I started receiving messages from recruiters looking for customer support professionals. A few interviews later, I successfully made the career transition I’d been working toward.",
-  },
-  // Mid-Career
-  {
     name: "Natalie Hayes",
     role: "Project Manager",
     stage: "Mid-Career",
@@ -136,6 +98,24 @@ const STORIES = [
     avatar: imgNatalieHayes,
     quote:
       "I wasn’t looking for a simple resume update. I wanted my professional profile to reflect where my career was heading. Career Pro helped bring everything together. My resume, cover letter, LinkedIn profile, Indeed profile, and personal branding all told the same story. Within a few weeks, I started getting approached by recruiters for senior project management roles that were much closer to the level I was aiming for.",
+  },
+  {
+    name: "Victoria Reynolds",
+    role: "Senior Project Manager",
+    stage: "Senior Management",
+    pkg: "Career Strategy",
+    avatar: imgVictoriaReynolds,
+    quote:
+      "After more than ten years in project management, I wasn’t looking for a resume rewrite. I wanted clarity on what my next move should be. The Career Strategy session helped me identify leadership opportunities that genuinely matched my experience and gave me a practical roadmap to follow. Instead of applying for roles that weren’t the right fit, I focused my search and was soon interviewing for senior leadership positions that aligned with my long-term goals.",
+  },
+  {
+    name: "Isabella Grant",
+    role: "Chief Operating Officer (COO)",
+    stage: "Executive",
+    pkg: "Career Plus",
+    avatar: imgIsabellaGrant,
+    quote:
+      "Executive opportunities require more than an impressive work history. I wanted my career documents to reflect the scale of the organizations I’d led. Career Plus helped present my leadership experience with much greater clarity. My resume, cover letter, and LinkedIn profile all told the same story, and shortly afterward I began receiving interest from executive search firms for COO positions that closely matched my background.",
   },
   {
     name: "Brandon Ellis",
@@ -147,6 +127,24 @@ const STORIES = [
       "After several years in software engineering, I realized my resume still looked like it belonged to someone much earlier in their career. Career Plus helped showcase the projects I’d led and the impact I’d made. My LinkedIn profile also became much stronger, and before long I started receiving messages from recruiters about senior engineering opportunities that I hadn’t been considered for before.",
   },
   {
+    name: "Mason Reid",
+    role: "Junior Data Analyst",
+    stage: "Early Career",
+    pkg: "Resume Writing",
+    avatar: imgMasonReid,
+    quote:
+      "I always felt my resume undersold my skills. My projects and technical experience were there, but employers didn’t seem to notice them. After the rewrite, everything was much clearer and easier to follow. Not long after updating my applications, I started getting interview invitations for data analyst roles instead of wondering why I wasn’t hearing back.",
+  },
+  {
+    name: "Adrian Foster",
+    role: "IT Manager",
+    stage: "Senior Management",
+    pkg: "Career Plus",
+    avatar: imgAdrianFoster,
+    quote:
+      "Technology had changed over the years, but my career documents hadn’t. Career Plus helped me present my leadership experience and technical achievements in a much stronger way. My resume, cover letter, and LinkedIn profile finally reflected the scope of the teams and projects I’d led. Not long after updating everything, I started hearing from recruiters about IT leadership roles that were a better match for my experience.",
+  },
+  {
     name: "Priya Morgan",
     role: "Human Resources Manager",
     stage: "Mid-Career",
@@ -154,6 +152,33 @@ const STORIES = [
     avatar: imgPriyaMorgan,
     quote:
       "I thought I only needed a stronger resume, but I didn’t realize how much difference the right wording could make. My leadership experience was presented much more effectively while still sounding like me. Not long after updating my applications, I was shortlisted for interviews that better matched my HR management experience.",
+  },
+  {
+    name: "Daniel Whitmore",
+    role: "Chief Financial Officer (CFO)",
+    stage: "Executive",
+    pkg: "Resume Writing",
+    avatar: imgDanielWhitmore,
+    quote:
+      "I’ve worked with executive recruiters throughout my career, so I understand how much a resume matters at this level. Mine needed to communicate strategic financial leadership rather than simply list responsibilities. The final version captured that perfectly. Within weeks, I was shortlisted for executive interviews where my experience aligned much more closely with what employers were looking for.",
+  },
+  {
+    name: "Lena Whitmore",
+    role: "Marketing Coordinator",
+    stage: "Early Career",
+    pkg: "Career Strategy",
+    avatar: imgLenaWhitmore,
+    quote:
+      "I spent months applying for jobs without any real direction, which was frustrating. The Career Strategy session helped me narrow my focus, build a realistic job search plan, and approach networking with much more confidence. A few weeks later, I was interviewing for marketing roles that actually matched my long-term goals instead of applying for anything I could find.",
+  },
+  {
+    name: "Monica Alvarez",
+    role: "Senior Human Resources Manager",
+    stage: "Senior Management",
+    pkg: "Resume Writing",
+    avatar: imgMonicaAlvarez,
+    quote:
+      "Working in HR means I’ve reviewed more resumes than I can count, so I had high expectations. My new resume struck the right balance between professionalism and authenticity. It highlighted my leadership achievements without sounding exaggerated. Within a few weeks, I was shortlisted for HR leadership positions that had previously passed me by.",
   },
   {
     name: "Lucas Bennett",
@@ -165,6 +190,33 @@ const STORIES = [
       "I wasn’t struggling because of a lack of experience. I simply wasn’t sure what my next career move should be. The Career Strategy session gave me a clear direction, a practical roadmap, and a better networking approach. Instead of applying for every opportunity, I focused on roles that aligned with my long-term goals, and the quality of my interviews improved significantly.",
   },
   {
+    name: "Sophia Bennett",
+    role: "Chief Information Officer (CIO)",
+    stage: "Executive",
+    pkg: "Career Pro",
+    avatar: imgSophiaBennett,
+    quote:
+      "Technology leadership is always evolving, and I wanted my professional profile to reflect where my career is today rather than where it started. Career Pro helped align everything, from my resume and LinkedIn profile to my Indeed profile and personal branding. The updated profile gave me a much stronger executive presence, and I noticed a clear increase in conversations with executive recruiters about technology leadership opportunities.",
+  },
+  {
+    name: "Noah Ellery",
+    role: "Junior Accountant",
+    stage: "Early Career",
+    pkg: "Career Plus",
+    avatar: imgNoahEllery,
+    quote:
+      "My internship gave me valuable experience, but my applications weren’t reflecting what I’d learned. Career Plus changed that. My resume, cover letter, and LinkedIn profile finally told a consistent story about my skills and potential. I noticed more recruiter activity on LinkedIn and was invited to interview with firms that had previously overlooked my applications.",
+  },
+  {
+    name: "Ethan Caldwell",
+    role: "Supply Chain Manager",
+    stage: "Senior Management",
+    pkg: "Career Pro",
+    avatar: imgEthanCaldwell,
+    quote:
+      "I wanted my professional profile to reflect the level I’d reached in my career, not where I’d been years ago. Career Pro helped align everything, from my resume and cover letter to my LinkedIn and Indeed profiles, while the profile enhancement gave my online presence a polished finish. The biggest difference was the quality of conversations I started having with recruiters, who were now approaching me for senior supply chain leadership opportunities.",
+  },
+  {
     name: "Rachel Kim",
     role: "Registered Nurse",
     stage: "Mid-Career",
@@ -174,6 +226,33 @@ const STORIES = [
       "Working in healthcare doesn’t leave much time to think about your career documents, so I’d been putting them off for years. Career Plus made the process straightforward. My resume reflected the depth of my clinical experience, my cover letter was tailored to the roles I wanted, and my LinkedIn profile finally matched my experience. Soon after updating everything, I began receiving interview invitations from hospitals I’d wanted to work with.",
   },
   {
+    name: "Michael Ashford",
+    role: "Vice President of Sales",
+    stage: "Executive",
+    pkg: "Career Pro",
+    avatar: imgMichaelAshford,
+    quote:
+      "Over the years I’d built successful sales teams and delivered consistent results, but my personal brand didn’t reflect that success. Career Pro helped bring everything together. My resume, LinkedIn profile, Indeed profile, and profile branding all communicated the same leadership message. Soon after updating everything, I was approached about senior commercial leadership opportunities that were a much better fit for my experience and long-term career goals.",
+  },
+  {
+    name: "Sienna Brooks",
+    role: "Dental Assistant",
+    stage: "Early Career",
+    pkg: "Career Core",
+    avatar: imgSiennaBrooks,
+    quote:
+      "I wanted employers to see more than a list of responsibilities. Career Core helped present my chairside assistance, patient care, and administrative experience in a much stronger way. The updated resume and cover letter gave me the confidence to apply to larger practices, and I was invited to interview for a role that offered far better career growth than I expected.",
+  },
+  {
+    name: "Jennifer Brooks",
+    role: "Director of Marketing",
+    stage: "Senior Management",
+    pkg: "Career Plus",
+    avatar: imgJenniferBrooks,
+    quote:
+      "I’d spent years leading successful marketing teams, but my applications weren’t communicating the strategic impact of my work. Career Plus helped tell that story much more effectively. My resume, cover letter, and LinkedIn profile all reflected the results I’d delivered, and before long I was interviewing for director-level positions that offered the kind of growth I was looking for.",
+  },
+  {
     name: "Owen Carter",
     role: "Business Analyst",
     stage: "Mid-Career",
@@ -181,6 +260,24 @@ const STORIES = [
     avatar: imgOwenCarter,
     quote:
       "I knew I had solid experience, but my applications weren’t getting the attention I expected. Career Core helped present my achievements much more clearly, and the cover letter strengthened every application I submitted. The difference became obvious when I started getting positive responses from employers and more invitations to interview.",
+  },
+  {
+    name: "Ethan Mercer",
+    role: "Customer Support Specialist",
+    stage: "Early Career",
+    pkg: "Career Pro",
+    avatar: imgEthanMercer,
+    quote:
+      "Changing careers meant I needed to present my previous experience differently. Career Pro helped me build a complete professional profile that reflected my transferable skills. After updating everything, including my LinkedIn and Indeed profiles, I started receiving messages from recruiters looking for customer support professionals. A few interviews later, I successfully made the career transition I’d been working toward.",
+  },
+  {
+    name: "Marcus Whitfield",
+    role: "Senior Operations Manager",
+    stage: "Senior Management",
+    pkg: "Career Pro",
+    avatar: imgMarcusWhitfield,
+    quote:
+      "At this stage of my career, I wanted a professional profile that reflected my leadership experience and the results I’d delivered over the years. Career Pro brought everything together. My resume, LinkedIn profile, Indeed profile, and personal branding all presented a consistent message. A few weeks after updating everything, I was contacted by executive recruiters for operations leadership opportunities that I probably wouldn’t have been considered for before.",
   },
   {
     name: "Melissa Grant",
@@ -199,107 +296,6 @@ const STORIES = [
     avatar: imgDerekLawson,
     quote:
       "I knew my experience wasn’t the problem. The way I was presenting it was. Career Pro helped position my leadership achievements much more effectively across my resume, LinkedIn, and Indeed profiles. A few weeks after updating everything, I was contacted by two recruiters about operations leadership roles that matched the direction I wanted to take my career.",
-  },
-  // Senior Management
-  {
-    name: "Victoria Reynolds",
-    role: "Senior Project Manager",
-    stage: "Senior Management",
-    pkg: "Career Strategy",
-    avatar: imgVictoriaReynolds,
-    quote:
-      "After more than ten years in project management, I wasn’t looking for a resume rewrite. I wanted clarity on what my next move should be. The Career Strategy session helped me identify leadership opportunities that genuinely matched my experience and gave me a practical roadmap to follow. Instead of applying for roles that weren’t the right fit, I focused my search and was soon interviewing for senior leadership positions that aligned with my long-term goals.",
-  },
-  {
-    name: "Adrian Foster",
-    role: "IT Manager",
-    stage: "Senior Management",
-    pkg: "Career Plus",
-    avatar: imgAdrianFoster,
-    quote:
-      "Technology had changed over the years, but my career documents hadn’t. Career Plus helped me present my leadership experience and technical achievements in a much stronger way. My resume, cover letter, and LinkedIn profile finally reflected the scope of the teams and projects I’d led. Not long after updating everything, I started hearing from recruiters about IT leadership roles that were a better match for my experience.",
-  },
-  {
-    name: "Monica Alvarez",
-    role: "Senior Human Resources Manager",
-    stage: "Senior Management",
-    pkg: "Resume Writing",
-    avatar: imgMonicaAlvarez,
-    quote:
-      "Working in HR means I’ve reviewed more resumes than I can count, so I had high expectations. My new resume struck the right balance between professionalism and authenticity. It highlighted my leadership achievements without sounding exaggerated. Within a few weeks, I was shortlisted for HR leadership positions that had previously passed me by.",
-  },
-  {
-    name: "Ethan Caldwell",
-    role: "Supply Chain Manager",
-    stage: "Senior Management",
-    pkg: "Career Pro",
-    avatar: imgEthanCaldwell,
-    quote:
-      "I wanted my professional profile to reflect the level I’d reached in my career, not where I’d been years ago. Career Pro helped align everything, from my resume and cover letter to my LinkedIn and Indeed profiles, while the profile enhancement gave my online presence a polished finish. The biggest difference was the quality of conversations I started having with recruiters, who were now approaching me for senior supply chain leadership opportunities.",
-  },
-  {
-    name: "Jennifer Brooks",
-    role: "Director of Marketing",
-    stage: "Senior Management",
-    pkg: "Career Plus",
-    avatar: imgJenniferBrooks,
-    quote:
-      "I’d spent years leading successful marketing teams, but my applications weren’t communicating the strategic impact of my work. Career Plus helped tell that story much more effectively. My resume, cover letter, and LinkedIn profile all reflected the results I’d delivered, and before long I was interviewing for director-level positions that offered the kind of growth I was looking for.",
-  },
-  {
-    name: "Marcus Whitfield",
-    role: "Senior Operations Manager",
-    stage: "Senior Management",
-    pkg: "Career Pro",
-    avatar: imgMarcusWhitfield,
-    quote:
-      "At this stage of my career, I wanted a professional profile that reflected my leadership experience and the results I’d delivered over the years. Career Pro brought everything together. My resume, LinkedIn profile, Indeed profile, and personal branding all presented a consistent message. A few weeks after updating everything, I was contacted by executive recruiters for operations leadership opportunities that I probably wouldn’t have been considered for before.",
-  },
-  // Executive
-  {
-    name: "Jonathan Mercer",
-    role: "Chief Executive Officer (CEO)",
-    stage: "Executive",
-    pkg: "Career Strategy",
-    avatar: imgJonathanMercer,
-    quote:
-      "At this stage of my career, I wasn’t looking for someone to improve my resume. I needed clarity on how to position myself for future board and advisory opportunities. The Career Strategy session gave me a practical roadmap, refined my executive positioning, and helped me focus on the opportunities that best matched my long-term goals. A few months later, I was having conversations about board-level roles that I hadn’t previously considered pursuing.",
-  },
-  {
-    name: "Isabella Grant",
-    role: "Chief Operating Officer (COO)",
-    stage: "Executive",
-    pkg: "Career Plus",
-    avatar: imgIsabellaGrant,
-    quote:
-      "Executive opportunities require more than an impressive work history. I wanted my career documents to reflect the scale of the organizations I’d led. Career Plus helped present my leadership experience with much greater clarity. My resume, cover letter, and LinkedIn profile all told the same story, and shortly afterward I began receiving interest from executive search firms for COO positions that closely matched my background.",
-  },
-  {
-    name: "Daniel Whitmore",
-    role: "Chief Financial Officer (CFO)",
-    stage: "Executive",
-    pkg: "Resume Writing",
-    avatar: imgDanielWhitmore,
-    quote:
-      "I’ve worked with executive recruiters throughout my career, so I understand how much a resume matters at this level. Mine needed to communicate strategic financial leadership rather than simply list responsibilities. The final version captured that perfectly. Within weeks, I was shortlisted for executive interviews where my experience aligned much more closely with what employers were looking for.",
-  },
-  {
-    name: "Sophia Bennett",
-    role: "Chief Information Officer (CIO)",
-    stage: "Executive",
-    pkg: "Career Pro",
-    avatar: imgSophiaBennett,
-    quote:
-      "Technology leadership is always evolving, and I wanted my professional profile to reflect where my career is today rather than where it started. Career Pro helped align everything, from my resume and LinkedIn profile to my Indeed profile and personal branding. The updated profile gave me a much stronger executive presence, and I noticed a clear increase in conversations with executive recruiters about technology leadership opportunities.",
-  },
-  {
-    name: "Michael Ashford",
-    role: "Vice President of Sales",
-    stage: "Executive",
-    pkg: "Career Pro",
-    avatar: imgMichaelAshford,
-    quote:
-      "Over the years I’d built successful sales teams and delivered consistent results, but my personal brand didn’t reflect that success. Career Pro helped bring everything together. My resume, LinkedIn profile, Indeed profile, and profile branding all communicated the same leadership message. Soon after updating everything, I was approached about senior commercial leadership opportunities that were a much better fit for my experience and long-term career goals.",
   },
 ];
 
