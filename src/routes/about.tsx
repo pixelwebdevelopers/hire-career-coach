@@ -14,30 +14,42 @@ import {
   ArrowLeft,
   CalendarCheck,
   Folder,
+  User,
+  ShoppingBag,
 } from "lucide-react";
 
-// Import newly generated real photographic avatars
-import avaF1 from "@/assets/headshot_f1.png";
-import avaM1 from "@/assets/headshot_m1.png";
-import avaF2 from "@/assets/headshot_f2.png";
-import avaM2 from "@/assets/headshot_m2.png";
-import avaF3 from "@/assets/headshot_f3.png";
-import avaM3 from "@/assets/headshot_m3.png";
-import avaF4 from "@/assets/headshot_f4.png";
-import avaF5 from "@/assets/headshot_f5.png";
-import avaF6 from "@/assets/headshot_f6.png";
-import avaF7 from "@/assets/headshot_f7.png";
-import avaF8 from "@/assets/headshot_f8.png";
-import avaF9 from "@/assets/headshot_f9.png";
-import avaM4 from "@/assets/headshot_m4.png";
-import avaM5 from "@/assets/headshot_m5.png";
-import avaM6 from "@/assets/headshot_m6.png";
-import avaM7 from "@/assets/headshot_m7.png";
+import bgCard from "@/assets/success-stories/Background sample .webp";
+import logo from "@/assets/hcc-logo.png";
 
-// Import existing high-quality avatars for remaining slots to ensure all 19 are unique
-import avaM8 from "@/assets/portfolio-avatar-icons/imageye___-_imgi_162_color-executive-1024x1024.jpg";
-import avaM9 from "@/assets/portfolio-avatar-icons/imageye___-_imgi_219_seniorsales-head-1024x1024.jpg";
-import avaM10 from "@/assets/portfolio-avatar-icons/imageye___-_imgi_84_architect2-head-1024x1024.jpg";
+// Import custom success stories images
+import imgArianaCole from "@/assets/success-stories/Ariana Cole .webp";
+import imgMasonReid from "@/assets/success-stories/Mason Reid.webp";
+import imgLenaWhitmore from "@/assets/success-stories/Lena Whitmore.webp";
+import imgNoahEllery from "@/assets/success-stories/Noah Ellery.webp";
+import imgSiennaBrooks from "@/assets/success-stories/Sienna Brooks.webp";
+import imgEthanMercer from "@/assets/success-stories/Ethan Mercer.webp";
+
+import imgNatalieHayes from "@/assets/success-stories/Natalie Hayes.webp";
+import imgBrandonEllis from "@/assets/success-stories/Brandon Ellis.webp";
+import imgPriyaMorgan from "@/assets/success-stories/Priya Morgan.webp";
+import imgLucasBennett from "@/assets/success-stories/Lucas BennettMale.webp";
+import imgRachelKim from "@/assets/success-stories/Rachel Kim.webp";
+import imgOwenCarter from "@/assets/success-stories/Owen Carter.webp";
+import imgMelissaGrant from "@/assets/success-stories/Melissa Grant.webp";
+import imgDerekLawson from "@/assets/success-stories/Derek LawsonMale.webp";
+
+import imgVictoriaReynolds from "@/assets/success-stories/Victoria Reynolds.webp";
+import imgAdrianFoster from "@/assets/success-stories/Adrian Foster.webp";
+import imgMonicaAlvarez from "@/assets/success-stories/Monica Alvarez.webp";
+import imgEthanCaldwell from "@/assets/success-stories/Ethan CaldwellMale.webp";
+import imgJenniferBrooks from "@/assets/success-stories/Jennifer Brooks.webp";
+import imgMarcusWhitfield from "@/assets/success-stories/Marcus Whitfield.webp";
+
+import imgJonathanMercer from "@/assets/success-stories/Jonathan Mercer.webp";
+import imgIsabellaGrant from "@/assets/success-stories/Isabella Grant.webp";
+import imgDanielWhitmore from "@/assets/success-stories/Daniel Whitmore.webp";
+import imgSophiaBennett from "@/assets/success-stories/Sophia Bennett.webp";
+import imgMichaelAshford from "@/assets/success-stories/Michael Ashford.webp";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -66,7 +78,7 @@ const STORIES = [
     role: "Graduate Software Developer",
     stage: "Early Career",
     pkg: "Career Pro",
-    avatar: avaF1,
+    avatar: imgArianaCole,
     quote:
       "Graduating was exciting, but standing out in a competitive market was a lot harder than I expected. My applications weren’t getting much attention, so I decided to invest in Career Pro. My resume, cover letter, LinkedIn profile, Indeed profile, and personal branding finally worked together instead of feeling disconnected. Within a few weeks, recruiters started reaching out through LinkedIn, and I secured interviews with two graduate software companies. It gave me confidence that I was finally presenting myself the right way.",
   },
@@ -75,7 +87,7 @@ const STORIES = [
     role: "Junior Data Analyst",
     stage: "Early Career",
     pkg: "Resume Writing",
-    avatar: avaM1,
+    avatar: imgMasonReid,
     quote:
       "I always felt my resume undersold my skills. My projects and technical experience were there, but employers didn’t seem to notice them. After the rewrite, everything was much clearer and easier to follow. Not long after updating my applications, I started getting interview invitations for data analyst roles instead of wondering why I wasn’t hearing back.",
   },
@@ -84,7 +96,7 @@ const STORIES = [
     role: "Marketing Coordinator",
     stage: "Early Career",
     pkg: "Career Strategy",
-    avatar: avaF2,
+    avatar: imgLenaWhitmore,
     quote:
       "I spent months applying for jobs without any real direction, which was frustrating. The Career Strategy session helped me narrow my focus, build a realistic job search plan, and approach networking with much more confidence. A few weeks later, I was interviewing for marketing roles that actually matched my long-term goals instead of applying for anything I could find.",
   },
@@ -93,7 +105,7 @@ const STORIES = [
     role: "Junior Accountant",
     stage: "Early Career",
     pkg: "Career Plus",
-    avatar: avaM2,
+    avatar: imgNoahEllery,
     quote:
       "My internship gave me valuable experience, but my applications weren’t reflecting what I’d learned. Career Plus changed that. My resume, cover letter, and LinkedIn profile finally told a consistent story about my skills and potential. I noticed more recruiter activity on LinkedIn and was invited to interview with firms that had previously overlooked my applications.",
   },
@@ -102,7 +114,7 @@ const STORIES = [
     role: "Dental Assistant",
     stage: "Early Career",
     pkg: "Career Core",
-    avatar: avaF3,
+    avatar: imgSiennaBrooks,
     quote:
       "I wanted employers to see more than a list of responsibilities. Career Core helped present my chairside assistance, patient care, and administrative experience in a much stronger way. The updated resume and cover letter gave me the confidence to apply to larger practices, and I was invited to interview for a role that offered far better career growth than I expected.",
   },
@@ -111,7 +123,7 @@ const STORIES = [
     role: "Customer Support Specialist",
     stage: "Early Career",
     pkg: "Career Pro",
-    avatar: avaM3,
+    avatar: imgEthanMercer,
     quote:
       "Changing careers meant I needed to present my previous experience differently. Career Pro helped me build a complete professional profile that reflected my transferable skills. After updating everything, including my LinkedIn and Indeed profiles, I started receiving messages from recruiters looking for customer support professionals. A few interviews later, I successfully made the career transition I’d been working toward.",
   },
@@ -121,7 +133,7 @@ const STORIES = [
     role: "Project Manager",
     stage: "Mid-Career",
     pkg: "Career Pro",
-    avatar: avaF4,
+    avatar: imgNatalieHayes,
     quote:
       "I wasn’t looking for a simple resume update. I wanted my professional profile to reflect where my career was heading. Career Pro helped bring everything together. My resume, cover letter, LinkedIn profile, Indeed profile, and personal branding all told the same story. Within a few weeks, I started getting approached by recruiters for senior project management roles that were much closer to the level I was aiming for.",
   },
@@ -130,7 +142,7 @@ const STORIES = [
     role: "Software Engineer",
     stage: "Mid-Career",
     pkg: "Career Plus",
-    avatar: avaM4,
+    avatar: imgBrandonEllis,
     quote:
       "After several years in software engineering, I realized my resume still looked like it belonged to someone much earlier in their career. Career Plus helped showcase the projects I’d led and the impact I’d made. My LinkedIn profile also became much stronger, and before long I started receiving messages from recruiters about senior engineering opportunities that I hadn’t been considered for before.",
   },
@@ -139,7 +151,7 @@ const STORIES = [
     role: "Human Resources Manager",
     stage: "Mid-Career",
     pkg: "Resume Writing",
-    avatar: avaF5,
+    avatar: imgPriyaMorgan,
     quote:
       "I thought I only needed a stronger resume, but I didn’t realize how much difference the right wording could make. My leadership experience was presented much more effectively while still sounding like me. Not long after updating my applications, I was shortlisted for interviews that better matched my HR management experience.",
   },
@@ -148,7 +160,7 @@ const STORIES = [
     role: "Financial Analyst",
     stage: "Mid-Career",
     pkg: "Career Strategy",
-    avatar: avaM5,
+    avatar: imgLucasBennett,
     quote:
       "I wasn’t struggling because of a lack of experience. I simply wasn’t sure what my next career move should be. The Career Strategy session gave me a clear direction, a practical roadmap, and a better networking approach. Instead of applying for every opportunity, I focused on roles that aligned with my long-term goals, and the quality of my interviews improved significantly.",
   },
@@ -157,7 +169,7 @@ const STORIES = [
     role: "Registered Nurse",
     stage: "Mid-Career",
     pkg: "Career Plus",
-    avatar: avaF6,
+    avatar: imgRachelKim,
     quote:
       "Working in healthcare doesn’t leave much time to think about your career documents, so I’d been putting them off for years. Career Plus made the process straightforward. My resume reflected the depth of my clinical experience, my cover letter was tailored to the roles I wanted, and my LinkedIn profile finally matched my experience. Soon after updating everything, I began receiving interview invitations from hospitals I’d wanted to work with.",
   },
@@ -166,16 +178,16 @@ const STORIES = [
     role: "Business Analyst",
     stage: "Mid-Career",
     pkg: "Career Core",
-    avatar: avaM6,
+    avatar: imgOwenCarter,
     quote:
-      "I knew I had solid experience, but my applications weren’t getting the attention I expected. Career Core helped present my achievements much more clearly, and the cover letter strengthened every application I submitted. The difference became obvious when I started getting positive responses from responses from employers and more invitations to interview.",
+      "I knew I had solid experience, but my applications weren’t getting the attention I expected. Career Core helped present my achievements much more clearly, and the cover letter strengthened every application I submitted. The difference became obvious when I started getting positive responses from employers and more invitations to interview.",
   },
   {
     name: "Melissa Grant",
     role: "Marketing Manager",
     stage: "Mid-Career",
     pkg: "Career Pro",
-    avatar: avaF7,
+    avatar: imgMelissaGrant,
     quote:
       "I wanted more than updated documents. I wanted a professional image that reflected the level I’d reached in my career. Career Pro helped me achieve exactly that. My resume, LinkedIn profile, Indeed profile, and personal branding all worked together, and I noticed a steady increase in recruiter messages for leadership marketing positions over the following weeks.",
   },
@@ -184,9 +196,64 @@ const STORIES = [
     role: "Operations Manager",
     stage: "Mid-Career",
     pkg: "Career Pro",
-    avatar: avaM7,
+    avatar: imgDerekLawson,
     quote:
       "I knew my experience wasn’t the problem. The way I was presenting it was. Career Pro helped position my leadership achievements much more effectively across my resume, LinkedIn, and Indeed profiles. A few weeks after updating everything, I was contacted by two recruiters about operations leadership roles that matched the direction I wanted to take my career.",
+  },
+  // Senior Management
+  {
+    name: "Victoria Reynolds",
+    role: "Senior Project Manager",
+    stage: "Senior Management",
+    pkg: "Career Strategy",
+    avatar: imgVictoriaReynolds,
+    quote:
+      "After more than ten years in project management, I wasn’t looking for a resume rewrite. I wanted clarity on what my next move should be. The Career Strategy session helped me identify leadership opportunities that genuinely matched my experience and gave me a practical roadmap to follow. Instead of applying for roles that weren’t the right fit, I focused my search and was soon interviewing for senior leadership positions that aligned with my long-term goals.",
+  },
+  {
+    name: "Adrian Foster",
+    role: "IT Manager",
+    stage: "Senior Management",
+    pkg: "Career Plus",
+    avatar: imgAdrianFoster,
+    quote:
+      "Technology had changed over the years, but my career documents hadn’t. Career Plus helped me present my leadership experience and technical achievements in a much stronger way. My resume, cover letter, and LinkedIn profile finally reflected the scope of the teams and projects I’d led. Not long after updating everything, I started hearing from recruiters about IT leadership roles that were a better match for my experience.",
+  },
+  {
+    name: "Monica Alvarez",
+    role: "Senior Human Resources Manager",
+    stage: "Senior Management",
+    pkg: "Resume Writing",
+    avatar: imgMonicaAlvarez,
+    quote:
+      "Working in HR means I’ve reviewed more resumes than I can count, so I had high expectations. My new resume struck the right balance between professionalism and authenticity. It highlighted my leadership achievements without sounding exaggerated. Within a few weeks, I was shortlisted for HR leadership positions that had previously passed me by.",
+  },
+  {
+    name: "Ethan Caldwell",
+    role: "Supply Chain Manager",
+    stage: "Senior Management",
+    pkg: "Career Pro",
+    avatar: imgEthanCaldwell,
+    quote:
+      "I wanted my professional profile to reflect the level I’d reached in my career, not where I’d been years ago. Career Pro helped align everything, from my resume and cover letter to my LinkedIn and Indeed profiles, while the profile enhancement gave my online presence a polished finish. The biggest difference was the quality of conversations I started having with recruiters, who were now approaching me for senior supply chain leadership opportunities.",
+  },
+  {
+    name: "Jennifer Brooks",
+    role: "Director of Marketing",
+    stage: "Senior Management",
+    pkg: "Career Plus",
+    avatar: imgJenniferBrooks,
+    quote:
+      "I’d spent years leading successful marketing teams, but my applications weren’t communicating the strategic impact of my work. Career Plus helped tell that story much more effectively. My resume, cover letter, and LinkedIn profile all reflected the results I’d delivered, and before long I was interviewing for director-level positions that offered the kind of growth I was looking for.",
+  },
+  {
+    name: "Marcus Whitfield",
+    role: "Senior Operations Manager",
+    stage: "Senior Management",
+    pkg: "Career Pro",
+    avatar: imgMarcusWhitfield,
+    quote:
+      "At this stage of my career, I wanted a professional profile that reflected my leadership experience and the results I’d delivered over the years. Career Pro brought everything together. My resume, LinkedIn profile, Indeed profile, and personal branding all presented a consistent message. A few weeks after updating everything, I was contacted by executive recruiters for operations leadership opportunities that I probably wouldn’t have been considered for before.",
   },
   // Executive
   {
@@ -194,7 +261,7 @@ const STORIES = [
     role: "Chief Executive Officer (CEO)",
     stage: "Executive",
     pkg: "Career Strategy",
-    avatar: avaM8,
+    avatar: imgJonathanMercer,
     quote:
       "At this stage of my career, I wasn’t looking for someone to improve my resume. I needed clarity on how to position myself for future board and advisory opportunities. The Career Strategy session gave me a practical roadmap, refined my executive positioning, and helped me focus on the opportunities that best matched my long-term goals. A few months later, I was having conversations about board-level roles that I hadn’t previously considered pursuing.",
   },
@@ -203,7 +270,7 @@ const STORIES = [
     role: "Chief Operating Officer (COO)",
     stage: "Executive",
     pkg: "Career Plus",
-    avatar: avaF8,
+    avatar: imgIsabellaGrant,
     quote:
       "Executive opportunities require more than an impressive work history. I wanted my career documents to reflect the scale of the organizations I’d led. Career Plus helped present my leadership experience with much greater clarity. My resume, cover letter, and LinkedIn profile all told the same story, and shortly afterward I began receiving interest from executive search firms for COO positions that closely matched my background.",
   },
@@ -212,7 +279,7 @@ const STORIES = [
     role: "Chief Financial Officer (CFO)",
     stage: "Executive",
     pkg: "Resume Writing",
-    avatar: avaM10,
+    avatar: imgDanielWhitmore,
     quote:
       "I’ve worked with executive recruiters throughout my career, so I understand how much a resume matters at this level. Mine needed to communicate strategic financial leadership rather than simply list responsibilities. The final version captured that perfectly. Within weeks, I was shortlisted for executive interviews where my experience aligned much more closely with what employers were looking for.",
   },
@@ -221,7 +288,7 @@ const STORIES = [
     role: "Chief Information Officer (CIO)",
     stage: "Executive",
     pkg: "Career Pro",
-    avatar: avaF9,
+    avatar: imgSophiaBennett,
     quote:
       "Technology leadership is always evolving, and I wanted my professional profile to reflect where my career is today rather than where it started. Career Pro helped align everything, from my resume and LinkedIn profile to my Indeed profile and personal branding. The updated profile gave me a much stronger executive presence, and I noticed a clear increase in conversations with executive recruiters about technology leadership opportunities.",
   },
@@ -230,7 +297,7 @@ const STORIES = [
     role: "Vice President of Sales",
     stage: "Executive",
     pkg: "Career Pro",
-    avatar: avaM9,
+    avatar: imgMichaelAshford,
     quote:
       "Over the years I’d built successful sales teams and delivered consistent results, but my personal brand didn’t reflect that success. Career Pro helped bring everything together. My resume, LinkedIn profile, Indeed profile, and profile branding all communicated the same leadership message. Soon after updating everything, I was approached about senior commercial leadership opportunities that were a much better fit for my experience and long-term career goals.",
   },
@@ -356,7 +423,7 @@ function SuccessStoriesPage() {
               {/* Happy Clients Count card */}
               <div className="flex items-center gap-3.5 bg-white border border-[#e2edf0] rounded-2xl p-4 shadow-sm max-w-xs mt-6">
                 <img
-                  src={avaM3}
+                  src={imgJonathanMercer}
                   alt="CEO Jonathan Mercer"
                   className="h-10 w-10 rounded-full object-cover border-2 border-[#0a7a9b]/25 shadow-sm"
                 />
@@ -414,52 +481,89 @@ function SuccessStoriesPage() {
             {STORIES.map((story, idx) => (
               <div
                 key={idx}
-                className="relative flex flex-col w-[21rem] sm:w-[26rem] shrink-0 snap-center rounded-3xl border border-[#0a7a9b]/15 bg-gradient-to-br from-white to-[#e6f2f5]/60 p-6 sm:p-8 pl-14 sm:pl-16 shadow-sm hover:shadow-md transition-all duration-300 group"
+                className="relative flex flex-col w-[21rem] sm:w-[28rem] md:w-[32rem] shrink-0 snap-center rounded-[2rem] border border-slate-800/80 p-5 sm:p-6 md:p-8 shadow-2xl transition-all duration-300 overflow-hidden text-white group"
+                style={{
+                  backgroundImage: `linear-gradient(to bottom, rgba(15, 23, 42, 0.65), rgba(2, 6, 23, 0.92)), url(${bgCard})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
               >
-                {/* Overlapping Avatar on the left edge aligned with top content */}
-                <div className="absolute left-0 top-6 sm:top-8 -translate-x-1/2 w-16 h-16 sm:w-20 sm:h-20 rounded-full border-4 border-white shadow-md overflow-hidden bg-white z-10">
-                  <img
-                    src={story.avatar}
-                    alt={story.name}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-
-                {/* Subtle Quote Icon Background */}
-                <div className="absolute bottom-4 right-6 text-[#0a7a9b]/10 group-hover:text-[#0a7a9b]/15 transition-colors">
-                  <Quote className="h-10 sm:h-12 w-10 sm:w-12 rotate-180" />
-                </div>
-
-                {/* Client Profile details at the top */}
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                  <div>
-                    <h4 className="font-display text-sm font-extrabold text-navy-deep leading-snug">
-                      {story.name}
-                    </h4>
-                    <span className="text-[10px] text-foreground/50 font-bold block mt-0.5 leading-none">
-                      {story.role}
-                    </span>
+                {/* 1. Header: Avatar, Name/Role and Stage Badge */}
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
+                  <div className="flex items-center gap-3">
+                    {/* Avatar */}
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full border-[3px] border-white shadow-lg overflow-hidden shrink-0">
+                      <img
+                        src={story.avatar}
+                        alt={story.name}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
+                    {/* Name & Role */}
+                    <div>
+                      <h4 className="font-display text-base sm:text-lg font-extrabold tracking-tight text-white leading-tight">
+                        {story.name}
+                      </h4>
+                      <p className="text-[11px] sm:text-xs text-slate-300 font-semibold mt-0.5">
+                        {story.role}
+                      </p>
+                    </div>
                   </div>
 
-                  {/* Package Pill */}
-                  <span className="inline-block rounded-lg bg-[#0a7a9b]/10 text-[#0a7a9b] text-[9px] font-extrabold uppercase tracking-wider px-2.5 py-1 self-start sm:self-center">
-                    {story.pkg}
+                  {/* Stage Badge */}
+                  <div className="flex items-center gap-1 px-2.5 py-1 rounded-xl bg-[#00c2ff] text-black font-extrabold text-[9px] sm:text-[10px] tracking-wider self-start sm:self-center shrink-0 shadow-sm">
+                    <User className="w-3.5 h-3.5" />
+                    <span>{story.stage}</span>
+                  </div>
+                </div>
+
+                {/* 2. Package Details Section */}
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="flex items-center justify-center w-10 h-10 rounded-xl border border-white/20 bg-white/5 text-white shrink-0">
+                    <ShoppingBag className="w-4.5 h-4.5 stroke-[1.5]" />
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-[#00c2ff] text-[9px] sm:text-[10px] font-extrabold uppercase tracking-wider leading-none">
+                      Package Purchased:
+                    </span>
+                    <span className="inline-block bg-[#00c2ff] text-black font-black px-2.5 py-0.5 rounded-md text-[10px] sm:text-xs uppercase tracking-wide self-start shadow-sm mt-1 leading-normal">
+                      {story.pkg}
+                    </span>
+                  </div>
+                </div>
+
+                {/* 3. Quote Block */}
+                <div className="flex gap-2.5 items-start flex-1 mb-4">
+                  <span className="text-[#00c2ff] font-display text-4xl sm:text-5xl font-bold leading-none select-none -mt-2">
+                    “
                   </span>
+                  <p className="text-xs sm:text-sm text-slate-100 font-medium leading-relaxed italic flex-1">
+                    {story.quote}
+                    <span className="text-[#00c2ff] font-display text-lg font-extrabold ml-1 inline-block align-baseline">
+                      ”
+                    </span>
+                  </p>
                 </div>
 
-                <div className="h-px bg-border/60 my-3 w-full" />
-
-                {/* Stars */}
-                <div className="flex text-[#b89460] mb-3">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-3.5 w-3.5 fill-[#b89460] stroke-[1.5]" />
-                  ))}
+                {/* 4. Footer: Divider line with Rating Stars */}
+                <div className="flex items-center gap-3.5 w-full mb-2">
+                  <div className="flex-1 h-[1px] bg-gradient-to-r from-transparent to-[#00c2ff]/30"></div>
+                  <div className="flex gap-0.5 text-[#00c2ff] shrink-0">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-3 w-3 fill-[#00c2ff] stroke-none" />
+                    ))}
+                  </div>
+                  <div className="flex-1 h-[1px] bg-gradient-to-l from-transparent to-[#00c2ff]/30"></div>
                 </div>
 
-                {/* Quote Content */}
-                <p className="text-xs sm:text-sm text-foreground/80 leading-relaxed font-semibold italic flex-1">
-                  “{story.quote}”
-                </p>
+                {/* 5. Footer Logo */}
+                <div className="flex justify-end w-full">
+                  <img
+                    src={logo}
+                    alt="Hire Career Coach Logo"
+                    className="h-7 sm:h-8 w-auto object-contain brightness-0 invert opacity-90"
+                  />
+                </div>
               </div>
             ))}
           </div>
