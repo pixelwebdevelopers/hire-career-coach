@@ -23,6 +23,20 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 
+const renderBoldText = (text: string) => {
+  const parts = text.split(/(\*\*.*?\*\*)/g);
+  return parts.map((part, index) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return (
+        <strong key={index} className="font-extrabold text-navy-deep">
+          {part.slice(2, -2)}
+        </strong>
+      );
+    }
+    return part;
+  });
+};
+
 export const Route = createFileRoute("/intake")({
   component: IntakePage,
 });
@@ -34,6 +48,7 @@ function IntakePage() {
   // Form Fields State
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
+  const [countryCode, setCountryCode] = useState("+1");
   const [phone, setPhone] = useState("");
   const [currentTitle, setCurrentTitle] = useState("");
   const [targetTitles, setTargetTitles] = useState("");
@@ -62,7 +77,9 @@ function IntakePage() {
       newErrors.email = "Please enter a valid email address";
     }
 
-    if (!phone.trim()) {
+    if (!countryCode.trim()) {
+      newErrors.phone = "Country code is required";
+    } else if (!phone.trim()) {
       newErrors.phone = "Phone number is required";
     } else if (phone.trim().replace(/[^0-9]/g, "").length < 7) {
       newErrors.phone = "Please enter a valid phone number (at least 7 digits)";
@@ -175,7 +192,7 @@ function IntakePage() {
 
     try {
       const payload = {
-        personalInfo: { fullName, email, phone },
+        personalInfo: { fullName, email, phone: `${countryCode.trim()} ${phone.trim()}` },
         professionalInfo: { currentTitle, targetTitles, linkedin },
         cart,
         notes,
@@ -334,25 +351,50 @@ function IntakePage() {
                   >
                     Phone Number *
                   </label>
-                  <input
-                    type="text"
-                    value={phone}
-                    onChange={(e) => {
-                      setPhone(e.target.value);
-                      if (errors.phone)
-                        setErrors((prev) => {
-                          const clone = { ...prev };
-                          delete clone.phone;
-                          return clone;
-                        });
-                    }}
-                    placeholder="(123) 456-7890"
-                    className={`w-full rounded-xl border px-4 py-3 text-sm text-foreground outline-none transition-all ${
-                      errors.phone
-                        ? "border-red-500 focus:ring-red-500 focus:border-red-500 bg-red-50/10"
-                        : "border-border/80 focus:ring-[#0a7a9b] focus:border-[#0a7a9b]"
-                    }`}
-                  />
+                  <div className="flex gap-2">
+                    <div className="w-24 shrink-0">
+                      <input
+                        type="text"
+                        value={countryCode}
+                        onChange={(e) => {
+                          setCountryCode(e.target.value);
+                          if (errors.phone)
+                            setErrors((prev) => {
+                              const clone = { ...prev };
+                              delete clone.phone;
+                              return clone;
+                            });
+                        }}
+                        placeholder="+1"
+                        className={`w-full rounded-xl border px-4 py-3 text-sm text-foreground outline-none transition-all ${
+                          errors.phone
+                            ? "border-red-500 focus:ring-red-500 focus:border-red-500 bg-red-50/10"
+                            : "border-border/80 focus:ring-[#0a7a9b] focus:border-[#0a7a9b]"
+                        }`}
+                      />
+                    </div>
+                    <div className="flex-1">
+                      <input
+                        type="text"
+                        value={phone}
+                        onChange={(e) => {
+                          setPhone(e.target.value);
+                          if (errors.phone)
+                            setErrors((prev) => {
+                              const clone = { ...prev };
+                              delete clone.phone;
+                              return clone;
+                            });
+                        }}
+                        placeholder="(123) 456-7890"
+                        className={`w-full rounded-xl border px-4 py-3 text-sm text-foreground outline-none transition-all ${
+                          errors.phone
+                            ? "border-red-500 focus:ring-red-500 focus:border-red-500 bg-red-50/10"
+                            : "border-border/80 focus:ring-[#0a7a9b] focus:border-[#0a7a9b]"
+                        }`}
+                      />
+                    </div>
+                  </div>
                   {errors.phone && (
                     <p className="mt-1.5 text-xs font-semibold text-red-500">{errors.phone}</p>
                   )}
@@ -670,7 +712,7 @@ function IntakePage() {
                                   className="text-xs text-foreground/75 flex items-center gap-1.5"
                                 >
                                   <Check className="h-3 w-3 shrink-0 text-[#0a7a9b]" />
-                                  <span>{f}</span>
+                                  <span>{renderBoldText(f)}</span>
                                 </li>
                               ))}
                           </ul>
@@ -735,18 +777,12 @@ function IntakePage() {
               </p>
               <ul className="space-y-3.5 text-xs text-foreground/85 font-semibold">
                 <li className="flex items-center gap-2.5">
-                  <PhoneCall className="h-4 w-4 text-[#0a7a9b] shrink-0" />
-                  <a href="tel:+18881234567" className="hover:text-[#0a7a9b] transition-colors">
-                    (888) 123-4567
-                  </a>
-                </li>
-                <li className="flex items-center gap-2.5">
                   <Mail className="h-4 w-4 text-[#0a7a9b] shrink-0" />
                   <a
-                    href="mailto:support@hirecareercoach.com"
+                    href="mailto:contact@hirecareercoach.com"
                     className="hover:text-[#0a7a9b] transition-colors"
                   >
-                    support@hirecareercoach.com
+                    contact@hirecareercoach.com
                   </a>
                 </li>
               </ul>

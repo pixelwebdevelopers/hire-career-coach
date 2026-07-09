@@ -251,10 +251,10 @@ function ThankYouPage() {
               Need Help?
             </p>
             <a
-              href="mailto:support@hirecareercoach.com"
+              href="mailto:contact@hirecareercoach.com"
               className="mt-1.5 block font-display text-sm font-bold text-[#0a7a9b] hover:underline"
             >
-              support@hirecareercoach.com
+              contact@hirecareercoach.com
             </a>
           </div>
         </div>
@@ -497,9 +497,12 @@ function ThankYouPage() {
           <div className="flex gap-2.5">
             <Mail className="h-5 w-5 text-[#0a7a9b] shrink-0" />
             <div>
-              <h5 className="text-navy-deep font-bold uppercase tracking-wider text-[10px]">
-                support@hirecareercoach.com
-              </h5>
+              <a
+                href="mailto:contact@hirecareercoach.com"
+                className="text-navy-deep font-bold uppercase tracking-wider text-[10px] hover:text-[#0a7a9b] transition-colors"
+              >
+                contact@hirecareercoach.com
+              </a>
               <p className="mt-1 text-[10px] text-foreground/50 leading-snug">
                 Mon - Fri, 9AM - 6PM EST
               </p>

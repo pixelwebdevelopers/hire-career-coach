@@ -416,8 +416,8 @@ function SuccessStoriesPage() {
                 key={idx}
                 className="relative flex flex-col w-[21rem] sm:w-[26rem] shrink-0 snap-center rounded-3xl border border-[#0a7a9b]/15 bg-gradient-to-br from-white to-[#e6f2f5]/60 p-6 sm:p-8 pl-14 sm:pl-16 shadow-sm hover:shadow-md transition-all duration-300 group"
               >
-                {/* Overlapping Avatar on the left edge */}
-                <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-16 h-16 sm:w-20 sm:h-20 rounded-full border-4 border-white shadow-md overflow-hidden bg-white z-10">
+                {/* Overlapping Avatar on the left edge aligned with top content */}
+                <div className="absolute left-0 top-6 sm:top-8 -translate-x-1/2 w-16 h-16 sm:w-20 sm:h-20 rounded-full border-4 border-white shadow-md overflow-hidden bg-white z-10">
                   <img
                     src={story.avatar}
                     alt={story.name}
@@ -426,25 +426,11 @@ function SuccessStoriesPage() {
                 </div>
 
                 {/* Subtle Quote Icon Background */}
-                <div className="absolute top-4 right-6 text-[#0a7a9b]/10 group-hover:text-[#0a7a9b]/15 transition-colors">
+                <div className="absolute bottom-4 right-6 text-[#0a7a9b]/10 group-hover:text-[#0a7a9b]/15 transition-colors">
                   <Quote className="h-10 sm:h-12 w-10 sm:w-12 rotate-180" />
                 </div>
 
-                {/* Stars */}
-                <div className="flex text-[#b89460] mb-3">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-3.5 w-3.5 fill-[#b89460] stroke-[1.5]" />
-                  ))}
-                </div>
-
-                {/* Quote Content */}
-                <p className="text-xs sm:text-sm text-foreground/80 leading-relaxed font-semibold italic flex-1 mb-5">
-                  “{story.quote}”
-                </p>
-
-                <div className="h-px bg-border/60 my-3 w-full" />
-
-                {/* Client Profile details */}
+                {/* Client Profile details at the top */}
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                   <div>
                     <h4 className="font-display text-sm font-extrabold text-navy-deep leading-snug">
@@ -460,6 +446,20 @@ function SuccessStoriesPage() {
                     {story.pkg}
                   </span>
                 </div>
+
+                <div className="h-px bg-border/60 my-3 w-full" />
+
+                {/* Stars */}
+                <div className="flex text-[#b89460] mb-3">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-3.5 w-3.5 fill-[#b89460] stroke-[1.5]" />
+                  ))}
+                </div>
+
+                {/* Quote Content */}
+                <p className="text-xs sm:text-sm text-foreground/80 leading-relaxed font-semibold italic flex-1">
+                  “{story.quote}”
+                </p>
               </div>
             ))}
           </div>

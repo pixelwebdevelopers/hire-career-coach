@@ -20,6 +20,20 @@ import {
   type IntakePayload,
 } from "@/lib/actions";
 
+const renderBoldText = (text: string) => {
+  const parts = text.split(/(\*\*.*?\*\*)/g);
+  return parts.map((part, index) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return (
+        <strong key={index} className="font-extrabold text-navy-deep">
+          {part.slice(2, -2)}
+        </strong>
+      );
+    }
+    return part;
+  });
+};
+
 // Initialize Stripe Promise
 const stripePublishableKey = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY || "";
 const hasStripeKeys =
@@ -655,7 +669,7 @@ function CheckoutPage({ isMock }: CheckoutPageProps) {
                                   className="text-xs text-foreground/75 flex items-center gap-1.5"
                                 >
                                   <Check className="h-3 w-3 shrink-0 text-[#0a7a9b]" />
-                                  <span>{f}</span>
+                                  <span>{renderBoldText(f)}</span>
                                 </li>
                               ))}
                           </ul>
@@ -720,18 +734,12 @@ function CheckoutPage({ isMock }: CheckoutPageProps) {
               </p>
               <ul className="space-y-3.5 text-xs text-foreground/85 font-semibold">
                 <li className="flex items-center gap-2.5">
-                  <PhoneCall className="h-4 w-4 text-[#0a7a9b] shrink-0" />
-                  <a href="tel:+18881234567" className="hover:text-[#0a7a9b] transition-colors">
-                    (888) 123-4567
-                  </a>
-                </li>
-                <li className="flex items-center gap-2.5">
                   <Mail className="h-4 w-4 text-[#0a7a9b] shrink-0" />
                   <a
-                    href="mailto:support@hirecareercoach.com"
+                    href="mailto:contact@hirecareercoach.com"
                     className="hover:text-[#0a7a9b] transition-colors"
                   >
-                    support@hirecareercoach.com
+                    contact@hirecareercoach.com
                   </a>
                 </li>
               </ul>

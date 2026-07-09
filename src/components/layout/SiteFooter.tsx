@@ -25,7 +25,9 @@ export function SiteFooter() {
               <a
                 aria-label="LinkedIn"
                 className="grid h-10 w-10 place-items-center rounded-full border border-ivory/20 hover:border-gold hover:text-gold transition-colors"
-                href="#"
+                href="https://www.linkedin.com/company/hirecareercoach/"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <Linkedin className="h-4 w-4" />
               </a>

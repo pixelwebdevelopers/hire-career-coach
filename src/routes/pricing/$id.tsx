@@ -329,7 +329,7 @@ const LEVEL_DATA: Record<
         id: "interview",
         title: "Interview Preparation",
         desc: "Mock interview + feedback + strategies.",
-        price: 95,
+        price: 120,
         icon: Headset,
       },
       {

@@ -379,16 +379,15 @@ export const SERVICES: Service[] = [
     icon: Camera,
     headline: "Career profile enhancement that positions you as an industry leader",
     intro: [
-      "Your professional image and branding influence how recruiters, employers, and clients perceive you. We help you establish credibility, communicate value, and differentiate yourself in competitive markets.",
-      "We build a consistent visual and written brand, including custom banner designs and professional asset alignment to ensure a cohesive presence.",
+      "Build a polished and professional presence that helps you make a strong first impression.",
+      "Whether you’re actively job searching, growing your network, or celebrating career milestones, we create professional visuals that enhance your credibility and elevate your professional image across LinkedIn and other career platforms.",
     ],
     features: [
-      "Increased professional visibility",
-      "Enhanced credibility",
-      "Stronger networking opportunities",
-      "Better career opportunities",
-      "Clear professional identity",
-      "Custom banner design",
+      "Professionally enhanced headshot using your existing photo",
+      "Custom LinkedIn banner designed for your profession and career goals",
+      "Professional graphics for career announcements, certifications, promotions, graduations, and other milestones",
+      "Personalized recommendations to maintain a polished and consistent professional presence",
+      "Professionally designed visuals optimized for LinkedIn and other professional platforms",
     ],
     why: {
       title: "Build a powerful brand",

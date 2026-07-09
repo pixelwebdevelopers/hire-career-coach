@@ -13,6 +13,7 @@ import appCss from "../styles.css?url";
 import favicon from "../assets/favicon.png";
 import { SiteHeader } from "../components/layout/SiteHeader";
 import { SiteFooter } from "../components/layout/SiteFooter";
+import { FloatingContactButton } from "../components/layout/FloatingContactButton";
 
 function NotFoundComponent() {
   return (
@@ -134,6 +135,7 @@ function RootComponent() {
         <Outlet />
       </main>
       <SiteFooter />
+      <FloatingContactButton />
     </QueryClientProvider>
   );
 }
