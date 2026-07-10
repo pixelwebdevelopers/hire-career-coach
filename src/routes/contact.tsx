@@ -85,7 +85,7 @@ function ContactPage() {
                 label="contact@hirecareercoach.com"
                 href="mailto:contact@hirecareercoach.com"
               />
-              <Info icon={<Clock className="h-4 w-4" />} label="Mon — Fri · 9am to 6pm ET" />
+              <Info icon={<Clock className="h-4 w-4" />} label="Mon — Sun · 9am to 6pm ET" />
             </ul>
           </div>
 

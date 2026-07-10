@@ -24,14 +24,14 @@ export const PACKAGES: PackageGroup[] = [
       {
         name: "Basic",
         price: 120,
-        features: ["Executive **Resume**", "Executive **Cover Letter**", "2 **Revisions**"],
+        features: ["ATS Optimized **Resume**", "Tailored **Cover Letter**", "2 **Revisions**"],
       },
       {
         name: "Advanced",
         price: 180,
         features: [
-          "Executive **Resume**",
-          "Executive **Cover Letter**",
+          "ATS Optimized **Resume**",
+          "Tailored **Cover Letter**",
           "**LinkedIn** Optimization",
           "2 **Revisions**",
         ],
@@ -41,8 +41,8 @@ export const PACKAGES: PackageGroup[] = [
         price: 230,
         highlight: true,
         features: [
-          "Executive **Resume**",
-          "Executive **Cover Letter**",
+          "ATS Optimized **Resume**",
+          "Tailored **Cover Letter**",
           "**LinkedIn** Optimization",
           "**Career Profile** Enhancement",
           "**Indeed** Optimization",
@@ -56,7 +56,7 @@ export const PACKAGES: PackageGroup[] = [
         price: 250,
         features: [
           "90-Minute One-on-One **Career Strategy** Session",
-          "Executive **Resume** Writing",
+          "ATS Optimized **Resume** Writing",
           "**Indeed** Optimization",
           "Networking Templates",
           "Personalized Career Roadmap",
@@ -82,14 +82,14 @@ export const PACKAGES: PackageGroup[] = [
       {
         name: "Basic",
         price: 160,
-        features: ["Executive **Resume**", "Executive **Cover Letter**", "2 **Revisions**"],
+        features: ["ATS Optimized **Resume**", "Tailored **Cover Letter**", "2 **Revisions**"],
       },
       {
         name: "Advanced",
         price: 220,
         features: [
-          "Executive **Resume**",
-          "Executive **Cover Letter**",
+          "ATS Optimized **Resume**",
+          "Tailored **Cover Letter**",
           "**LinkedIn** Optimization",
           "2 **Revisions**",
         ],
@@ -99,8 +99,8 @@ export const PACKAGES: PackageGroup[] = [
         price: 280,
         highlight: true,
         features: [
-          "Executive **Resume**",
-          "Executive **Cover Letter**",
+          "ATS Optimized **Resume**",
+          "Tailored **Cover Letter**",
           "**LinkedIn** Optimization",
           "**Career Profile** Enhancement",
           "**Indeed** Optimization",
@@ -114,7 +114,7 @@ export const PACKAGES: PackageGroup[] = [
         price: 300,
         features: [
           "90-Minute One-on-One **Career Strategy** Session",
-          "Executive **Resume** Writing",
+          "ATS Optimized **Resume** Writing",
           "**Indeed** Optimization",
           "Networking Templates",
           "Personalized Career Roadmap",
@@ -139,14 +139,14 @@ export const PACKAGES: PackageGroup[] = [
       {
         name: "Basic",
         price: 180,
-        features: ["Executive **Resume**", "Executive **Cover Letter**", "2 **Revisions**"],
+        features: ["ATS Optimized **Resume**", "Tailored **Cover Letter**", "2 **Revisions**"],
       },
       {
         name: "Advanced",
         price: 250,
         features: [
-          "Executive **Resume**",
-          "Executive **Cover Letter**",
+          "ATS Optimized **Resume**",
+          "Tailored **Cover Letter**",
           "**LinkedIn** Optimization",
           "2 **Revisions**",
         ],
@@ -156,8 +156,8 @@ export const PACKAGES: PackageGroup[] = [
         price: 300,
         highlight: true,
         features: [
-          "Executive **Resume**",
-          "Executive **Cover Letter**",
+          "ATS Optimized **Resume**",
+          "Tailored **Cover Letter**",
           "**LinkedIn** Optimization",
           "**Career Profile** Enhancement",
           "**Indeed** Optimization",
@@ -171,7 +171,7 @@ export const PACKAGES: PackageGroup[] = [
         price: 350,
         features: [
           "90-Minute One-on-One **Career Strategy** Session",
-          "Executive **Resume** Writing",
+          "ATS Optimized **Resume** Writing",
           "**Indeed** Optimization",
           "Networking Templates",
           "Personalized Career Roadmap",

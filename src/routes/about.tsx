@@ -88,7 +88,7 @@ const STORIES = [
     pkg: "Career Pro",
     avatar: imgArianaCole,
     quote:
-      "Graduating was exciting, but standing out in a competitive market was a lot harder than I expected. My applications weren’t getting much attention, so I decided to invest in Career Pro. My resume, cover letter, LinkedIn profile, Indeed profile, and personal branding finally worked together instead of feeling disconnected. Within a few weeks, recruiters started reaching out through LinkedIn, and I secured interviews with two graduate software companies. It gave me confidence that I was finally presenting myself the right way.",
+      "Graduating was exciting, but standing out in a competitive market was a lot harder than I expected. My applications weren’t getting much attention, so I decided to invest in Career Pro. My resume, cover letter, LinkedIn profile, Indeed profile, and personal branding finally worked together instead of feeling disconnected. Within a few weeks, recruiters started reaching out through LinkedIn, and I secured interviews with two leading software companies. It gave me confidence that I was finally presenting myself the right way.",
   },
   {
     name: "Natalie Hayes",

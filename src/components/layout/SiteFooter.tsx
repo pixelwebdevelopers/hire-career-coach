@@ -114,7 +114,7 @@ export function SiteFooter() {
               </li>
               <li className="flex items-start gap-3">
                 <Clock className="h-4 w-4 mt-1 text-gold shrink-0" />
-                <span>Mon — Fri · 9am to 6pm ET</span>
+                <span>Mon — Sun · 9am to 6pm ET</span>
               </li>
               <li className="flex items-center gap-3">
                 <CalendarCheck className="h-4 w-4 text-gold shrink-0" />

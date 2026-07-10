@@ -504,7 +504,7 @@ function ThankYouPage() {
                 contact@hirecareercoach.com
               </a>
               <p className="mt-1 text-[10px] text-foreground/50 leading-snug">
-                Mon - Fri, 9AM - 6PM EST
+                Mon - Sun, 9AM - 6PM EST
               </p>
             </div>
           </div>
