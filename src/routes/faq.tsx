@@ -62,6 +62,10 @@ const FAQ_CATEGORIES: FaqCategory[] = [
         q: "Do you work with clients outside the United States?",
         a: "Yes. We work with clients globally, including professionals in the United States, Canada, the United Kingdom, Australia, Europe, the Middle East, and Asia.",
       },
+      {
+        q: "Why should I hire a professional resume writer instead of writing my own resume?",
+        a: "Many professionals are highly qualified but struggle to present their experience in a way that resonates with recruiters and hiring managers. A professional resume writer understands ATS systems, recruiter expectations, keyword optimization, executive branding, and achievement-focused writing. Our goal isn’t just to improve your resume—it’s to position you as the strongest candidate for the roles you want.",
+      },
     ],
   },
   {

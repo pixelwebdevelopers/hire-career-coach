@@ -943,7 +943,7 @@ function PackageSelectionPage() {
                 Resume Review & ATS Audit Credit
               </h4>
               <p className="mt-1.5 text-xs text-foreground/75 leading-relaxed">
-                If you purchase a Resume Writing package within 30 days of your audit, 100% of your
+                If you purchase a Resume Writing package within 14 days of your audit, 100% of your
                 audit fee will be credited toward your Resume Writing service.
               </p>
             </div>

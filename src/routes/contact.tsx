@@ -85,7 +85,7 @@ function ContactPage() {
                 label="contact@hirecareercoach.com"
                 href="mailto:contact@hirecareercoach.com"
               />
-              <Info icon={<Clock className="h-4 w-4" />} label="Mon — Sun · 9am to 6pm ET" />
+              <Info icon={<Clock className="h-4 w-4" />} label="Mon — Sun · 9am to 6pm EST" />
             </ul>
           </div>
 
@@ -113,7 +113,7 @@ function CalendlyInline() {
       if (window.Calendly && containerRef.current) {
         containerRef.current.innerHTML = "";
         window.Calendly.initInlineWidget({
-          url: "https://calendly.com/hirecareercoach/30min",
+          url: "https://calendly.com/hirecareercoach/15min",
           parentElement: containerRef.current,
         });
       }

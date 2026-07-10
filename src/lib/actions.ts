@@ -154,7 +154,8 @@ export const completeOrderAndSendEmail = createServerFn({ method: "POST" })
     if (
       stripeSecretKey &&
       stripeSecretKey !== "sk_test_placeholder_secret_key" &&
-      !paymentIntentId.startsWith("mock_")
+      !paymentIntentId.startsWith("mock_") &&
+      !paymentIntentId.startsWith("express_intent_")
     ) {
       try {
         const { default: Stripe } = await import("stripe");

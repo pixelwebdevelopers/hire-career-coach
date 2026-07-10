@@ -40,7 +40,7 @@ function CalendlyInline() {
       if (window.Calendly && containerRef.current) {
         containerRef.current.innerHTML = "";
         window.Calendly.initInlineWidget({
-          url: "https://calendly.com/hirecareercoach/30min",
+          url: "https://calendly.com/hirecareercoach/15min",
           parentElement: containerRef.current,
         });
       }
