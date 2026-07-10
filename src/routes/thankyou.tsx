@@ -409,7 +409,7 @@ function ThankYouPage() {
             {/* Meet Your Coach card */}
             <div className="flex items-center gap-4 rounded-2xl bg-[#f8f9fa] border border-border/40 p-4">
               <img
-                src="/coach_jessica.png"
+                src="/rida-shakeel.jpg"
                 alt="Jessica Morgan"
                 className="h-14 w-14 rounded-full object-cover shadow-sm bg-border border-2 border-white shrink-0"
               />
