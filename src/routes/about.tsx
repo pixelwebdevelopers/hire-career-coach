@@ -65,7 +65,8 @@ export const Route = createFileRoute("/about")({
         property: "og:description",
         content: "Quiet wins. Loud careers. Real stories of career transitions.",
       },
-      { property: "og:image", content: interviewImage },
+      { property: "og:image", content: logo },
+      { name: "twitter:image", content: logo },
     ],
   }),
   component: SuccessStoriesPage,
@@ -301,6 +302,7 @@ const STORIES = [
 
 function SuccessStoriesPage() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
 
   // Manual scroll controls
   const handleScrollLeft = () => {
@@ -319,8 +321,10 @@ function SuccessStoriesPage() {
     }
   };
 
-  // Auto-scrolling carousel effect
+  // Auto-scrolling carousel effect (pauses when hovered)
   useEffect(() => {
+    if (isHovered) return;
+
     const timer = setInterval(() => {
       if (scrollContainerRef.current) {
         const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
@@ -337,7 +341,7 @@ function SuccessStoriesPage() {
     }, 4500);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [isHovered]);
 
   return (
     <div className="bg-white min-h-screen">
@@ -434,24 +438,6 @@ function SuccessStoriesPage() {
                   </span>
                 </div>
               </div>
-
-              {/* Slider Manual Controls */}
-              <div className="flex items-center gap-3 mt-8">
-                <button
-                  onClick={handleScrollLeft}
-                  aria-label="Previous story"
-                  className="flex h-11 w-11 items-center justify-center rounded-full border border-border/80 bg-white text-navy-deep hover:bg-cream/40 transition-colors shadow-sm"
-                >
-                  <ChevronLeft className="h-5 w-5" />
-                </button>
-                <button
-                  onClick={handleScrollRight}
-                  aria-label="Next story"
-                  className="flex h-11 w-11 items-center justify-center rounded-full bg-[#0a7a9b] hover:bg-[#08627c] text-white transition-colors shadow-sm"
-                >
-                  <ChevronRight className="h-5 w-5" />
-                </button>
-              </div>
             </div>
 
             {/* Vertical Separator */}
@@ -468,100 +454,125 @@ function SuccessStoriesPage() {
             </div>
           </div>
 
-          {/* Carousel Viewport Container */}
+          {/* Carousel Viewport Wrapper with Side Arrows & Pause-on-Hover */}
           <div
-            ref={scrollContainerRef}
-            className="flex overflow-x-auto gap-6 pb-6 pt-2 snap-x snap-mandatory scroll-smooth no-scrollbar"
-            style={{ WebkitOverflowScrolling: "touch" }}
+            className="relative group/carousel mt-4"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
           >
-            {STORIES.map((story, idx) => (
-              <div
-                key={idx}
-                className="relative flex flex-col w-[21rem] sm:w-[28rem] md:w-[32rem] shrink-0 snap-center rounded-[2rem] border border-slate-800/80 p-5 sm:p-6 md:p-8 shadow-2xl transition-all duration-300 overflow-hidden text-white group"
-                style={{
-                  backgroundImage: `linear-gradient(to bottom, rgba(15, 23, 42, 0.65), rgba(2, 6, 23, 0.92)), url(${bgCard})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
-              >
-                {/* 1. Header: Avatar, Name/Role and Stage Badge */}
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
-                  <div className="flex items-center gap-3">
-                    {/* Avatar */}
-                    <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full border-[3px] border-white shadow-lg overflow-hidden shrink-0">
-                      <img
-                        src={story.avatar}
-                        alt={story.name}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
+            {/* Left Side Arrow Button */}
+            <button
+              onClick={handleScrollLeft}
+              aria-label="Previous story"
+              className="absolute left-1 sm:-left-5 top-1/2 -translate-y-1/2 z-20 flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-white/90 hover:bg-white text-navy-deep hover:text-[#0a7a9b] hover:scale-110 active:scale-95 transition-all duration-300 shadow-xl border border-border/80 hover:border-[#0a7a9b] cursor-pointer"
+            >
+              <ChevronLeft className="h-6 w-6 stroke-[2.5]" />
+            </button>
+
+            {/* Right Side Arrow Button */}
+            <button
+              onClick={handleScrollRight}
+              aria-label="Next story"
+              className="absolute right-1 sm:-right-5 top-1/2 -translate-y-1/2 z-20 flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-[#0a7a9b] hover:bg-[#08627c] text-white hover:scale-110 active:scale-95 transition-all duration-300 shadow-xl border border-white/20 cursor-pointer"
+            >
+              <ChevronRight className="h-6 w-6 stroke-[2.5]" />
+            </button>
+
+            {/* Carousel Viewport Container */}
+            <div
+              ref={scrollContainerRef}
+              className="flex overflow-x-auto gap-6 pb-6 pt-2 px-2 sm:px-4 snap-x snap-mandatory scroll-smooth no-scrollbar"
+              style={{ WebkitOverflowScrolling: "touch" }}
+            >
+              {STORIES.map((story, idx) => (
+                <div
+                  key={idx}
+                  className="relative flex flex-col w-[21rem] sm:w-[28rem] md:w-[32rem] shrink-0 snap-center rounded-[2rem] border border-slate-800/80 p-5 sm:p-6 md:p-8 shadow-2xl transition-all duration-300 overflow-hidden text-white group"
+                  style={{
+                    backgroundImage: `linear-gradient(to bottom, rgba(15, 23, 42, 0.65), rgba(2, 6, 23, 0.92)), url(${bgCard})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                >
+                  {/* 1. Header: Avatar, Name/Role and Stage Badge */}
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
+                    <div className="flex items-center gap-3">
+                      {/* Avatar */}
+                      <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full border-[3px] border-white shadow-lg overflow-hidden shrink-0">
+                        <img
+                          src={story.avatar}
+                          alt={story.name}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                      </div>
+                      {/* Name & Role */}
+                      <div>
+                        <h4 className="font-display text-base sm:text-lg font-extrabold tracking-tight text-white leading-tight">
+                          {story.name}
+                        </h4>
+                        <p className="text-[11px] sm:text-xs text-slate-300 font-semibold mt-0.5">
+                          {story.role}
+                        </p>
+                      </div>
                     </div>
-                    {/* Name & Role */}
-                    <div>
-                      <h4 className="font-display text-base sm:text-lg font-extrabold tracking-tight text-white leading-tight">
-                        {story.name}
-                      </h4>
-                      <p className="text-[11px] sm:text-xs text-slate-300 font-semibold mt-0.5">
-                        {story.role}
-                      </p>
+
+                    {/* Stage Badge */}
+                    <div className="flex items-center gap-1 px-2.5 py-1 rounded-xl bg-[#00c2ff] text-black font-extrabold text-[9px] sm:text-[10px] tracking-wider self-start sm:self-center shrink-0 shadow-sm">
+                      <User className="w-3.5 h-3.5" />
+                      <span>{story.stage}</span>
                     </div>
                   </div>
 
-                  {/* Stage Badge */}
-                  <div className="flex items-center gap-1 px-2.5 py-1 rounded-xl bg-[#00c2ff] text-black font-extrabold text-[9px] sm:text-[10px] tracking-wider self-start sm:self-center shrink-0 shadow-sm">
-                    <User className="w-3.5 h-3.5" />
-                    <span>{story.stage}</span>
+                  {/* 2. Package Details Section */}
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="flex items-center justify-center w-10 h-10 rounded-xl border border-white/20 bg-white/5 text-white shrink-0">
+                      <ShoppingBag className="w-4.5 h-4.5 stroke-[1.5]" />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-[#00c2ff] text-[9px] sm:text-[10px] font-extrabold uppercase tracking-wider leading-none">
+                        Package Purchased:
+                      </span>
+                      <span className="inline-block bg-[#00c2ff] text-black font-black px-2.5 py-0.5 rounded-md text-[10px] sm:xs uppercase tracking-wide self-start shadow-sm mt-1 leading-normal">
+                        {story.pkg}
+                      </span>
+                    </div>
                   </div>
-                </div>
 
-                {/* 2. Package Details Section */}
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="flex items-center justify-center w-10 h-10 rounded-xl border border-white/20 bg-white/5 text-white shrink-0">
-                    <ShoppingBag className="w-4.5 h-4.5 stroke-[1.5]" />
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-[#00c2ff] text-[9px] sm:text-[10px] font-extrabold uppercase tracking-wider leading-none">
-                      Package Purchased:
+                  {/* 3. Quote Block */}
+                  <div className="flex gap-2.5 items-start flex-1 mb-4">
+                    <span className="text-[#00c2ff] font-display text-4xl sm:text-5xl font-bold leading-none select-none -mt-2">
+                      “
                     </span>
-                    <span className="inline-block bg-[#00c2ff] text-black font-black px-2.5 py-0.5 rounded-md text-[10px] sm:text-xs uppercase tracking-wide self-start shadow-sm mt-1 leading-normal">
-                      {story.pkg}
-                    </span>
+                    <p className="text-xs sm:text-sm text-slate-100 font-medium leading-relaxed italic flex-1">
+                      {story.quote}
+                      <span className="text-[#00c2ff] font-display text-lg font-extrabold ml-1 inline-block align-baseline">
+                        ”
+                      </span>
+                    </p>
+                  </div>
+
+                  {/* 4. Footer: Divider line with Rating Stars */}
+                  <div className="flex items-center gap-3.5 w-full mb-2">
+                    <div className="flex-1 h-[1px] bg-gradient-to-r from-transparent to-[#00c2ff]/30"></div>
+                    <div className="flex gap-0.5 text-[#00c2ff] shrink-0">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="h-3 w-3 fill-[#00c2ff] stroke-none" />
+                      ))}
+                    </div>
+                    <div className="flex-1 h-[1px] bg-gradient-to-l from-transparent to-[#00c2ff]/30"></div>
+                  </div>
+
+                  {/* 5. Footer Logo */}
+                  <div className="flex justify-end w-full">
+                    <img
+                      src={logo}
+                      alt="Hire Career Coach Logo"
+                      className="h-7 sm:h-8 w-auto object-contain brightness-0 invert opacity-90"
+                    />
                   </div>
                 </div>
-
-                {/* 3. Quote Block */}
-                <div className="flex gap-2.5 items-start flex-1 mb-4">
-                  <span className="text-[#00c2ff] font-display text-4xl sm:text-5xl font-bold leading-none select-none -mt-2">
-                    “
-                  </span>
-                  <p className="text-xs sm:text-sm text-slate-100 font-medium leading-relaxed italic flex-1">
-                    {story.quote}
-                    <span className="text-[#00c2ff] font-display text-lg font-extrabold ml-1 inline-block align-baseline">
-                      ”
-                    </span>
-                  </p>
-                </div>
-
-                {/* 4. Footer: Divider line with Rating Stars */}
-                <div className="flex items-center gap-3.5 w-full mb-2">
-                  <div className="flex-1 h-[1px] bg-gradient-to-r from-transparent to-[#00c2ff]/30"></div>
-                  <div className="flex gap-0.5 text-[#00c2ff] shrink-0">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-3 w-3 fill-[#00c2ff] stroke-none" />
-                    ))}
-                  </div>
-                  <div className="flex-1 h-[1px] bg-gradient-to-l from-transparent to-[#00c2ff]/30"></div>
-                </div>
-
-                {/* 5. Footer Logo */}
-                <div className="flex justify-end w-full">
-                  <img
-                    src={logo}
-                    alt="Hire Career Coach Logo"
-                    className="h-7 sm:h-8 w-auto object-contain brightness-0 invert opacity-90"
-                  />
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>

@@ -11,6 +11,7 @@ import { type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import favicon from "../assets/favicon.png";
+import logo from "../assets/hcc-logo.png";
 import { SiteHeader } from "../components/layout/SiteHeader";
 import { SiteFooter } from "../components/layout/SiteFooter";
 import { FloatingContactButton } from "../components/layout/FloatingContactButton";
@@ -91,7 +92,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Premium resume writing, LinkedIn optimization, interview prep and career coaching.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: logo },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: logo },
     ],
     links: [
       { rel: "icon", type: "image/png", href: favicon },

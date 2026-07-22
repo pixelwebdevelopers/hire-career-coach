@@ -77,8 +77,8 @@ function ContactPage() {
               />
               <Info
                 icon={<Phone className="h-4 w-4" />}
-                label="+1 (667) 856-1221"
-                href="tel:+16678561221"
+                label="(443) 323-0211"
+                href="tel:+14433230211"
               />
               <Info
                 icon={<Mail className="h-4 w-4" />}

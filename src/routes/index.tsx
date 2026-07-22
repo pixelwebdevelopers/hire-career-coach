@@ -4,6 +4,7 @@ import { Hero } from "@/components/home/Hero";
 import { Reveal } from "@/components/Reveal";
 import { SERVICES, PACKAGES } from "@/lib/content";
 import workspace from "@/assets/workspace.jpg";
+import logo from "@/assets/hcc-logo.png";
 import interview from "@/assets/interview.jpg";
 import deskSetupServices from "@/assets/desk_setup_services.png";
 import aboutLaptopMockup from "@/assets/about_laptop_mockup.png";
@@ -68,7 +69,8 @@ export const Route = createFileRoute("/")({
         property: "og:description",
         content: "Resumes, LinkedIn and coaching for every stage — graduate to C-suite.",
       },
-      { property: "og:image", content: workspace },
+      { property: "og:image", content: logo },
+      { name: "twitter:image", content: logo },
     ],
   }),
   component: Home,

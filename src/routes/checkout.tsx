@@ -1,11 +1,12 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState, useEffect, useRef } from "react";
 import { Reveal } from "@/components/Reveal";
-import { loadStripe } from "@stripe/stripe-js";
+import { loadStripe, type PaymentRequest } from "@stripe/stripe-js";
 import {
   Elements,
   useStripe,
   useElements,
+  PaymentRequestButtonElement,
   CardNumberElement,
   CardExpiryElement,
   CardCvcElement,
@@ -355,6 +356,20 @@ function SearchableCountrySelect({ value, onChange }: SearchableCountrySelectPro
   );
 }
 
+function ApplePayLogo({ className = "h-4.5 w-auto" }: { className?: string }) {
+  return (
+    <img
+      src="/apple-black-logo-svgrepo-com.svg"
+      alt="Apple Pay"
+      className={`${className} invert`}
+    />
+  );
+}
+
+function GooglePayLogo({ className = "h-4.5 w-auto" }: { className?: string }) {
+  return <img src="/google-icon-logo-svgrepo-com.svg" alt="Google Pay" className={className} />;
+}
+
 export const Route = createFileRoute("/checkout")({
   component: CheckoutWrapper,
 });
@@ -452,26 +467,124 @@ function CheckoutPage({ isMock }: CheckoutPageProps) {
     }
   }, []);
 
+  const [paymentRequest, setPaymentRequest] = useState<PaymentRequest | null>(null);
+  const [canPayWithStripeRequest, setCanPayWithStripeRequest] = useState(false);
+
+  useEffect(() => {
+    if (!stripe || !cart || !cart.totalPrice || cart.totalPrice <= 0 || isMock) return;
+
+    const pr = stripe.paymentRequest({
+      country: "US",
+      currency: "usd",
+      total: {
+        label: "Hire Career Coach Order",
+        amount: Math.round(cart.totalPrice * 100),
+      },
+      requestPayerName: true,
+      requestPayerEmail: true,
+    });
+
+    pr.canMakePayment().then((result) => {
+      if (result) {
+        setPaymentRequest(pr);
+        setCanPayWithStripeRequest(true);
+      }
+    });
+
+    pr.on("paymentmethod", async (ev) => {
+      try {
+        setIsProcessing(true);
+        const intentRes = await createPaymentIntent({
+          data: { amount: cart.totalPrice },
+        });
+
+        if (!intentRes.clientSecret) {
+          ev.complete("fail");
+          toast.error("Failed to initialize transaction with Stripe.");
+          setIsProcessing(false);
+          return;
+        }
+
+        const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(
+          intentRes.clientSecret,
+          { payment_method: ev.paymentMethod.id },
+          { handleActions: false },
+        );
+
+        if (confirmError) {
+          ev.complete("fail");
+          toast.error(confirmError.message || "Express Pay authorization failed.");
+          setIsProcessing(false);
+          return;
+        }
+
+        ev.complete("success");
+
+        if (ev.payerName && !nameOnCard) {
+          setNameOnCard(ev.payerName);
+        }
+
+        const sanitizedIntake = intakeData ? { ...intakeData, fileBase64: undefined } : null;
+        const res = await completeOrderAndSendEmail({
+          data: {
+            paymentIntentId: paymentIntent.id,
+            intakeData,
+          },
+        });
+
+        if (res.success) {
+          toast.success("Payment authorized! Order confirmed.");
+          localStorage.setItem(
+            "hcc_last_order",
+            JSON.stringify({
+              orderNumber: res.orderNumber,
+              cart,
+              intakeData: sanitizedIntake,
+              date: new Date().toLocaleDateString("en-US", {
+                month: "long",
+                day: "numeric",
+                year: "numeric",
+              }),
+            }),
+          );
+          localStorage.removeItem("hcc_cart");
+          localStorage.removeItem("hcc_intake");
+          navigate({ to: "/thankyou" });
+        } else {
+          toast.error(res.message || "Failed to log completed order.");
+        }
+      } catch (err) {
+        ev.complete("fail");
+        console.error(err);
+        toast.error("Express Pay transaction failed.");
+      } finally {
+        setIsProcessing(false);
+      }
+    });
+  }, [stripe, cart, isMock, intakeData, nameOnCard, navigate]);
+
   const handleExpressCheckout = async () => {
     if (!cart || !intakeData) {
       toast.error("Order details are missing. Please complete the intake form first.");
       return;
     }
 
-    setIsProcessing(true);
-    setPaymentError(null);
-    const loadingToast = toast.loading("Processing Express Payment...");
+    if (paymentRequest) {
+      paymentRequest.show();
+      return;
+    }
 
-    try {
-      const sanitizedIntake = intakeData ? { ...intakeData, fileBase64: undefined } : null;
+    if (isMock) {
+      setIsProcessing(true);
+      setPaymentError(null);
+      const loadingToast = toast.loading("Processing Express Payment...");
 
-      if (isMock) {
-        // Mock payment simulation for express checkout
+      try {
+        const sanitizedIntake = intakeData ? { ...intakeData, fileBase64: undefined } : null;
         await new Promise((resolve) => setTimeout(resolve, 1500));
 
         const mockIntentId = `express_intent_${Math.random().toString(36).substring(2, 11)}`;
 
-        // Auto-fill mock billing if empty
         if (!nameOnCard)
           setNameOnCard(intakeData.personalInfo?.fullName || "Express Checkout User");
         if (!addressLine1) setAddressLine1("123 Express Way");
@@ -503,7 +616,6 @@ function CheckoutPage({ isMock }: CheckoutPageProps) {
               }),
             }),
           );
-          // Clean cart states
           localStorage.removeItem("hcc_cart");
           localStorage.removeItem("hcc_intake");
           navigate({ to: "/thankyou" });
@@ -511,23 +623,22 @@ function CheckoutPage({ isMock }: CheckoutPageProps) {
           setPaymentError(res.message || "Failed to finalize Express Pay order.");
           toast.error(res.message || "Failed to finalize Express Pay order.");
         }
-      } else {
-        // Real Stripe Express Payment
+      } catch (err) {
         toast.dismiss(loadingToast);
-        const errorMsg =
-          "Stripe Express checkout (Apple Pay / Google Pay) requires domain association. Please use the card details form below.";
-        setPaymentError(errorMsg);
-        toast.error(errorMsg);
+        console.error(err);
+        const errMsg =
+          err instanceof Error ? err.message : "Express Pay transaction encountered an error.";
+        toast.error(errMsg);
+        setPaymentError(errMsg);
+      } finally {
+        setIsProcessing(false);
       }
-    } catch (err) {
-      toast.dismiss(loadingToast);
-      console.error(err);
-      const errMsg =
-        err instanceof Error ? err.message : "Express Pay transaction encountered an error.";
-      toast.error(errMsg);
-      setPaymentError(errMsg);
-    } finally {
-      setIsProcessing(false);
+    } else {
+      toast.info("Please fill in your card details below to complete your checkout.");
+      const cardSection = document.getElementById("credit-card-section");
+      if (cardSection) {
+        cardSection.scrollIntoView({ behavior: "smooth" });
+      }
     }
   };
 
@@ -767,54 +878,46 @@ function CheckoutPage({ isMock }: CheckoutPageProps) {
                 Payment Information
               </h3>
 
-              {/* Express Checkout Button */}
+              {/* Express Checkout Options */}
               <div className="mb-6">
-                <button
-                  type="button"
-                  disabled={isProcessing}
-                  onClick={handleExpressCheckout}
-                  className="w-full bg-black hover:bg-zinc-900 text-white rounded-xl py-3.5 flex items-center justify-center gap-2 font-semibold text-sm transition-colors duration-200 shadow-sm cursor-pointer disabled:opacity-55 disabled:cursor-not-allowed"
-                >
-                  {isApple ? (
-                    <>
-                      <svg
-                        className="h-4.5 w-auto fill-current"
-                        viewBox="0 0 170 170"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.37.13-9.13-1.9-14.27-6.08-3.48-2.8-7.37-7.55-11.7-14.27-7.86-12.21-13.68-25.75-17.47-40.65-3.79-14.9-3.32-28.02 1.4-39.34 4.02-9.62 10.06-15.62 18.11-17.98 6.15-1.8 13.25-.8 21.3 3.01 5.7 2.7 9.38 4.02 11.06 4.02 1.34 0 4.64-1.12 9.94-3.35 6.71-2.81 12.87-3.9 18.46-3.3 14.87 1.46 25.83 7.38 32.88 17.75-13.87 8.44-20.57 19.98-20.12 34.61.34 11.19 4.48 20.35 12.41 27.46 7.94 7.12 17.34 10.97 28.2 11.53-2.12 6.43-5.25 12.43-9.4 18.01zm-21.93-108.6c-.11 8.28-3.24 15.44-9.39 21.48-6.15 6.04-13.31 9.34-21.48 9.9-1.23-10.29 2.24-19.29 10.4-26.99 8.16-7.7 17.22-10.87 27.21-10.87.11.89.11 1.79.11 2.68z" />
-                      </svg>
-                      <span>Pay</span>
-                    </>
-                  ) : (
-                    <>
-                      <svg
-                        className="h-4.5 w-auto"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
-                          fill="#4285F4"
-                        />
-                        <path
-                          d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
-                          fill="#34A853"
-                        />
-                        <path
-                          d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22c-.87-2.6-3-4.53-5.84-4.53z"
-                          fill="#FBBC05"
-                        />
-                        <path
-                          d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"
-                          fill="#EA4335"
-                        />
-                      </svg>
-                      <span className="font-bold text-sm tracking-wide">Pay</span>
-                    </>
-                  )}
-                </button>
+                {canPayWithStripeRequest && paymentRequest && (
+                  <div className="mb-3">
+                    <PaymentRequestButtonElement
+                      options={{
+                        paymentRequest,
+                        style: {
+                          paymentRequestButton: {
+                            theme: "dark",
+                            height: "48px",
+                            type: "default",
+                          },
+                        },
+                      }}
+                    />
+                  </div>
+                )}
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <button
+                    type="button"
+                    disabled={isProcessing}
+                    onClick={handleExpressCheckout}
+                    className="w-full bg-black hover:bg-zinc-900 text-white rounded-xl py-3.5 flex items-center justify-center gap-2 font-semibold text-sm transition-colors duration-200 shadow-sm cursor-pointer disabled:opacity-55 disabled:cursor-not-allowed"
+                  >
+                    <ApplePayLogo className="h-4.5 w-auto fill-current" />
+                    <span>Pay</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    disabled={isProcessing}
+                    onClick={handleExpressCheckout}
+                    className="w-full bg-black hover:bg-zinc-900 text-white rounded-xl py-3.5 flex items-center justify-center gap-2 font-semibold text-sm transition-colors duration-200 shadow-sm cursor-pointer disabled:opacity-55 disabled:cursor-not-allowed"
+                  >
+                    <GooglePayLogo className="h-4.5 w-auto" />
+                    <span className="font-bold text-sm tracking-wide">Pay</span>
+                  </button>
+                </div>
 
                 <div className="relative flex py-5 items-center">
                   <div className="flex-grow border-t border-border/60"></div>
@@ -826,7 +929,7 @@ function CheckoutPage({ isMock }: CheckoutPageProps) {
               </div>
 
               {/* Credit Card Inputs */}
-              <div className="space-y-5">
+              <div id="credit-card-section" className="space-y-5">
                 <div>
                   <div className="flex justify-between items-center mb-2">
                     <label className="block text-xs font-bold text-navy-deep uppercase tracking-wide">

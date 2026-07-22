@@ -157,7 +157,7 @@ function PricingOverview() {
                   <lvl.icon className="h-7 w-7" />
                 </div>
 
-                <h3 className="mt-5 font-display text-base xl:text-lg font-bold uppercase tracking-wider text-[#0a7a9b]">
+                <h3 className="mt-5 font-display text-[18px] xl:text-[20px] font-bold uppercase tracking-wider text-[#0a7a9b]">
                   {lvl.title}
                 </h3>
                 <p className="mt-1 text-xs xl:text-sm font-semibold text-foreground/60">

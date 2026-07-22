@@ -371,7 +371,7 @@ const LEVEL_DATA: Record<
         name: "Resume + Cover Letter + LinkedIn Optimization",
         category: "Career Plus",
         icon: Linkedin,
-        price: 250,
+        price: 260,
         features: [
           "ATS Optimized **Resume**",
           "Tailored **Cover Letter**",
@@ -384,7 +384,7 @@ const LEVEL_DATA: Record<
         name: "Resume + Cover Letter + Career Profile Enhancement",
         category: "Career Pro",
         icon: Users,
-        price: 300,
+        price: 320,
         popular: true,
         features: [
           "ATS Optimized **Resume**",
@@ -527,7 +527,7 @@ const LEVEL_DATA: Record<
           "**Career Profile** Enhancement",
           "Networking Templates",
           "40-Minute **Discovery Call**",
-          "30-Minute **Career Strategy** Consultation",
+          "Indeed optimization",
           "30-Day Email Support",
           "2 **Revisions**",
           "5 Business Day Turnaround",
@@ -844,19 +844,19 @@ function PackageSelectionPage() {
                 ].join(" ")}
               >
                 {/* Category Header Banner */}
-                <div className="absolute top-0 inset-x-0 rounded-t-[1.35rem] bg-[#38b4bf] text-white py-2 text-center text-xs sm:text-[13px] font-black uppercase tracking-wider">
+                <div className="absolute top-0 inset-x-0 rounded-t-[1.35rem] bg-[#38b4bf] text-white py-2 text-center text-sm sm:text-[15px] font-black uppercase tracking-wider">
                   {pkg.category}
                 </div>
 
                 {/* Most Popular Badge / Spacer */}
                 {pkg.popular ? (
                   <div className="mt-4 flex justify-center">
-                    <span className="inline-flex items-center gap-1 rounded-full bg-yellow-400 text-black text-[10px] font-black uppercase tracking-wider px-3 py-1 border border-yellow-500/20 shadow-sm">
-                      <Sparkles className="h-3 w-3 fill-current" /> Most Popular
+                    <span className="inline-flex items-center gap-1 rounded-full bg-yellow-400 text-black text-xs font-black uppercase tracking-wider px-3 py-1 border border-yellow-500/20 shadow-sm">
+                      <Sparkles className="h-3.5 w-3.5 fill-current" /> Most Popular
                     </span>
                   </div>
                 ) : (
-                  <div className="mt-4 h-[26px]" />
+                  <div className="mt-4 h-[28px]" />
                 )}
 
                 {/* Circular Outline Icon */}

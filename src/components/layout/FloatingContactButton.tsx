@@ -51,7 +51,7 @@ export function FloatingContactButton() {
             Text Us
           </span>
           <a
-            href="sms:+16678561221"
+            href="sms:+14433230211"
             onClick={() => setIsOpen(false)}
             aria-label="Text us"
             className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-navy text-gold shadow-soft hover:scale-110 active:scale-95 transition-all duration-300 border border-gold/20 hover:border-gold hover:text-gold hover:shadow-glow"
@@ -66,7 +66,7 @@ export function FloatingContactButton() {
             Call Us
           </span>
           <a
-            href="tel:+16678561221"
+            href="tel:+14433230211"
             onClick={() => setIsOpen(false)}
             aria-label="Call us"
             className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-navy text-gold shadow-soft hover:scale-110 active:scale-95 transition-all duration-300 border border-gold/20 hover:border-gold hover:text-gold hover:shadow-glow"

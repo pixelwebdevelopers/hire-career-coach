@@ -2,6 +2,7 @@ import { createFileRoute, Link, useRouterState } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
 import { SERVICES } from "@/lib/content";
 import workspace from "@/assets/workspace.jpg";
+import logo from "@/assets/hcc-logo.png";
 import { ArrowUpRight, Check } from "lucide-react";
 import { useEffect } from "react";
 
@@ -19,7 +20,8 @@ export const Route = createFileRoute("/services")({
         property: "og:description",
         content: "Ten ways we move your career forward — from first résumé to executive narrative.",
       },
-      { property: "og:image", content: workspace },
+      { property: "og:image", content: logo },
+      { name: "twitter:image", content: logo },
     ],
   }),
   component: ServicesPage,

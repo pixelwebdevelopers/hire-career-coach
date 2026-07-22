@@ -143,7 +143,7 @@ export const PACKAGES: PackageGroup[] = [
       },
       {
         name: "Advanced",
-        price: 250,
+        price: 260,
         features: [
           "ATS Optimized **Resume**",
           "Tailored **Cover Letter**",
@@ -153,7 +153,7 @@ export const PACKAGES: PackageGroup[] = [
       },
       {
         name: "Professional",
-        price: 300,
+        price: 320,
         highlight: true,
         features: [
           "ATS Optimized **Resume**",
@@ -220,7 +220,7 @@ export const PACKAGES: PackageGroup[] = [
           "**Career Profile** Enhancement",
           "Networking Templates",
           "40-Minute **Discovery Call**",
-          "30-Minute **Career Strategy** Consultation",
+          "Indeed optimization",
           "30-Day Email Support",
           "2 **Revisions**",
         ],
