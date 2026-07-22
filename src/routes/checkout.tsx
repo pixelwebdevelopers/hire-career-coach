@@ -880,7 +880,7 @@ function CheckoutPage({ isMock }: CheckoutPageProps) {
 
               {/* Express Checkout Options */}
               <div className="mb-6">
-                {canPayWithStripeRequest && paymentRequest && (
+                {canPayWithStripeRequest && paymentRequest ? (
                   <div className="mb-3">
                     <PaymentRequestButtonElement
                       options={{
@@ -895,29 +895,29 @@ function CheckoutPage({ isMock }: CheckoutPageProps) {
                       }}
                     />
                   </div>
+                ) : (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <button
+                      type="button"
+                      disabled={isProcessing}
+                      onClick={handleExpressCheckout}
+                      className="w-full bg-black hover:bg-zinc-900 text-white rounded-xl py-3.5 flex items-center justify-center gap-2 font-semibold text-sm transition-colors duration-200 shadow-sm cursor-pointer disabled:opacity-55 disabled:cursor-not-allowed"
+                    >
+                      <ApplePayLogo className="h-4.5 w-auto fill-current" />
+                      <span>Pay</span>
+                    </button>
+
+                    <button
+                      type="button"
+                      disabled={isProcessing}
+                      onClick={handleExpressCheckout}
+                      className="w-full bg-black hover:bg-zinc-900 text-white rounded-xl py-3.5 flex items-center justify-center gap-2 font-semibold text-sm transition-colors duration-200 shadow-sm cursor-pointer disabled:opacity-55 disabled:cursor-not-allowed"
+                    >
+                      <GooglePayLogo className="h-4.5 w-auto" />
+                      <span className="font-bold text-sm tracking-wide">Pay</span>
+                    </button>
+                  </div>
                 )}
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <button
-                    type="button"
-                    disabled={isProcessing}
-                    onClick={handleExpressCheckout}
-                    className="w-full bg-black hover:bg-zinc-900 text-white rounded-xl py-3.5 flex items-center justify-center gap-2 font-semibold text-sm transition-colors duration-200 shadow-sm cursor-pointer disabled:opacity-55 disabled:cursor-not-allowed"
-                  >
-                    <ApplePayLogo className="h-4.5 w-auto fill-current" />
-                    <span>Pay</span>
-                  </button>
-
-                  <button
-                    type="button"
-                    disabled={isProcessing}
-                    onClick={handleExpressCheckout}
-                    className="w-full bg-black hover:bg-zinc-900 text-white rounded-xl py-3.5 flex items-center justify-center gap-2 font-semibold text-sm transition-colors duration-200 shadow-sm cursor-pointer disabled:opacity-55 disabled:cursor-not-allowed"
-                  >
-                    <GooglePayLogo className="h-4.5 w-auto" />
-                    <span className="font-bold text-sm tracking-wide">Pay</span>
-                  </button>
-                </div>
 
                 <div className="relative flex py-5 items-center">
                   <div className="flex-grow border-t border-border/60"></div>
