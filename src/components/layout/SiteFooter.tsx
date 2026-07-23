@@ -3,19 +3,6 @@ import logo from "@/assets/hcc-logo.png";
 import { PACKAGES } from "@/lib/content";
 import { Mail, MapPin, Phone, Linkedin, Facebook, Clock, CalendarCheck } from "lucide-react";
 
-function GoogleIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z" />
-    </svg>
-  );
-}
-
 export function SiteFooter() {
   return (
     <footer className="relative mt-24 bg-gradient-navy text-ivory overflow-hidden">
@@ -37,30 +24,30 @@ export function SiteFooter() {
             <div className="mt-6 flex gap-3">
               <a
                 aria-label="LinkedIn"
-                className="grid h-10 w-10 place-items-center rounded-full border border-ivory/20 hover:border-gold hover:text-gold transition-colors"
+                className="grid h-10 w-10 place-items-center rounded-full bg-[#0077b5] text-white hover:bg-[#00669c] transition-all duration-300 hover:scale-110 active:scale-95 shadow-md hover:shadow-[#0077b5]/30 border border-transparent"
                 href="https://www.linkedin.com/company/hirecareercoach/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Linkedin className="h-4 w-4" />
+                <Linkedin className="h-5 w-5 fill-white" />
               </a>
               <a
                 aria-label="Facebook"
-                className="grid h-10 w-10 place-items-center rounded-full border border-ivory/20 hover:border-gold hover:text-gold transition-colors"
+                className="grid h-10 w-10 place-items-center rounded-full bg-[#1877f2] text-white hover:bg-[#166fe5] transition-all duration-300 hover:scale-110 active:scale-95 shadow-md hover:shadow-[#1877f2]/30 border border-transparent"
                 href="http://www.facebook.com/HireCareerCoach"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Facebook className="h-4 w-4" />
+                <Facebook className="h-5 w-5 fill-white stroke-none" />
               </a>
               <a
                 aria-label="Google My Business"
-                className="grid h-10 w-10 place-items-center rounded-full border border-ivory/20 hover:border-gold hover:text-gold transition-colors"
+                className="grid h-10 w-10 place-items-center rounded-full bg-white hover:bg-white/95 transition-all duration-300 hover:scale-110 active:scale-95 shadow-md hover:shadow-white/20 border border-transparent"
                 href="https://g.page/r/CQGhVs1etp_EEAE"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <GoogleIcon className="h-4 w-4" />
+                <img src="/google-icon-logo-svgrepo-com.svg" className="h-5 w-5" alt="Google" />
               </a>
             </div>
           </div>

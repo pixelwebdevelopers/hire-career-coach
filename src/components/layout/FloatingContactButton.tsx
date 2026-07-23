@@ -20,7 +20,7 @@ export function FloatingContactButton() {
   return (
     <div
       ref={containerRef}
-      className="fixed bottom-6 right-6 z-[9999] flex flex-col items-end gap-3.5 print:hidden"
+      className="fixed bottom-20 right-6 sm:bottom-6 sm:right-6 z-[9999] flex flex-col items-end gap-3.5 print:hidden"
     >
       {/* Expanded Buttons */}
       <div
