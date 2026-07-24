@@ -569,7 +569,7 @@ function IntakePage() {
                     <button
                       type="button"
                       onClick={handleRemoveFile}
-                      className="mt-4 flex items-center gap-1.5 mx-auto text-xs font-bold text-red-600 hover:text-red-800 transition-colors"
+                      className="mt-4 flex items-center gap-1.5 mx-auto text-xs font-bold text-red-600 lg:hover:text-red-800 transition-colors"
                     >
                       <Trash2 className="h-4 w-4" />
                       <span>Remove File</span>
@@ -584,7 +584,7 @@ function IntakePage() {
                     <p className="text-xs text-foreground/40 mt-1">or</p>
                     <button
                       type="button"
-                      className="mt-3 rounded-lg border border-border/80 bg-white px-4 py-2 text-xs font-bold text-navy-deep hover:bg-cream/40 transition-colors"
+                      className="mt-3 rounded-lg border border-border/80 bg-white px-4 py-2 text-xs font-bold text-navy-deep lg:hover:bg-cream/40 transition-colors"
                     >
                       Choose File
                     </button>
@@ -624,7 +624,7 @@ function IntakePage() {
               <Link
                 to="/pricing/$id"
                 params={{ id: cart?.levelId || "mid" }}
-                className="flex items-center gap-1.5 rounded-xl border border-border bg-white text-navy-deep hover:bg-cream/40 px-5 py-3 font-bold text-xs sm:text-sm transition-colors duration-200 shadow-sm cursor-pointer"
+                className="flex items-center gap-1.5 rounded-xl border border-border bg-white text-navy-deep lg:hover:bg-cream/40 px-5 py-3 font-bold text-xs sm:text-sm transition-colors duration-200 shadow-sm cursor-pointer"
               >
                 <ArrowLeft className="h-4 w-4" />
                 <span>Back to Cart</span>
@@ -633,7 +633,7 @@ function IntakePage() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="flex items-center justify-center gap-2 rounded-xl bg-[#0a7a9b] hover:bg-[#08627c] text-white px-6 py-3 font-bold text-xs sm:text-sm transition-colors duration-200 shadow-sm disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed min-w-[170px]"
+                className="flex items-center justify-center gap-2 rounded-xl bg-[#0a7a9b] lg:hover:bg-[#08627c] text-white px-6 py-3 font-bold text-xs sm:text-sm transition-colors duration-200 shadow-sm disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed min-w-[170px]"
               >
                 {isSubmitting ? (
                   <>
@@ -780,7 +780,7 @@ function IntakePage() {
                   <Mail className="h-4 w-4 text-[#0a7a9b] shrink-0" />
                   <a
                     href="mailto:contact@hirecareercoach.com"
-                    className="hover:text-[#0a7a9b] transition-colors"
+                    className="lg:hover:text-[#0a7a9b] transition-colors"
                   >
                     contact@hirecareercoach.com
                   </a>

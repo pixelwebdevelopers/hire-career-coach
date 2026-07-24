@@ -1036,7 +1036,7 @@ function Home() {
               ))}
             </ul>
             <Link
-              to="/about"
+              to="/success-stories"
               className="group mt-10 inline-flex items-center gap-2 text-sm font-medium hover:text-[#006072] transition-colors"
             >
               <span className="gold-underline">Meet the studio</span>

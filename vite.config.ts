@@ -12,8 +12,6 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
-  // Build a Vercel-compatible bundle (outputs .vercel/output via Build Output API).
-  // Passing an explicit nitro option also force-enables the deploy plugin outside the
-  // Lovable sandbox, so `vite build` on Vercel produces a deployable server.
-  nitro: { preset: "vercel" },
+  // Build a standard Node.js server bundle (outputs .output/server/index.mjs for Hostinger).
+  nitro: { preset: "node-server" },
 });

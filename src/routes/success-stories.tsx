@@ -51,7 +51,7 @@ import imgDanielWhitmore from "@/assets/success-stories/Daniel Whitmore.webp";
 import imgSophiaBennett from "@/assets/success-stories/Sophia Bennett.webp";
 import imgMichaelAshford from "@/assets/success-stories/Michael Ashford.webp";
 
-export const Route = createFileRoute("/about")({
+export const Route = createFileRoute("/success-stories")({
   head: () => ({
     meta: [
       { title: "Success Stories — Hire Career Coach" },
@@ -551,7 +551,7 @@ function SuccessStoriesPage() {
                     </p>
                   </div>
 
-                  {/* 4. Footer: Divider line with Rating Stars */}
+                  {/* 4. Divider line with Rating Stars */}
                   <div className="flex items-center gap-3.5 w-full mb-2">
                     <div className="flex-1 h-[1px] bg-gradient-to-r from-transparent to-[#00c2ff]/30"></div>
                     <div className="flex gap-0.5 text-[#00c2ff] shrink-0">

@@ -299,7 +299,7 @@ function SearchableCountrySelect({ value, onChange }: SearchableCountrySelectPro
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between rounded-xl border border-border/80 px-4 py-3 text-sm text-foreground bg-white hover:border-[#0a7a9b] transition-all outline-none text-left cursor-pointer"
+        className="w-full flex items-center justify-between rounded-xl border border-border/80 px-4 py-3 text-sm text-foreground bg-white lg:hover:border-[#0a7a9b] transition-all outline-none text-left cursor-pointer"
       >
         <span className="truncate">{selectedCountry?.name}</span>
         <ChevronDown
@@ -336,7 +336,7 @@ function SearchableCountrySelect({ value, onChange }: SearchableCountrySelectPro
                     setIsOpen(false);
                     setSearch("");
                   }}
-                  className={`w-full text-left px-4 py-2.5 text-sm transition-colors duration-150 flex items-center justify-between hover:bg-cream cursor-pointer ${
+                  className={`w-full text-left px-4 py-2.5 text-sm transition-colors duration-150 flex items-center justify-between lg:hover:bg-cream cursor-pointer ${
                     value === c.code ? "bg-cream text-navy-deep font-bold" : "text-foreground/85"
                   }`}
                 >
@@ -901,7 +901,7 @@ function CheckoutPage({ isMock }: CheckoutPageProps) {
                       type="button"
                       disabled={isProcessing}
                       onClick={handleExpressCheckout}
-                      className="w-full bg-black hover:bg-zinc-900 text-white rounded-xl py-3.5 flex items-center justify-center gap-2 font-semibold text-sm transition-colors duration-200 shadow-sm cursor-pointer disabled:opacity-55 disabled:cursor-not-allowed"
+                      className="w-full bg-black lg:hover:bg-zinc-900 text-white rounded-xl py-3.5 flex items-center justify-center gap-2 font-semibold text-sm transition-colors duration-200 shadow-sm cursor-pointer disabled:opacity-55 disabled:cursor-not-allowed"
                     >
                       <ApplePayLogo className="h-4.5 w-auto fill-current" />
                       <span>Pay</span>
@@ -911,7 +911,7 @@ function CheckoutPage({ isMock }: CheckoutPageProps) {
                       type="button"
                       disabled={isProcessing}
                       onClick={handleExpressCheckout}
-                      className="w-full bg-black hover:bg-zinc-900 text-white rounded-xl py-3.5 flex items-center justify-center gap-2 font-semibold text-sm transition-colors duration-200 shadow-sm cursor-pointer disabled:opacity-55 disabled:cursor-not-allowed"
+                      className="w-full bg-black lg:hover:bg-zinc-900 text-white rounded-xl py-3.5 flex items-center justify-center gap-2 font-semibold text-sm transition-colors duration-200 shadow-sm cursor-pointer disabled:opacity-55 disabled:cursor-not-allowed"
                     >
                       <GooglePayLogo className="h-4.5 w-auto" />
                       <span className="font-bold text-sm tracking-wide">Pay</span>
@@ -1131,7 +1131,7 @@ function CheckoutPage({ isMock }: CheckoutPageProps) {
               <button
                 type="submit"
                 disabled={isProcessing}
-                className="w-full bg-[#0a7a9b] hover:bg-[#08627c] text-white rounded-xl py-4 flex items-center justify-center gap-2 font-bold text-sm sm:text-base transition-colors duration-200 shadow-md disabled:opacity-55 cursor-pointer disabled:cursor-not-allowed"
+                className="w-full bg-[#0a7a9b] lg:hover:bg-[#08627c] text-white rounded-xl py-4 flex items-center justify-center gap-2 font-bold text-sm sm:text-base transition-colors duration-200 shadow-md disabled:opacity-55 cursor-pointer disabled:cursor-not-allowed"
               >
                 {isProcessing ? (
                   <span className="flex items-center gap-2">
@@ -1281,7 +1281,7 @@ function CheckoutPage({ isMock }: CheckoutPageProps) {
                   <Mail className="h-4 w-4 text-[#0a7a9b] shrink-0" />
                   <a
                     href="mailto:contact@hirecareercoach.com"
-                    className="hover:text-[#0a7a9b] transition-colors"
+                    className="lg:hover:text-[#0a7a9b] transition-colors"
                   >
                     contact@hirecareercoach.com
                   </a>
@@ -1305,7 +1305,7 @@ function CheckoutPage({ isMock }: CheckoutPageProps) {
               <button
                 type="button"
                 onClick={() => setShowErrorModal(false)}
-                className="mt-6 w-full rounded-xl bg-[#0a7a9b] hover:bg-[#08627c] py-3 text-sm font-bold text-white shadow transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+                className="mt-6 w-full rounded-xl bg-[#0a7a9b] lg:hover:bg-[#08627c] py-3 text-sm font-bold text-white shadow transition-colors duration-200 lg:transition-all lg:duration-300 lg:hover:scale-[1.02] lg:active:scale-[0.98] cursor-pointer"
               >
                 Try Again
               </button>

@@ -10,13 +10,13 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ThankyouRouteImport } from './routes/thankyou'
+import { Route as SuccessStoriesRouteImport } from './routes/success-stories'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as IntakeRouteImport } from './routes/intake'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CheckoutRouteImport } from './routes/checkout'
-import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PricingIndexRouteImport } from './routes/pricing/index'
 import { Route as PricingIdRouteImport } from './routes/pricing/$id'
@@ -24,6 +24,11 @@ import { Route as PricingIdRouteImport } from './routes/pricing/$id'
 const ThankyouRoute = ThankyouRouteImport.update({
   id: '/thankyou',
   path: '/thankyou',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SuccessStoriesRoute = SuccessStoriesRouteImport.update({
+  id: '/success-stories',
+  path: '/success-stories',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -56,11 +61,6 @@ const CheckoutRoute = CheckoutRouteImport.update({
   path: '/checkout',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AboutRoute = AboutRouteImport.update({
-  id: '/about',
-  path: '/about',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -79,26 +79,26 @@ const PricingIdRoute = PricingIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
   '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
   '/intake': typeof IntakeRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/success-stories': typeof SuccessStoriesRoute
   '/thankyou': typeof ThankyouRoute
   '/pricing/$id': typeof PricingIdRoute
   '/pricing/': typeof PricingIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
   '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
   '/intake': typeof IntakeRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/success-stories': typeof SuccessStoriesRoute
   '/thankyou': typeof ThankyouRoute
   '/pricing/$id': typeof PricingIdRoute
   '/pricing': typeof PricingIndexRoute
@@ -106,13 +106,13 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
   '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
   '/intake': typeof IntakeRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/success-stories': typeof SuccessStoriesRoute
   '/thankyou': typeof ThankyouRoute
   '/pricing/$id': typeof PricingIdRoute
   '/pricing/': typeof PricingIndexRoute
@@ -121,39 +121,39 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/about'
     | '/checkout'
     | '/contact'
     | '/faq'
     | '/intake'
     | '/services'
     | '/sitemap.xml'
+    | '/success-stories'
     | '/thankyou'
     | '/pricing/$id'
     | '/pricing/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/about'
     | '/checkout'
     | '/contact'
     | '/faq'
     | '/intake'
     | '/services'
     | '/sitemap.xml'
+    | '/success-stories'
     | '/thankyou'
     | '/pricing/$id'
     | '/pricing'
   id:
     | '__root__'
     | '/'
-    | '/about'
     | '/checkout'
     | '/contact'
     | '/faq'
     | '/intake'
     | '/services'
     | '/sitemap.xml'
+    | '/success-stories'
     | '/thankyou'
     | '/pricing/$id'
     | '/pricing/'
@@ -161,13 +161,13 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AboutRoute: typeof AboutRoute
   CheckoutRoute: typeof CheckoutRoute
   ContactRoute: typeof ContactRoute
   FaqRoute: typeof FaqRoute
   IntakeRoute: typeof IntakeRoute
   ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  SuccessStoriesRoute: typeof SuccessStoriesRoute
   ThankyouRoute: typeof ThankyouRoute
   PricingIdRoute: typeof PricingIdRoute
   PricingIndexRoute: typeof PricingIndexRoute
@@ -180,6 +180,13 @@ declare module '@tanstack/react-router' {
       path: '/thankyou'
       fullPath: '/thankyou'
       preLoaderRoute: typeof ThankyouRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/success-stories': {
+      id: '/success-stories'
+      path: '/success-stories'
+      fullPath: '/success-stories'
+      preLoaderRoute: typeof SuccessStoriesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -224,13 +231,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CheckoutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/': {
       id: '/'
       path: '/'
@@ -257,13 +257,13 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AboutRoute: AboutRoute,
   CheckoutRoute: CheckoutRoute,
   ContactRoute: ContactRoute,
   FaqRoute: FaqRoute,
   IntakeRoute: IntakeRoute,
   ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  SuccessStoriesRoute: SuccessStoriesRoute,
   ThankyouRoute: ThankyouRoute,
   PricingIdRoute: PricingIdRoute,
   PricingIndexRoute: PricingIndexRoute,

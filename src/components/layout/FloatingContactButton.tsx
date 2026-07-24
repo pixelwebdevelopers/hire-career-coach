@@ -20,7 +20,7 @@ export function FloatingContactButton() {
   return (
     <div
       ref={containerRef}
-      className="fixed bottom-20 right-6 sm:bottom-6 sm:right-6 z-[9999] flex flex-col items-end gap-3.5 print:hidden"
+      className="fixed bottom-20 right-6 sm:bottom-6 sm:right-6 z-[9999] flex flex-col items-end gap-3.5 print:hidden pointer-events-none"
     >
       {/* Expanded Buttons */}
       <div
@@ -85,7 +85,7 @@ export function FloatingContactButton() {
         <button
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Contact options"
-          className={`relative flex h-14 w-14 items-center justify-center rounded-full text-white shadow-soft transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] hover:shadow-glow cursor-pointer ${
+          className={`relative pointer-events-auto flex h-14 w-14 items-center justify-center rounded-full text-white shadow-soft transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] hover:shadow-glow cursor-pointer ${
             isOpen
               ? "bg-navy-deep border border-border/40 rotate-90"
               : "bg-gradient-gold border border-gold/20"

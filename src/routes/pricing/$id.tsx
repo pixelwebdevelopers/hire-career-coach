@@ -788,7 +788,7 @@ function PackageSelectionPage() {
         <div className="flex items-start gap-4 mb-4">
           <Link
             to="/pricing"
-            className="inline-flex items-center gap-2 text-xs font-semibold text-foreground/60 hover:text-[#0a7a9b] transition-colors"
+            className="inline-flex items-center gap-2 text-xs font-semibold text-foreground/60 lg:hover:text-[#0a7a9b] transition-colors"
           >
             <ArrowLeft className="h-3.5 w-3.5" />
             Back to Career Levels
@@ -837,10 +837,10 @@ function PackageSelectionPage() {
               <div
                 key={idx}
                 className={[
-                  "group relative flex flex-col w-[17.5rem] lg:w-auto shrink-0 lg:shrink snap-center rounded-3xl border bg-white pt-14 pb-6 px-6 lg:pt-12 lg:pb-4 lg:px-4 xl:pt-14 xl:pb-6 xl:px-6 shadow-sm transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-2 hover:scale-[1.01] hover:shadow-[0_20px_40px_rgba(10,122,155,0.08)]",
+                  "group relative flex flex-col w-[17.5rem] lg:w-auto shrink-0 lg:shrink snap-center rounded-3xl border bg-white pt-14 pb-6 px-6 lg:pt-12 lg:pb-4 lg:px-4 xl:pt-14 xl:pb-6 xl:px-6 shadow-sm transition-shadow transition-colors duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] lg:transition-all lg:hover:-translate-y-2 lg:hover:scale-[1.01] lg:hover:shadow-[0_20px_40px_rgba(10,122,155,0.08)]",
                   isSelected
                     ? "border-[#0a7a9b] ring-1 ring-[#0a7a9b]/35 shadow-md shadow-[#0a7a9b]/5"
-                    : "border-border/80 hover:border-[#0a7a9b]/80",
+                    : "border-border/80 lg:hover:border-[#0a7a9b]/80",
                 ].join(" ")}
               >
                 {/* Category Header Banner */}
@@ -860,7 +860,7 @@ function PackageSelectionPage() {
                 )}
 
                 {/* Circular Outline Icon */}
-                <div className="mx-auto mt-3 flex h-14 w-14 items-center justify-center rounded-full bg-[#0a7a9b]/10 text-[#0a7a9b] group-hover:scale-110 group-hover:rotate-2 transition-transform duration-500">
+                <div className="mx-auto mt-3 flex h-14 w-14 items-center justify-center rounded-full bg-[#0a7a9b]/10 text-[#0a7a9b] lg:group-hover:scale-110 lg:group-hover:rotate-2 transition-transform duration-500">
                   <pkg.icon className="h-6 w-6" />
                 </div>
 
@@ -906,21 +906,21 @@ function PackageSelectionPage() {
                 <button
                   onClick={() => handleSelectPackage(idx)}
                   className={[
-                    "group/btn w-full py-3 rounded-xl text-xs font-bold transition-all duration-300 flex items-center justify-center gap-1.5 shadow-sm hover:scale-[1.02] active:scale-[0.98] hover:shadow-md",
+                    "group/btn w-full py-3 rounded-xl text-xs font-bold transition-colors duration-200 lg:transition-all lg:duration-300 flex items-center justify-center gap-1.5 shadow-sm lg:hover:scale-[1.02] lg:active:scale-[0.98] lg:hover:shadow-md",
                     isSelected
-                      ? "bg-[#0a7a9b] hover:bg-[#08627c] text-white"
-                      : "bg-navy hover:bg-navy-deep text-white",
+                      ? "bg-[#0a7a9b] lg:hover:bg-[#08627c] text-white"
+                      : "bg-navy lg:hover:bg-navy-deep text-white",
                   ].join(" ")}
                 >
                   {isSelected ? (
                     <>
                       <span>Selected</span>
-                      <Check className="h-3.5 w-3.5 stroke-[3] transition-transform duration-300 group-hover/btn:scale-110" />
+                      <Check className="h-3.5 w-3.5 stroke-[3] transition-transform duration-300 lg:group-hover/btn:scale-110" />
                     </>
                   ) : (
                     <>
                       <span>Select Package</span>
-                      <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover/btn:translate-x-1" />
+                      <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 lg:group-hover/btn:translate-x-1" />
                     </>
                   )}
                 </button>
@@ -993,28 +993,28 @@ function PackageSelectionPage() {
                   key={srv.id}
                   onClick={() => handleToggleService(srv.id)}
                   className={[
-                    "group/srv flex items-start gap-4 rounded-2xl border p-4 transition-all duration-300 cursor-pointer select-none bg-white hover:scale-[1.01] hover:shadow-md active:scale-[0.99]",
+                    "group/srv flex items-start gap-4 rounded-2xl border p-4 transition-colors duration-200 lg:transition-all lg:duration-300 cursor-pointer select-none bg-white lg:hover:scale-[1.01] lg:hover:shadow-md lg:active:scale-[0.99]",
                     isChecked
                       ? "border-[#0a7a9b] bg-[#0a7a9b]/5 shadow-sm shadow-[#0a7a9b]/5"
-                      : "border-border/80 hover:border-[#0a7a9b]/40",
+                      : "border-border/80 lg:hover:border-[#0a7a9b]/40",
                   ].join(" ")}
                 >
                   {/* Select Checkbox */}
                   <div className="mt-1 flex items-center justify-center shrink-0">
                     <div
                       className={[
-                        "h-5 w-5 rounded border flex items-center justify-center transition-colors group-hover/srv:border-[#0a7a9b]/80",
+                        "h-5 w-5 rounded border flex items-center justify-center transition-colors lg:group-hover/srv:border-[#0a7a9b]/80",
                         isChecked
                           ? "bg-[#0a7a9b] border-[#0a7a9b] text-white"
                           : "border-border/80 text-transparent bg-white",
                       ].join(" ")}
                     >
-                      <Check className="h-3.5 w-3.5 stroke-[3] transition-transform duration-300 group-hover/srv:scale-110" />
+                      <Check className="h-3.5 w-3.5 stroke-[3] transition-transform duration-300 lg:group-hover/srv:scale-110" />
                     </div>
                   </div>
 
                   {/* Icon */}
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-cream/80 text-foreground/80 group-hover/srv:scale-110 group-hover/srv:text-[#0a7a9b] transition-all duration-300">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-cream/80 text-foreground/80 lg:group-hover/srv:scale-110 lg:group-hover/srv:text-[#0a7a9b] transition-all duration-300">
                     <srv.icon className="h-5 w-5" />
                   </div>
 
@@ -1035,7 +1035,7 @@ function PackageSelectionPage() {
                           e.stopPropagation(); // prevent row click triggers
                           handleToggleServiceRush(srv.id);
                         }}
-                        className="mt-3 inline-flex items-center gap-2 rounded-full border border-border bg-white px-3 py-1 text-[10px] font-bold text-navy-deep hover:bg-cream/40 transition-colors"
+                        className="mt-3 inline-flex items-center gap-2 rounded-full border border-border bg-white px-3 py-1 text-[10px] font-bold text-navy-deep lg:hover:bg-cream/40 transition-colors"
                       >
                         <input
                           type="checkbox"
@@ -1074,7 +1074,7 @@ function PackageSelectionPage() {
 
             <Link
               to="/contact"
-              className="flex items-center gap-2 rounded-xl border border-[#0a7a9b] text-[#0a7a9b] hover:bg-[#0a7a9b]/5 py-3 px-6 font-bold text-sm transition-colors duration-200 shrink-0"
+              className="flex items-center gap-2 rounded-xl border border-[#0a7a9b] text-[#0a7a9b] lg:hover:bg-[#0a7a9b]/5 py-3 px-6 font-bold text-sm transition-colors duration-200 shrink-0"
             >
               <Calendar className="h-4 w-4" />
               <span>Book a Free Consultation</span>
@@ -1140,7 +1140,7 @@ function PackageSelectionPage() {
 
               <Link
                 to="/intake"
-                className="inline-flex items-center gap-2 rounded-full bg-[#0a7a9b] hover:bg-[#08627c] text-white py-3.5 px-7 font-bold text-sm shadow-md transition-all duration-200"
+                className="inline-flex items-center gap-2 rounded-full bg-[#0a7a9b] lg:hover:bg-[#08627c] text-white py-3.5 px-7 font-bold text-sm shadow-md transition-colors duration-200 lg:transition-all"
               >
                 <span>Proceed to Step 3</span>
                 <ArrowRight className="h-4 w-4" />

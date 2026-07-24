@@ -222,7 +222,7 @@ export const completeOrderAndSendEmail = createServerFn({ method: "POST" })
           ? `<strong>${cart.selectedPackage?.name} Package</strong> (Standard Package Price: $${pricing.subtotal}${
               cart.packageRush ? `, Rush Service Add-On: $${pricing.rushPrice}` : ""
             })`
-          : `<strong>Custom Package à la carte services:</strong>
+          : `<strong>Custom Package  services:</strong>
              <ul>
                ${cart.selectedServices
                  ?.map(

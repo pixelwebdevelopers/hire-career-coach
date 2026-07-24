@@ -66,7 +66,7 @@ export function SiteFooter() {
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="hover:text-gold transition-colors">
+                <Link to="/success-stories" className="hover:text-gold transition-colors">
                   Success Stories
                 </Link>
               </li>
